@@ -1,0 +1,344 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import projectsData from '../data/projects.json';
+
+// Proje verilerini hazırla
+const projects = projectsData.projects;
+const categories = projectsData.categories;
+---
+
+<BaseLayout 
+  title="Projelerimiz - Türkel Global Stands"
+  description="Gerçekleştirdiğimiz fuar standı projeleri. Mebel 2022, İtm Türkiye 2022, Middle East Energy 2023 ve daha fazlası."
+>
+  <!-- Page Header -->
+  <section class="py-section-lg bg-navy text-white">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-h2 font-hanken font-medium mb-6">
+          Projelerimiz
+        </h1>
+        <p class="text-body text-white/80 text-lg leading-relaxed">
+          Gerçekleştirdiğimiz başarılı fuar standı projelerimizi keşfedin. 
+          Her proje, mükemmellik arayışımızın ve yaratıcılığımızın bir yansımasıdır.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="py-section-lg">
+    <div class="container">
+      <div class="max-w-7xl mx-auto">
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 md:mb-12 animate-on-scroll px-4 md:px-0">
+          <button class="filter-btn active" data-filter="all">
+            Tüm Projeler
+          </button>
+          <button class="filter-btn" data-filter="ozel-dekor">
+            Özel Dekor
+          </button>
+          <button class="filter-btn" data-filter="premium-moduler">
+            Premium Modüler
+          </button>
+          <button class="filter-btn" data-filter="premium-ahsap">
+            Premium Ahşap
+          </button>
+          <button class="filter-btn" data-filter="grup-stant">
+            Grup Stant
+          </button>
+        </div>
+
+        <!-- Projects Grid Container -->
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 px-4 md:px-0">
+          <!-- Projects will be loaded here -->
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-8 md:mt-12 px-4 md:px-0">
+          <button id="load-more-btn" class="btn-primary">
+            Daha Fazla Proje Yükle
+          </button>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading-indicator" class="hidden text-center mt-8">
+          <div class="inline-flex items-center">
+            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-orange mr-3"></div>
+            <span class="text-body text-grey">Projeler yükleniyor...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects JavaScript -->
+  <script is:inline define:vars={{ projects }}>
+    console.log('🔥 JavaScript yüklendi!');
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('✅ DOM yüklendi');
+        console.log('✅ Proje sayısı:', projects.length);
+        
+        const grid = document.getElementById('projects-grid');
+        if (grid) {
+          console.log('✅ Grid bulundu');
+        
+        // JSON'dan proje kartlarını oluştur
+        const projectCards = projects.map((project, index) => `
+          <div onclick="openModal(${index})" style="background: white; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 24px; cursor: pointer;">
+            <div style="position: relative; overflow: hidden; border-radius: 8px 8px 0 0;">
+              <img 
+                src="${project.mainImage}" 
+                alt="${project.title}" 
+                style="width: 100%; height: 200px; object-fit: cover;"
+                onerror="this.style.background='#f3f4f6'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='Görsel Yok';"
+              />
+            </div>
+            <div style="padding: 16px;">
+              <h3 style="font-size: 20px; font-weight: 600; color: #000; margin-bottom: 8px;">${project.title}</h3>
+              <div style="display: flex; justify-content: space-between; color: #6b7280; margin-bottom: 8px;">
+                <span>${project.location}</span>
+                <span>${project.date}</span>
+              </div>
+              <p style="color: #6b7280; margin: 0;">${project.type}</p>
+            </div>
+          </div>
+        `).join('');
+        
+        grid.innerHTML = projectCards;
+        console.log('✅ Gerçek projeler eklendi');
+        
+        // Modal HTML'ini sayfaya ekle (anasayfa ile aynı tasarım)
+        const modalHTML = `
+          <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden items-center justify-center p-2 md:p-4" onclick="closeModal()">
+            <div class="bg-white rounded-lg max-w-5xl w-full h-[90vh] md:h-[75vh] flex flex-col md:flex-row overflow-hidden" onclick="event.stopPropagation()">
+              <!-- Sidebar -->
+              <div class="w-full md:w-64 bg-white p-4 md:p-6 flex-shrink-0 flex flex-col order-2 md:order-1 max-h-[40vh] md:max-h-none overflow-y-auto md:overflow-visible">
+                <!-- Modal Header -->
+                <div class="flex items-center justify-between mb-6">
+                  <h2 id="modal-title" class="text-xl font-semibold text-black"></h2>
+                  <button onclick="closeModal()" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-grey/20 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                  </button>
+                </div>
+                
+                <!-- Fair Details -->
+                <div class="grid grid-cols-1 gap-4 mb-8">
+                  <div>
+                    <h4 class="text-sm font-semibold text-black mb-1">Fuar Adı</h4>
+                    <p id="modal-fair-name" class="text-sm text-grey"></p>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-semibold text-black mb-1">Lokasyon</h4>
+                    <p id="modal-location" class="text-sm text-grey"></p>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-semibold text-black mb-1">Tarih</h4>
+                    <p id="modal-date" class="text-sm text-grey"></p>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-semibold text-black mb-1">Şirket</h4>
+                    <p id="modal-company" class="text-sm text-grey"></p>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-semibold text-black mb-1">Stant Tipi</h4>
+                    <p id="modal-type" class="text-sm text-grey"></p>
+                  </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="mt-auto border-t border-grey/20 pt-6">
+                  <h4 class="text-sm font-semibold text-black mb-3">Stant Tasarımı</h4>
+                  <p class="text-xs text-grey mb-4 leading-relaxed">
+                    İhtiyaçlarınızı konuşalım mı? Size özel stant tasarımları için bizimle iletişime geçin.
+                  </p>
+                  <a href="/iletisim" class="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-white bg-orange rounded-lg hover:bg-navy transition-colors">
+                    İletişime Geçin
+                  </a>
+                </div>
+              </div>
+              
+              <!-- Image Slider Area -->
+              <div class="flex-1 relative bg-black order-1 md:order-2 min-h-[50vh] md:min-h-0">
+                <div class="absolute inset-0">
+                  <div id="modal-slider" class="relative w-full h-full">
+                    <!-- Images will be populated by JavaScript -->
+                  </div>
+                  
+                  <!-- Slider Navigation -->
+                  <button id="modal-prev" class="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors z-10">
+                    <svg class="w-4 h-4 md:w-5 md:h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </button>
+                  <button id="modal-next" class="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors z-10">
+                    <svg class="w-4 h-4 md:w-5 md:h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </button>
+                  
+                  <!-- Image Counter -->
+                  <div class="absolute bottom-2 md:bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 text-white px-2 md:px-3 py-1 rounded-full text-xs md:text-sm z-10">
+                    <span id="modal-counter">1 / 3</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        // Modal'ı body'e ekle
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        
+        // Modal değişkenleri
+        let currentModalImage = 0;
+        let currentProject = null;
+
+        // Modal fonksiyonları
+        window.openModal = function(projectIndex) {
+          console.log('Modal açılıyor, proje:', projectIndex);
+          
+          const project = projects[projectIndex];
+          currentProject = project;
+          currentModalImage = 0;
+          
+          // Sidebar içeriğini güncelle
+          document.getElementById('modal-title').textContent = project.title;
+          document.getElementById('modal-fair-name').textContent = project.fairName;
+          document.getElementById('modal-location').textContent = project.location;
+          document.getElementById('modal-date').textContent = project.date;
+          document.getElementById('modal-company').textContent = project.company;
+          document.getElementById('modal-type').textContent = project.type;
+          
+          // Image slider'ı kur
+          setupModalSlider();
+          
+          const modal = document.getElementById('project-modal');
+          if (modal) {
+            modal.classList.remove('hidden');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            console.log('✅ Modal açıldı, proje:', project.title);
+          } else {
+            console.error('❌ Modal bulunamadı');
+          }
+        }
+        
+        function setupModalSlider() {
+          const slider = document.getElementById('modal-slider');
+          const counter = document.getElementById('modal-counter');
+          
+          // Slider içeriğini temizle ve yeniden oluştur
+          slider.innerHTML = '';
+          
+          currentProject.gallery.forEach((imageSrc, index) => {
+            const imageDiv = document.createElement('div');
+            imageDiv.className = 'absolute inset-0 transition-opacity duration-300';
+            imageDiv.style.opacity = index === 0 ? '1' : '0';
+            
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            img.alt = currentProject.title;
+            img.className = 'w-full h-full object-cover';
+            img.onerror = function() {
+              this.style.background = '#f3f4f6';
+              this.style.display = 'flex';
+              this.style.alignItems = 'center';
+              this.style.justifyContent = 'center';
+              this.innerHTML = 'Görsel Yok';
+            };
+            
+            imageDiv.appendChild(img);
+            slider.appendChild(imageDiv);
+          });
+          
+          // Counter'ı güncelle
+          counter.textContent = `1 / ${currentProject.gallery.length}`;
+          
+          // Navigation event listeners
+          document.getElementById('modal-prev').onclick = () => changeModalImage(-1);
+          document.getElementById('modal-next').onclick = () => changeModalImage(1);
+        }
+        
+        function changeModalImage(direction) {
+          const images = document.querySelectorAll('#modal-slider > div');
+          const counter = document.getElementById('modal-counter');
+          
+          // Mevcut resmi gizle
+          images[currentModalImage].style.opacity = '0';
+          
+          // Yeni index hesapla
+          currentModalImage += direction;
+          if (currentModalImage < 0) currentModalImage = images.length - 1;
+          if (currentModalImage >= images.length) currentModalImage = 0;
+          
+          // Yeni resmi göster
+          images[currentModalImage].style.opacity = '1';
+          
+          // Counter'ı güncelle
+          counter.textContent = `${currentModalImage + 1} / ${images.length}`;
+        }
+        
+        window.closeModal = function() {
+          console.log('Modal kapatılıyor');
+          const modal = document.getElementById('project-modal');
+          if (modal) {
+            modal.classList.add('hidden');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+          }
+        }
+        
+        // ESC tuşu ile kapatma
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') {
+            closeModal();
+          }
+        });
+        
+        console.log('✅ Projeler eklendi:', projects.length);
+        
+        // Load more butonu - şimdilik gizle (tüm projeler gösteriliyor)
+        const loadMoreBtn = document.getElementById('load-more-btn');
+        if (loadMoreBtn) {
+          loadMoreBtn.style.display = 'none';
+        }
+      } else {
+        console.error('❌ Grid bulunamadı');
+      }
+    });
+  </script>
+
+  <!-- Styles for filter buttons and animations -->
+  <style>
+    .filter-btn {
+      @apply px-6 py-3 text-body font-medium text-grey border border-grey/30 rounded-lg transition-all duration-300 hover:border-orange hover:text-orange;
+    }
+    
+    .filter-btn.active {
+      @apply bg-orange text-white border-orange;
+    }
+    
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    
+    .animate-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .project-card {
+      transition: transform 0.3s ease-out;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+  </style>
+</BaseLayout>

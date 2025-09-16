@@ -1,0 +1,118 @@
+{
+  "projects": [
+    {
+      "id": "mebel2022",
+      "title": "Mebel 2022",
+      "fairName": "Mebel Fuarı",
+      "location": "Moskova, Rusya",
+      "date": "2022",
+      "company": "ABC Mobilya",
+      "standType": "Özel Dekor Stant",
+      "category": "ozel-dekor",
+      "description": "Moskova'daki Mebel Fuarı için tasarlanan özel dekor stant projesi. Modern tasarım anlayışı ile müşteri ihtiyaçlarına uygun çözümler sunuldu.",
+      "mainImage": "/projects/mebel2022/main.jpg",
+      "images": [
+        "/projects/mebel2022/image1.jpg",
+        "/projects/mebel2022/image2.jpg",
+        "/projects/mebel2022/image3.jpg",
+        "/projects/mebel2022/image4.jpg"
+      ],
+      "featured": true
+    },
+    {
+      "id": "itm2022",
+      "title": "İtm Türkiye 2022",
+      "fairName": "İTM Fuarı",
+      "location": "İstanbul, Türkiye",
+      "date": "2022",
+      "company": "XYZ Tekstil",
+      "standType": "Premium Modüler Stant",
+      "category": "premium-moduler",
+      "description": "İstanbul İTM Fuarı için tasarlanan premium modüler stant. Yeniden kullanılabilir modüler sistem ile maliyet etkin çözüm.",
+      "mainImage": "/projects/itm2022/main.jpg",
+      "images": [
+        "/projects/itm2022/image1.jpg",
+        "/projects/itm2022/image2.jpg",
+        "/projects/itm2022/image3.jpg",
+        "/projects/itm2022/image4.jpg"
+      ],
+      "featured": true
+    },
+    {
+      "id": "middleeast2023",
+      "title": "Middle East Energy 2023",
+      "fairName": "Middle East Energy",
+      "location": "Dubai, BAE",
+      "date": "2023",
+      "company": "Enerji Çözümleri A.Ş.",
+      "standType": "Premium Ahşap Stant",
+      "category": "premium-ahsap",
+      "description": "Dubai'deki Middle East Energy fuarı için özel ahşap malzemelerle tasarlanan prestijli stant projesi.",
+      "mainImage": "/projects/middleeast2023/main.jpg",
+      "images": [
+        "/projects/middleeast2023/image1.jpg",
+        "/projects/middleeast2023/image2.jpg",
+        "/projects/middleeast2023/image3.jpg",
+        "/projects/middleeast2023/image4.jpg"
+      ],
+      "featured": true
+    },
+    {
+      "id": "expo2023",
+      "title": "Expo 2023",
+      "fairName": "Uluslararası Expo",
+      "location": "Paris, Fransa",
+      "date": "2023",
+      "company": "Global İnovasyon",
+      "standType": "Özel Dekor Stant",
+      "category": "ozel-dekor",
+      "description": "Paris'teki uluslararası expo için tasarlanan yaratıcı ve etkileyici özel dekor stant projesi.",
+      "mainImage": "/projects/expo2023/main.jpg",
+      "images": [
+        "/projects/expo2023/image1.jpg",
+        "/projects/expo2023/image2.jpg",
+        "/projects/expo2023/image3.jpg",
+        "/projects/expo2023/image4.jpg"
+      ],
+      "featured": false
+    },
+    {
+      "id": "techsummit2023",
+      "title": "Tech Summit 2023",
+      "fairName": "Teknoloji Zirvesi",
+      "location": "Berlin, Almanya",
+      "date": "2023",
+      "company": "Yenilikçi Yazılım",
+      "standType": "Premium Modüler Stant",
+      "category": "premium-moduler",
+      "description": "Berlin'deki teknoloji zirvesi için modern ve fonksiyonel premium modüler stant tasarımı.",
+      "mainImage": "/projects/techsummit2023/main.jpg",
+      "images": [
+        "/projects/techsummit2023/image1.jpg",
+        "/projects/techsummit2023/image2.jpg",
+        "/projects/techsummit2023/image3.jpg",
+        "/projects/techsummit2023/image4.jpg"
+      ],
+      "featured": false
+    },
+    {
+      "id": "designweek2023",
+      "title": "Design Week 2023",
+      "fairName": "Tasarım Haftası",
+      "location": "Milano, İtalya",
+      "date": "2023",
+      "company": "Estetik Tasarım",
+      "standType": "Premium Ahşap Stant",
+      "category": "premium-ahsap",
+      "description": "Milano Tasarım Haftası için özel ahşap işçiliği ile hazırlanan estetik stant projesi.",
+      "mainImage": "/projects/designweek2023/main.jpg",
+      "images": [
+        "/projects/designweek2023/image1.jpg",
+        "/projects/designweek2023/image2.jpg",
+        "/projects/designweek2023/image3.jpg",
+        "/projects/designweek2023/image4.jpg"
+      ],
+      "featured": false
+    }
+  ]
+}

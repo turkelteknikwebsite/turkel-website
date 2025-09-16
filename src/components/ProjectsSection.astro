@@ -1,0 +1,337 @@
+---
+// Projects Section Component
+import projectsData from '../data/projects.json';
+
+// Sadece öne çıkan projeleri al
+const featuredProjects = projectsData.projects.filter(project => project.featured);
+---
+
+<section class="py-section-lg">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="flex items-center justify-between mb-16 animate-on-scroll">
+      <div class="flex items-center space-x-8">
+        <h2 class="text-h5 font-semibold text-black">
+          Projeler<span class="text-orange ml-2">/</span>
+        </h2>
+        <div class="flex items-center space-x-3 text-body text-grey">
+          <span class="font-bold" id="current-project">01</span>
+          <div class="w-8 h-px bg-grey"></div>
+          <span id="total-projects">{String(Math.ceil(featuredProjects.length / 3)).padStart(2, '0')}</span>
+        </div>
+      </div>
+      
+      <!-- Navigation Arrows -->
+      <div class="flex space-x-4">
+        <button id="prev-project" class="w-10 h-10 rounded-full border border-grey flex items-center justify-center hover:border-orange hover:text-orange transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <button id="next-project" class="w-10 h-10 rounded-full border border-grey flex items-center justify-center hover:border-orange hover:text-orange transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Projects Slider Container -->
+    <div class="relative overflow-hidden">
+      <div id="projects-slider" class="flex transition-transform duration-500 ease-out">
+        <!-- Projeler 3'erli gruplar halinde slider'lara bölünecek -->
+        {Array.from({ length: Math.ceil(featuredProjects.length / 3) }, (_, slideIndex) => (
+          <div class="project-slide flex-shrink-0 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredProjects.slice(slideIndex * 3, (slideIndex + 1) * 3).map((project) => (
+              <div class="animate-on-scroll">
+                <div class="cursor-pointer" onclick={`openModal('${project.id}')`}>
+                  <img 
+                    src={project.mainImage}
+                    alt={`${project.title} Projesi`}
+                    class="w-full aspect-project object-cover rounded-lg hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                    width="400"
+                    height="300"
+                  />
+                  <div class="mt-4">
+                    <h3 class="text-h4 text-black font-semibold">{project.title}</h3>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+
+
+      </div>
+    </div>
+
+    <!-- Projects Link -->
+    <div class="text-center mt-12 animate-on-scroll">
+      <a href="/projeler" class="btn-primary">
+        Tüm Projeler
+      </a>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden items-center justify-center p-4" onclick="closeModal()">
+      <div class="bg-white rounded-lg max-w-5xl w-full h-[75vh] flex overflow-hidden" onclick="event.stopPropagation()">
+        <!-- Sidebar -->
+        <div class="w-64 bg-white p-6 flex-shrink-0 flex flex-col">
+          <!-- Modal Header -->
+          <div class="flex items-center justify-between mb-6">
+            <h2 id="modal-title" class="text-xl font-semibold text-black"></h2>
+            <button onclick="closeModal()" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-grey/20 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+          
+          <!-- Fair Details -->
+          <div class="grid grid-cols-1 gap-4 mb-8">
+            <div>
+              <h4 class="text-sm font-semibold text-black mb-1">Fuar Adı</h4>
+              <p id="modal-fair-name" class="text-sm text-grey"></p>
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-black mb-1">Lokasyon</h4>
+              <p id="modal-location" class="text-sm text-grey"></p>
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-black mb-1">Tarih</h4>
+              <p id="modal-date" class="text-sm text-grey"></p>
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-black mb-1">Şirket</h4>
+              <p id="modal-company" class="text-sm text-grey"></p>
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-black mb-1">Stant Tipi</h4>
+              <p id="modal-type" class="text-sm text-grey"></p>
+            </div>
+          </div>
+
+          <!-- Contact Section -->
+          <div class="mt-auto border-t border-grey/20 pt-6">
+            <h4 class="text-sm font-semibold text-black mb-3">Stant Tasarımı</h4>
+            <p class="text-xs text-grey mb-4 leading-relaxed">
+              İhtiyaçlarınızı konuşalım mı? Size özel stant tasarımları için bizimle iletişime geçin.
+            </p>
+            <a href="/iletisim" class="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-white bg-orange rounded-lg hover:bg-navy transition-colors">
+              İletişime Geçin
+            </a>
+          </div>
+        </div>
+        
+        <!-- Image Slider Area -->
+        <div class="flex-1 relative bg-black">
+          <div class="absolute inset-0">
+            <div id="modal-slider" class="relative w-full h-full">
+              <!-- Images will be populated by JavaScript -->
+            </div>
+            
+            <!-- Slider Navigation -->
+            <button id="modal-prev" class="absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors z-10">
+              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+            <button id="modal-next" class="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors z-10">
+              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+            
+            <!-- Image Counter -->
+            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm z-10">
+              <span id="modal-counter">1 / 4</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript for Projects and Modal -->
+    <script define:vars={{ featuredProjects }}>
+      // JSON'dan proje verilerini al ve eski format'a çevir
+      const projectData = {};
+      featuredProjects.forEach(project => {
+        projectData[project.id] = {
+          title: project.title,
+          fairName: project.fairName,
+          location: project.location,
+          date: project.date,
+          company: project.company,
+          type: project.type,
+          images: project.gallery
+        };
+      });
+      
+      console.log('✅ Proje verileri hazırlandı:', projectData);
+
+
+      // Projects carousel variables
+      let currentSlide = 0;
+      const totalSlides = Math.ceil(featuredProjects.length / 3); // 3'erli gruplar
+      
+      // Modal slider variables
+      let currentModalImage = 0;
+      let currentProject = null;
+
+      // Projects carousel functions
+      function updateProjectSlide() {
+        const slider = document.getElementById('projects-slider');
+        const currentProjectElement = document.getElementById('current-project');
+        
+        const translateX = -currentSlide * 100;
+        slider.style.transform = `translateX(${translateX}%)`;
+        currentProjectElement.textContent = String(currentSlide + 1).padStart(2, '0');
+      }
+      
+      function nextProjectSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateProjectSlide();
+      }
+      
+      function prevProjectSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateProjectSlide();
+      }
+
+      // Event listeners for navigation
+      document.addEventListener('DOMContentLoaded', function() {
+        const prevBtn = document.getElementById('prev-project');
+        const nextBtn = document.getElementById('next-project');
+        
+        if (prevBtn) prevBtn.addEventListener('click', prevProjectSlide);
+        if (nextBtn) nextBtn.addEventListener('click', nextProjectSlide);
+        
+        // Sadece 1'den fazla slide varsa navigation'ı göster
+        if (totalSlides <= 1) {
+          if (prevBtn) prevBtn.style.display = 'none';
+          if (nextBtn) nextBtn.style.display = 'none';
+        }
+        
+        console.log('✅ Proje navigation hazır, toplam slide:', totalSlides);
+      });
+
+      // Modal functions
+      window.openModal = function(projectId) {
+        const modal = document.getElementById('project-modal');
+        const project = projectData[projectId];
+        if (!project) return;
+        
+        currentProject = project;
+        currentModalImage = 0;
+        
+        // Set sidebar content
+        document.getElementById('modal-title').textContent = project.title;
+        document.getElementById('modal-fair-name').textContent = project.fairName;
+        document.getElementById('modal-location').textContent = project.location;
+        document.getElementById('modal-date').textContent = project.date;
+        document.getElementById('modal-company').textContent = project.company;
+        document.getElementById('modal-type').textContent = project.type;
+        
+        // Setup image slider
+        setupModalSlider();
+        
+        // Show modal
+        modal.classList.remove('hidden');
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+      
+      function setupModalSlider() {
+        const slider = document.getElementById('modal-slider');
+        const counter = document.getElementById('modal-counter');
+        
+        if (!currentProject) return;
+        
+        // Clear existing images
+        slider.innerHTML = '';
+        
+        // Create images
+        currentProject.images.forEach((imageSrc, index) => {
+          const imgElement = document.createElement('img');
+          imgElement.src = imageSrc;
+          imgElement.alt = `${currentProject.title} - Görsel ${index + 1}`;
+          imgElement.className = `absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${index === 0 ? 'opacity-100' : 'opacity-0'}`;
+          imgElement.loading = 'lazy';
+          slider.appendChild(imgElement);
+        });
+        
+        // Update counter
+        counter.textContent = `${currentModalImage + 1} / ${currentProject.images.length}`;
+        
+        // Setup navigation
+        const prevBtn = document.getElementById('modal-prev');
+        const nextBtn = document.getElementById('modal-next');
+        
+        prevBtn.onclick = () => prevModalImage();
+        nextBtn.onclick = () => nextModalImage();
+      }
+      
+      function prevModalImage() {
+        if (!currentProject) return;
+        
+        const images = document.querySelectorAll('#modal-slider img');
+        images[currentModalImage].classList.add('opacity-0');
+        
+        currentModalImage = (currentModalImage - 1 + currentProject.images.length) % currentProject.images.length;
+        
+        images[currentModalImage].classList.remove('opacity-0');
+        document.getElementById('modal-counter').textContent = `${currentModalImage + 1} / ${currentProject.images.length}`;
+      }
+      
+      function nextModalImage() {
+        if (!currentProject) return;
+        
+        const images = document.querySelectorAll('#modal-slider img');
+        images[currentModalImage].classList.add('opacity-0');
+        
+        currentModalImage = (currentModalImage + 1) % currentProject.images.length;
+        
+        images[currentModalImage].classList.remove('opacity-0');
+        document.getElementById('modal-counter').textContent = `${currentModalImage + 1} / ${currentProject.images.length}`;
+      }
+      
+      window.closeModal = function() {
+        const modal = document.getElementById('project-modal');
+        modal.classList.add('hidden');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        currentProject = null;
+        currentModalImage = 0;
+      }
+
+      // Initialize everything when DOM is loaded
+      document.addEventListener('DOMContentLoaded', function() {
+        // Setup project navigation
+        const prevBtn = document.getElementById('prev-project');
+        const nextBtn = document.getElementById('next-project');
+        
+        prevBtn.addEventListener('click', prevProjectSlide);
+        nextBtn.addEventListener('click', nextProjectSlide);
+        
+        // Initialize project slide
+        updateProjectSlide();
+        
+        // Setup modal backdrop close
+        const modal = document.getElementById('project-modal');
+        modal.addEventListener('click', function(e) {
+          if (e.target === this) {
+            closeModal();
+          }
+        });
+        
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') {
+            closeModal();
+          }
+        });
+      });
+    </script>
+  </div>
+</section>

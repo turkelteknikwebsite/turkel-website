@@ -1,0 +1,318 @@
+{
+  "projects": [
+    {
+      "id": "mebel-2022-ece-boya",
+      "title": "Mebel 2022 Ece Boya",
+      "fairName": "Mebel Fuarı",
+      "location": "Rusya",
+      "date": "2022",
+      "company": "Ece Boya",
+      "type": "Özel Dekor Stant",
+      "category": "mobilya",
+      "featured": true,
+      "mainImage": "/projects/mebel-2022-ece-boya/main.jpg",
+      "gallery": [
+        "/projects/mebel-2022-ece-boya/gallery/1.jpg",
+        "/projects/mebel-2022-ece-boya/gallery/2.jpg",
+        "/projects/mebel-2022-ece-boya/gallery/3.jpg",
+        "/projects/mebel-2022-ece-boya/gallery/4.jpg",
+        "/projects/mebel-2022-ece-boya/gallery/5.jpg",
+        "/projects/mebel-2022-ece-boya/gallery/6.jpg"
+      ]
+    },
+    {
+      "id": "itm-2022-lohia",
+      "title": "İtm Türkiye 2022 Lohia",
+      "fairName": "İtm Fuarı",
+      "location": "Türkiye",
+      "date": "2022",
+      "company": "Lohia",
+      "type": "Premium Modüler Stant",
+      "category": "teknoloji",
+      "featured": true,
+      "mainImage": "/projects/itm-2022-lohia/main.jpg",
+      "gallery": [
+        "/projects/itm-2022-lohia/gallery/1.jpg",
+        "/projects/itm-2022-lohia/gallery/2.jpg",
+        "/projects/itm-2022-lohia/gallery/3.jpg",
+        "/projects/itm-2022-lohia/gallery/4.jpg",
+        "/projects/itm-2022-lohia/gallery/5.jpg",
+        "/projects/itm-2022-lohia/gallery/6.jpg"
+      ]
+    },
+    {
+      "id": "middle-east-energy-2023-kym-elektrik",
+      "title": "Middle East Energy 2023 Kym Elektrik",
+      "fairName": "Middle East Energy",
+      "location": "BAE",
+      "date": "2023",
+      "company": "Kym Elektrik",
+      "type": "Premium Ahşap Stant",
+      "category": "enerji",
+      "featured": true,
+      "mainImage": "/projects/middle-east-energy-2023-kym-elektrik/main.jpg",
+      "gallery": [
+        "/projects/middle-east-energy-2023-kym-elektrik/gallery/1.jpg",
+        "/projects/middle-east-energy-2023-kym-elektrik/gallery/2.jpg",
+        "/projects/middle-east-energy-2023-kym-elektrik/gallery/3.jpg",
+        "/projects/middle-east-energy-2023-kym-elektrik/gallery/4.jpg"
+      ]
+    },
+    {
+      "id": "elcom-2019-gunsan-elektrik",
+      "title": "Elcom 2019 Günsan Elektrik",
+      "fairName": "Elcom",
+      "location": "Ukrayna",
+      "date": "2019",
+      "company": "Günsan Elektrik",
+      "type": "Premium Ahşap Stant",
+      "category": "Elektrik",
+      "featured": true,
+      "mainImage": "/projects/elcom-2019-gunsan-elektrik/main.jpg",
+      "gallery": [
+        "/projects/elcom-2019-gunsan-elektrik/gallery/1.jpg",
+        "/projects/elcom-2019-gunsan-elektrik/gallery/2.jpg",
+        "/projects/elcom-2019-gunsan-elektrik/gallery/3.jpg"
+      ]
+    },
+    {
+      "id": "Mebel-2022-efendi-fabric",
+      "title": "Mebel 2022 Efendi Fabric",
+      "fairName": "Mebel",
+      "location": "Rusya",
+      "date": "2022",
+      "company": "Efendi Fabric",
+      "type": "Premium Ahşap Stant",
+      "category": "Tekstil",
+      "featured": true,
+      "mainImage": "/projects/mebel-2022-efendi-fabric/main.jpg",
+      "gallery": [
+        "/projects/mebel-2022-efendi-fabric/gallery/1.jpg",
+        "/projects/mebel-2022-efendi-fabric/gallery/2.jpg",
+        "/projects/mebel-2022-efendi-fabric/gallery/3.jpg"
+      ]
+    },
+    {
+      "id": "inno-trans-2022-kanca",
+      "title": "İnnotrans 2022 Kanca",
+      "fairName": "İnnotrans",
+      "location": "Almanya",
+      "date": "2022",
+      "company": "Kanca",
+      "type": "Premium Ahşap Stant",
+      "category": "Ulaşım",
+      "featured": false,
+      "mainImage": "/projects/inno-trans-2022-kanca/main.jpg",
+      "gallery": [
+        "/projects/inno-trans-2022-kanca/gallery/1.jpg",
+        "/projects/inno-trans-2022-kanca/gallery/2.jpg"
+      ]
+    },
+    {
+      "id": "elcom-2018-gunsan-elektrik",
+      "title": "Elcom 2018 Günsan Elektrik",
+      "fairName": "Elcom 2018 Günsan Elektrik",
+      "location": "ukrayna",
+      "date": "2018",
+      "company": "Günsan Elektrik",
+      "type": "Premium Ahşap Stant",
+      "category": "Elektrik",
+      "featured": true,
+      "mainImage": "/projects/elcom-2018-gunsan-elektrik/main.jpg",
+      "gallery": [
+        "/projects/elcom-2018-gunsan-elektrik/gallery/1.jpg",
+        "/projects/elcom-2018-gunsan-elektrik/gallery/2.jpg",
+        "/projects/elcom-2018-gunsan-elektrik/gallery/3.jpg"
+      ]
+    },
+    {
+      "id": "elcom-2018-kendal-elektrik",
+      "title": "Elcom 2018 Kendal Elektrik",
+      "fairName": "Elcom",
+      "location": "Ukrayna",
+      "date": "2018",
+      "company": "Kendal Elektrik",
+      "type": "Premium Ahşap Stant",
+      "category": "Elektrik",
+      "featured": true,
+      "mainImage": "/projects/elcom-2018-kendal-elektrik/main.jpg",
+      "gallery": [
+        "/projects/elcom-2018-kendal-elektrik/gallery/1.jpg",
+        "/projects/elcom-2018-kendal-elektrik/gallery/2.jpg",
+        "/projects/elcom-2018-kendal-elektrik/gallery/3.jpg",
+        "/projects/elcom-2018-kendal-elektrik/gallery/4.jpg",
+        "/projects/elcom-2018-kendal-elektrik/gallery/5.jpg"
+      ]
+    },
+    {
+      "id": "elcom-2019-kendal-elektrik",
+      "title": "Elcom 2019 Kendal Elektrik",
+      "fairName": "Elcom",
+      "location": "Ukrayna",
+      "date": "2019",
+      "company": "Kendal Elektrik",
+      "type": "Premium Ahşap Stant",
+      "category": "Elektrik",
+      "featured": false,
+      "mainImage": "/projects/elcom-2019-kendal-elektrik/main.jpg",
+      "gallery": [
+        "/projects/elcom-2019-kendal-elektrik/gallery/1.jpg",
+        "/projects/elcom-2019-kendal-elektrik/gallery/2.jpg",
+        "/projects/elcom-2019-kendal-elektrik/gallery/3.jpg",
+        "/projects/elcom-2019-kendal-elektrik/gallery/4.jpg",
+        "/projects/elcom-2019-kendal-elektrik/gallery/5.jpg"
+      ]
+    },
+    {
+      "id": "light-2018-luna-elektrik",
+      "title": "Light 2018 Luna Elektrik",
+      "fairName": "Light",
+      "location": "Polonya",
+      "date": "2018",
+      "company": "Luna Elektrik",
+      "type": "Premium Ahşap Stant",
+      "category": "enerji",
+      "featured": false,
+      "mainImage": "/projects/light-2018-luna-elektrik/main.jpg",
+      "gallery": [
+        "/projects/light-2018-luna-elektrik/gallery/1.jpg",
+        "/projects/light-2018-luna-elektrik/gallery/2.jpg",
+        "/projects/light-2018-luna-elektrik/gallery/3.jpg",
+        "/projects/light-2018-luna-elektrik/gallery/4.jpg",
+        "/projects/light-2018-luna-elektrik/gallery/5.jpg",
+        "/projects/light-2018-luna-elektrik/gallery/6.jpg"
+      ]
+    },
+    {
+      "id": "elcom-2019-mutlusan-elektrik",
+      "title": "Elcom 2019 Mutlusan Elektrik",
+      "fairName": "Elcom 2019",
+      "location": "Elcom",
+      "date": "2019",
+      "company": "Mutlusan Elektrik",
+      "type": "Premium Ahşap Stant",
+      "category": "elektrik",
+      "featured": false,
+      "mainImage": "/projects/elcom-2019-mutlusan-elektrik/main.jpg",
+      "gallery": [
+        "/projects/elcom-2019-mutlusan-elektrik/gallery/1.jpg",
+        "/projects/elcom-2019-mutlusan-elektrik/gallery/2.jpg",
+        "/projects/elcom-2019-mutlusan-elektrik/gallery/3.jpg",
+        "/projects/elcom-2019-mutlusan-elektrik/gallery/4.jpg"
+      ]
+    },
+    {
+      "id": "elcom-2019-nilson-elektrik",
+      "title": "Elcom 2019 Nilson Elektrik",
+      "fairName": "Elcom 2019",
+      "location": "Ukrayna",
+      "date": "2019",
+      "company": "Nilson Elektrik",
+      "type": "Premium Ahşap Stant",
+      "category": "Elektrik",
+      "featured": false,
+      "mainImage": "/projects/elcom-2019-nilson-elektrik/main.jpg",
+      "gallery": [
+        "/projects/elcom-2019-nilson-elektrik/gallery/1.jpg",
+        "/projects/elcom-2019-nilson-elektrik/gallery/2.jpg",
+        "/projects/elcom-2019-nilson-elektrik/gallery/3.jpg",
+        "/projects/elcom-2019-nilson-elektrik/gallery/4.jpg",
+        "/projects/elcom-2019-nilson-elektrik/gallery/5.jpg",
+        "/projects/elcom-2019-nilson-elektrik/gallery/6.jpg"
+      ]
+    },
+    {
+      "id": "elcom-2019-ovio-elektrik",
+      "title": "Elcom 2019 Ovivo Elektrik",
+      "fairName": "Elcom 2019",
+      "location": "Ukrayna",
+      "date": "2019",
+      "company": "Ovivo Elektrik",
+      "type": "Premium Ahşap Stant",
+      "category": "Elektrik",
+      "featured": false,
+      "mainImage": "/projects/elcom-2019-ovio-elektrik/main.jpg",
+      "gallery": [
+        "/projects/elcom-2019-ovivo-elektrik/gallery/1.jpg",
+        "/projects/elcom-2019-ovivo-elektrik/gallery/2.jpg",
+        "/projects/elcom-2019-ovivo-elektrik/gallery/3.jpg"
+
+      ]
+    },
+    {
+      "id": "middle-east-energy-2023-sigma-elektrik",
+      "title": "Middle East Energy 2023",
+      "fairName": "Middle East Energy",
+      "location": "BAE",
+      "date": "2023",
+      "company": "Sigma Elektrik",
+      "type": "Premium Ahşap Stant",
+      "category": "enerji",
+      "featured": true,
+      "mainImage": "/projects/middle-east-energy-2023-sigma-elektrik/main.jpg",
+      "gallery": [
+        "/projects/middle-east-energy-2023-sigma-elektrik/gallery/1.jpg",
+        "/projects/middle-east-energy-2023-sigma-elektrik/gallery/2.jpg",
+        "/projects/middle-east-energy-2023-sigma-elektrik/gallery/3.jpg",
+        "/projects/middle-east-energy-2023-sigma-elektrik/gallery/4.jpg",
+        "/projects/middle-east-energy-2023-sigma-elektrik/gallery/5.jpg"
+      ]
+    },
+    {
+      "id": "elcom-2019-totan-elektrik",
+      "title": "Elcom 2019 Totan Elektrik",
+      "fairName": "Elcom 2019 Totan Elektrik",
+      "location": "Ukrayna",
+      "date": "2019",
+      "company": "Totan Elektrik",
+      "type": "Premium Ahşap Stant",
+      "category": "Elektrik",
+      "featured": false,
+      "mainImage": "/projects/elcom-2019-totan-elektrik/main.jpg",
+      "gallery": [
+        "/projects/elcom-2019-totan-elektrik/gallery/1.jpg",
+        "/projects/elcom-2019-totan-elektrik/gallery/2.jpg",
+        "/projects/elcom-2019-totan-elektrik/gallery/3.jpg",
+        "/projects/elcom-2019-totan-elektrik/gallery/4.jpg",
+        "/projects/elcom-2019-totan-elektrik/gallery/5.jpg",
+        "/projects/elcom-2019-totan-elektrik/gallery/6.jpg",
+        "/projects/elcom-2019-totan-elektrik/gallery/7.jpg",
+        "/projects/elcom-2019-totan-elektrik/gallery/8.jpg",
+        "/projects/elcom-2019-totan-elektrik/gallery/9.jpg",
+        "/projects/elcom-2019-totan-elektrik/gallery/10.jpg"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "all",
+      "name": "Tümü",
+      "count": 0
+    },
+    {
+      "id": "mobilya",
+      "name": "Mobilya",
+      "count": 0
+    },
+    {
+      "id": "teknoloji",
+      "name": "Teknoloji",
+      "count": 0
+    },
+    {
+      "id": "enerji",
+      "name": "Enerji",
+      "count": 0
+    },
+    {
+      "id": "saglik",
+      "name": "Sağlık",
+      "count": 0
+    },
+    {
+      "id": "otomotiv",
+      "name": "Otomotiv",
+      "count": 0
+    }
+  ]
+}

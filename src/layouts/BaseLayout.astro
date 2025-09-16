@@ -1,0 +1,269 @@
+---
+import { generateStructuredData } from '../utils/seo';
+import '../styles/globals.css';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  structuredData?: any;
+}
+
+const { 
+  title, 
+  description, 
+  canonical, 
+  ogImage = '/og-default.jpg',
+  noindex = false,
+  structuredData
+} = Astro.props;
+
+const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
+
+// Generate default structured data based on page
+const defaultStructuredData = (() => {
+  const pathname = Astro.url.pathname;
+  if (pathname === '/') return generateStructuredData('home');
+  if (pathname === '/hakkimizda') return generateStructuredData('about');
+  if (pathname === '/hizmetler') return generateStructuredData('services');
+  if (pathname === '/projeler') return generateStructuredData('projects');
+  if (pathname === '/iletisim') return generateStructuredData('contact');
+  return generateStructuredData('home');
+})();
+
+const finalStructuredData = structuredData || defaultStructuredData;
+---
+
+<!doctype html>
+<html lang="tr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+    <link rel="shortcut icon" href="/favicon-32x32.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#E67411" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta property="og:site_name" content="Türkel Global Stands" />
+    <meta property="og:locale" content="tr_TR" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(ogImage, Astro.site)} />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(finalStructuredData)}></script>
+  </head>
+  
+  <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main" class="skip-link">Ana içeriğe geç</a>
+    
+    <!-- Header -->
+    <header id="header" class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-beige/50">
+      <nav class="container" aria-label="Ana navigasyon">
+        <div class="flex items-center justify-between py-4">
+          <!-- Logo -->
+          <a href="/" class="flex-shrink-0" aria-label="Türkel Global Stands Ana Sayfa">
+            <img 
+              src="/logo.png" 
+              alt="Türkel Global Stands Logo" 
+              width="194" 
+              height="60"
+              class="h-12 w-auto"
+              loading="eager"
+            />
+          </a>
+          
+                  <!-- Desktop Navigation -->
+                  <div class="hidden md:flex items-center space-x-6">
+                    <a href="/" class={`nav-link ${Astro.url.pathname === '/' ? 'text-navy' : ''}`}>Anasayfa</a>
+                    <span class="text-orange font-medium">/</span>
+                    <a href="/hakkimizda" class={`nav-link ${Astro.url.pathname === '/hakkimizda' ? 'text-navy' : ''}`}>Hakkımızda</a>
+                    <span class="text-orange font-medium">/</span>
+                    <a href="/hizmetler" class={`nav-link ${Astro.url.pathname === '/hizmetler' ? 'text-navy' : ''}`}>Hizmetlerimiz</a>
+                    <span class="text-orange font-medium">/</span>
+                    <a href="/projeler" class={`nav-link ${Astro.url.pathname === '/projeler' ? 'text-navy' : ''}`}>Projeler</a>
+                    <span class="text-orange font-medium">/</span>
+                    <a href="/iletisim" class={`nav-link ${Astro.url.pathname === '/iletisim' ? 'text-navy' : ''}`}>İletişim</a>
+                  </div>
+          
+          <!-- Mobile Menu Button -->
+          <button 
+            id="mobile-menu-button"
+            class="md:hidden p-2 rounded-lg hover:bg-beige/50 transition-colors"
+            aria-label="Menüyü aç/kapat"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+        
+                <!-- Mobile Navigation -->
+                <div
+                  id="mobile-menu"
+                  class="md:hidden hidden border-t border-beige/50 py-4"
+                  role="menu"
+                >
+                  <div class="flex flex-col space-y-4">
+                    <a href="/" class={`nav-link ${Astro.url.pathname === '/' ? 'text-navy' : ''}`} role="menuitem">Anasayfa</a>
+                    <a href="/hakkimizda" class={`nav-link ${Astro.url.pathname === '/hakkimizda' ? 'text-navy' : ''}`} role="menuitem">Hakkımızda</a>
+                    <a href="/hizmetler" class={`nav-link ${Astro.url.pathname === '/hizmetler' ? 'text-navy' : ''}`} role="menuitem">Hizmetlerimiz</a>
+                    <a href="/projeler" class={`nav-link ${Astro.url.pathname === '/projeler' ? 'text-navy' : ''}`} role="menuitem">Projeler</a>
+                    <a href="/iletisim" class={`nav-link ${Astro.url.pathname === '/iletisim' ? 'text-navy' : ''}`} role="menuitem">İletişim</a>
+                  </div>
+                </div>
+      </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main id="main">
+      <slot />
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-black text-white">
+      <div class="container py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <!-- Logo & Quick Links -->
+          <div class="space-y-8">
+            <img 
+              src="/logo-white.png" 
+              alt="Türkel Global Stands Logo" 
+              width="243" 
+              height="74"
+              class="h-16 w-auto"
+              loading="lazy"
+            />
+            
+            <div>
+              <h3 class="text-body font-hanken font-medium mb-4">Hızlı Bağlantılar</h3>
+                    <nav class="flex flex-col space-y-3" aria-label="Footer navigasyon">
+                      <a href="/" class={`text-body hover:text-white transition-colors ${Astro.url.pathname === '/' ? 'text-white' : 'text-white/50'}`}>Anasayfa</a>
+                      <a href="/hakkimizda" class={`text-body hover:text-white transition-colors ${Astro.url.pathname === '/hakkimizda' ? 'text-white' : 'text-white/50'}`}>Hakkımızda</a>
+                      <a href="/hizmetler" class={`text-body hover:text-white transition-colors ${Astro.url.pathname === '/hizmetler' ? 'text-white' : 'text-white/50'}`}>Hizmetlerimiz</a>
+                      <a href="/projeler" class={`text-body hover:text-white transition-colors ${Astro.url.pathname === '/projeler' ? 'text-white' : 'text-white/50'}`}>Projeler</a>
+                      <a href="/iletisim" class={`text-body hover:text-white transition-colors ${Astro.url.pathname === '/iletisim' ? 'text-white' : 'text-white/50'}`}>İletişim</a>
+                    </nav>
+            </div>
+          </div>
+          
+          <!-- Empty column for spacing -->
+          <div></div>
+          
+          <!-- Contact Information - Moved to Right -->
+          <div class="space-y-8">
+            <h3 class="text-h2 font-hanken font-medium" style="color: #E67411;">İletişime Geçin</h3>
+            
+            <div class="space-y-6">
+              <div>
+                <p class="text-body mb-2 text-white/50">E-posta</p>
+                <div class="border-b border-orange pb-2">
+                  <a href="mailto:info@turkel.com.tr" class="text-h4 text-white/50 hover:text-white transition-colors">
+                    info@turkel.com.tr
+                  </a>
+                </div>
+              </div>
+              
+              <div>
+                <p class="text-body mb-2 text-white/50">Telefon</p>
+                <div class="border-b border-orange pb-2">
+                  <a href="tel:+902122842300" class="text-h4 text-white/50 hover:text-white transition-colors">
+                    +90 (212) 284 23 00
+                  </a>
+                </div>
+              </div>
+              
+              <div>
+                <p class="text-body mb-2 text-white/50">Adres</p>
+                <div class="border-b border-orange pb-2">
+                  <p class="text-body text-white/50 leading-relaxed">
+                    Huzur Mah. Fatih Cad. 4.Levent Plaza 67/6<br>
+                    4.Levent, Sarıyer 34396 / İstanbul – Türkiye
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Copyright -->
+      <div class="bg-white py-6">
+        <div class="container">
+          <p class="text-body text-grey text-center">
+            © 2025 Türkel Global Stands. Tüm hakları saklıdır.
+          </p>
+        </div>
+      </div>
+    </footer>
+    
+    <!-- Mobile Menu Script -->
+    <script>
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+          const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+          
+          mobileMenuButton.setAttribute('aria-expanded', (!isExpanded).toString());
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+      
+      // Scroll-based animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, observerOptions);
+      
+      // Observe all elements with animate-on-scroll class
+      document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+    
+  </body>
+</html>

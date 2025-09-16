@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply text-black antialiased;
+    background-color: #FFFFFF; /* Pure white */
+  }
+
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-orange;
+  }
+
+  /* Skip to content link */
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-navy focus:text-white focus:rounded;
+  }
+}
+
+@layer components {
+  /* Container */
+  .container {
+    @apply mx-auto max-w-container px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 text-body font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-orange text-white hover:bg-orange/90 focus:ring-orange;
+  }
+
+  .btn-secondary {
+    @apply btn border-2 border-navy text-navy hover:bg-navy hover:text-white focus:ring-navy;
+  }
+
+  /* Section headings */
+  .section-heading {
+    @apply font-hanken text-h2 text-navy leading-tight;
+  }
+
+  .section-subheading {
+    @apply font-inter text-h4 text-black leading-tight;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-beige/50 overflow-hidden;
+  }
+
+  /* Navigation */
+  .nav-link {
+    @apply text-nav text-grey hover:text-navy transition-colors duration-200 relative;
+  }
+
+  .nav-link.active {
+    @apply text-navy font-semibold;
+  }
+
+  /* Animations */
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+
+  .animate-on-scroll.in-view {
+    @apply opacity-100 translate-y-0;
+  }
+
+  /* Number indicators */
+  .number-indicator {
+    @apply inline-flex items-center justify-center w-8 h-8 text-sm font-bold text-grey border border-grey/30 rounded-full;
+  }
+
+  .number-indicator.active {
+    @apply bg-orange text-white border-orange;
+  }
+}
+
+@layer utilities {
+  /* Text styles from Figma */
+  .text-h1 {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: clamp(60px, 8vw, 120px);
+    line-height: 1.083;
+    font-weight: 500;
+  }
+
+  .text-h2 {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: clamp(48px, 7vw, 110px);
+    line-height: 1.091;
+    font-weight: 500;
+  }
+
+  .text-h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    line-height: 1.313;
+    font-weight: 500;
+  }
+
+  .text-h5 {
+    font-family: 'Inter', sans-serif;
+    font-size: 40px;
+    line-height: 1.25;
+    font-weight: 500;
+  }
+
+  .text-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.625;
+    font-weight: 400;
+  }
+
+  .text-nav {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.21;
+    font-weight: 600;
+  }
+
+  /* Aspect ratios */
+  .aspect-project {
+    aspect-ratio: 16 / 9;
+  }
+
+  /* Gradients */
+  .gradient-overlay {
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.73) 100%);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll,
+    .transition-all,
+    .transition-colors,
+    .transition-transform {
+      @apply transition-none;
+    }
+    
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}

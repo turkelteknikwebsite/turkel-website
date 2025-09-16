@@ -1,0 +1,99 @@
+---
+// Statistics Section Component
+---
+
+<section class="py-section">
+  <div class="container">
+    <div class="relative">
+      <!-- Mobile Layout: All Statistics Stacked -->
+      <div class="block md:hidden">
+        <!-- All Statistics Stacked Vertically -->
+        <div class="space-y-8 mb-12 animate-on-scroll">
+          <!-- Stat 1 -->
+          <div class="text-center">
+            <div class="text-h2 font-hanken font-medium text-black mb-2">400+</div>
+            <div class="text-body text-grey">Fuar</div>
+          </div>
+          
+          <!-- Stat 2 -->
+          <div class="text-center">
+            <div class="text-h2 font-hanken font-medium text-black mb-2">14.000+</div>
+            <div class="text-body text-grey">Stant Kurulumu</div>
+          </div>
+          
+          <!-- Stat 3 -->
+          <div class="text-center">
+            <div class="text-h2 font-hanken font-medium text-black mb-2">50+</div>
+            <div class="text-body text-grey">Lokasyon</div>
+          </div>
+        </div>
+        
+        <!-- Mobile Line with Icon -->
+        <div class="relative flex items-center animate-on-scroll mb-8">
+          <!-- Light Grey Line -->
+          <div class="flex-1 h-1 bg-grey/20 relative">
+            <!-- Orange section in the center -->
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-2 bg-orange w-20"></div>
+          </div>
+          
+          <!-- Icon (smaller for mobile) -->
+          <div class="w-20 h-20 bg-beige rounded-full flex items-center justify-center ml-4">
+            <img 
+              src="/icon.png" 
+              alt="Türkel Global Icon" 
+              class="w-10 h-10"
+              loading="lazy"
+              width="500"
+              height="500"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop Layout: Original Design -->
+      <div class="hidden md:block">
+        <!-- Statistics (Top 2) -->
+        <div class="grid grid-cols-2 gap-12 mb-16 animate-on-scroll">
+          <!-- Stat 1 -->
+          <div class="text-center">
+            <div class="text-h2 font-hanken font-medium text-black mb-2">400+</div>
+            <div class="text-body text-grey">Fuar</div>
+          </div>
+          
+          <!-- Stat 2 -->
+          <div class="text-center">
+            <div class="text-h2 font-hanken font-medium text-black mb-2">14.000+</div>
+            <div class="text-body text-grey">Stant Kurulumu</div>
+          </div>
+        </div>
+        
+        <!-- Light Grey Line with Orange Section and Icon -->
+        <div class="relative flex items-center animate-on-scroll mb-8">
+          <!-- Light Grey Line (wider) -->
+          <div class="flex-1 h-1 bg-grey/20 relative">
+            <!-- Orange section in the center (thicker, perfectly centered with 50+ Lokasyon) -->
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-2 bg-orange" style="width: 160px;"></div>
+          </div>
+          
+          <!-- Icon at the end (3x bigger, aligned with line) -->
+          <div class="w-32 h-32 bg-beige rounded-full flex items-center justify-center">
+            <img 
+              src="/icon.png" 
+              alt="Türkel Global Icon" 
+              class="w-16 h-16"
+              loading="lazy"
+              width="500"
+              height="500"
+            />
+          </div>
+        </div>
+        
+        <!-- 50+ Lokasyon (Below Line) - Perfectly centered -->
+        <div class="text-center mb-16 animate-on-scroll">
+          <div class="text-h2 font-hanken font-medium text-black mb-2">50+</div>
+          <div class="text-body text-grey">Lokasyon</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

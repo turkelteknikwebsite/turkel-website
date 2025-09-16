@@ -1,0 +1,276 @@
+Stack: Astro (content + islands), Tailwind CSS, TypeScript, Adapter: Netlify (serverless), ESLint/Prettier, Nodemailer + Gmail OAuth2 (token service), Sharp (images).
+Pages: / (Home), /about, /services, /projects, /contact.
+
+0) Objectives & Non-Goals
+	•	Objectives: pixel-accurate to Figma, <1.5s LCP on mid-tier mobile, CLS < 0.02, Lighthouse ≥ 95 (Performance/SEO/Best Practices/Accessibility), fully responsive, bilingual ready (TR/EN optional), privacy-safe analytics, robust mail delivery via Gmail token service.
+	•	Non-Goals: Netlify Forms, heavy client frameworks, blocking third-party scripts, image carousels that auto-play without user action.
+
+    1) Project Layout & Conventions
+    /
+├─ src/
+│  ├─ pages/
+│  │  ├─ index.astro                 # Home
+│  │  ├─ about.astro                 # About
+│  │  ├─ services.astro              # Services
+│  │  ├─ projects.astro              # Projects (paginated)
+│  │  ├─ contact.astro               # Contact (uses /api/mail)
+│  │  └─ api/
+│  │     └─ mail.ts                  # Gmail token mail endpoint (POST)
+│  ├─ layouts/
+│  │  └─ BaseLayout.astro            # Global shell (header/nav/footer)
+│  ├─ components/
+│  │  ├─ Header.astro                # sticky, accessible nav
+│  │  ├─ Footer.astro
+│  │  ├─ Hero.astro                  # above-the-fold hero; critical CSS only
+│  │  ├─ SectionHeading.astro
+│  │  ├─ ServiceCard.astro
+│  │  ├─ ProjectCard.astro
+│  │  ├─ Lightbox.client.tsx         # island; lazy hydrated on visibility
+│  │  ├─ ContactForm.client.tsx      # island; handles POST to /api/mail
+│  │  ├─ MapEmbed.astro              # iframe lazy + consent gate
+│  │  └─ Reveal.client.tsx           # small IO reveal utility
+│  ├─ content/                       # markdown collections if needed
+│  ├─ styles/
+│  │  └─ globals.css
+│  ├─ utils/
+│  │  ├─ seo.ts                      # meta, canonical, structured data
+│  │  ├─ images.ts                   # picture/srcset helpers
+│  │  ├─ rateLimit.ts                # simple in-memory/token bucket
+│  │  └─ validators.ts               # zod schemas for forms
+│  └─ i18n/                          # optional TR/EN dictionaries
+├─ public/                           # static assets (favicons, og images)
+├─ astro.config.mjs
+├─ netlify.toml
+├─ tailwind.config.js
+├─ tsconfig.json
+├─ .env.example
+└─ package.json
+Coding standards
+	•	TypeScript everywhere; strict mode on.
+	•	Components must be pure, no business logic in UI.
+	•	Accessibility: semantic HTML, focus states, skip-to-content link, aria-labels on nav toggles, form labels always visible.
+	•	Hydration directives: prefer client:visible and client:idle; never client:load unless the component is above-the-fold and essential.
+
+⸻
+
+2) Performance & Lazy-Loading Policy
+	•	Images: Use <picture> with AVIF → WebP → fallback. Generate responsive sizes (320/640/960/1280/1600). Use loading="lazy" and decoding="async" for non-hero images. Preload one hero image (as="image") only if it materially improves LCP.
+	•	Icons: Prefer inline SVG (tree-shaken). No icon font.
+	•	Scripts: No global JS by default. Any client logic must be inside islands with client:visible or client:idle.
+	•	Fonts: System stack by default. If brand fonts are required, self-hosted, display=swap, preconnect + preload only the needed weights.
+	•	Iframes (maps/videos): Do not load by default. Use a placeholder with a “Load Map/Video” button (consent gate). When clicked, inject <iframe> with loading="lazy", referrerpolicy="no-referrer-when-downgrade", sandbox.
+	•	CSS: Tailwind + a very small global file. Avoid large utility layers inlined in head. Minify, purge enabled.
+	•	Animations: CSS-only where possible. Reduce motion respecting prefers-reduced-motion.
+	•	Third-party: Any 3P script must be async and deferred, with clear justification (analytics only).
+
+Performance budget (mobile)
+	•	HTML < 30KB gz
+	•	CSS < 25KB gz
+	•	JS shipped on home < 35KB gz (islands included)
+	•	LCP < 1.5s (mid-tier), TTI < 2.0s, CLS < 0.02
+
+⸻
+
+3) SEO & Metadata
+	•	Head management: Centralize in seo.ts:
+	•	Dynamic <title>, <meta name="description">, canonical, prev/next for pagination.
+	•	OpenGraph/Twitter cards per page (static OG image in /public/og/*).
+	•	Organization + Website JSON-LD on all pages; BreadcrumbList on inner pages; Product/Service schema on Services; ImageObject for project images.
+	•	sitemap.xml and robots.txt auto-generated.
+	•	hreflang ready (TR/EN) but content can be TR first; default lang="tr".
+	•	Use meaningful H1/H2 and copy from Figma sections (hero H1 + supporting H2).
+
+⸻
+
+4) Navigation & Layout (from Figma)
+	•	Header: sticky; left logo, right nav: Home, About, Services, Projects, Contact.
+	•	Desktop: inline menu.
+	•	Mobile: accessible hamburger → focus-trapped dialog, no scroll bleed.
+	•	Hero: prominent headline + subhead, primary CTA (“Explore Services”) and secondary CTA (“Get a Quote”).
+	•	Sections: Even vertical rhythm, 12–16px grid gutters on mobile, 24–32px on desktop.
+	•	Projects Grid: 3 cols desktop, 2 cols tablet, 1 col mobile. Hover reveals title + short tag.
+	•	Contact: split layout—form (left) + map placeholder (right). Map loads only after consent.
+	•	Footer: quick links, company info, socials; newsletter field optional (no auto-focus).
+
+⸻
+
+5) Pages & Content Rules
+
+5.1 / Home
+	•	Hero: preloaded single background (compressed), no video by default.
+	•	Three highlight tiles for Design, Production, After-Sales (from your brief).
+	•	“About Snapshot”: brief paragraph + “Learn More” link.
+	•	“Featured Projects”: 6 items max with lazy images; “View All” → /projects.
+	•	CTA band: “Plan your exhibition with us” + button → /contact.
+
+5.2 /about
+	•	Professional copy you provided (native TR). Include milestones and capabilities list.
+	•	One process diagram (SVG, inline), lazy-revealed.
+
+5.3 /services
+	•	Cards with icon + title + 2–3 lines, link to anchored details on the same page or separate service slugs if needed.
+	•	Add FAQ accordion (island, client:visible). Content indexable.
+
+5.4 /projects
+	•	Paginated (12 per page).
+	•	Each ProjectCard: image (16:9), title, location/year tags.
+	•	Clicking opens Lightbox (island) or a dedicated /projects/[slug] page (preferred for SEO).
+	•	Add filter chips (e.g., “Stand”, “Modular”, “Custom”) — purely client-side; filtering must not shift layout.
+
+5.5 /contact
+	•	ContactForm island with:
+	•	Fields: name, email, phone (optional), company, subject, message.
+	•	Anti-spam: honeypot field + time-to-submit check; optional reCAPTCHA/hCaptcha toggleable via env.
+	•	On submit: POST JSON to /api/mail; optimistic UI; success/failure states; no page reload.
+	•	Map area: placeholder card with “Load Map” button → inject sanitized iframe (lazy).
+
+⸻
+
+6) Gmail Token Mail Service (No Netlify Forms)
+
+Transport: Nodemailer with Gmail OAuth2 (refresh token flow).
+Secrets: stored as env on Netlify.
+Endpoint: POST /api/mail (Astro endpoint → runs as Netlify Function).
+
+6.1 Environment Variables (.env.example)
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GOOGLE_REFRESH_TOKEN=
+GMAIL_SENDER_ADDRESS=info@yourdomain.com
+MAIL_TO=info@yourdomain.com
+HCAPTCHA_SECRET=            # optional
+RECAPTCHA_SECRET=           # optional
+RATE_LIMIT_MAX=10           # req per IP per 10 min
+6.2 Validation & Security
+	•	Validate body with zod (name, email, subject, message required; company/phone optional).
+	•	Sanitize strings; strip HTML; 10KB max payload.
+	•	Rate-limit per IP (token bucket, memory; acceptable for low-volume; can be upgraded to Upstash/Redis later).
+	•	Verify anti-spam: honeypot must be empty; min 3 seconds before submit; optional captcha verify if secrets present.
+	•	CORS: same-origin only.
+	•	Return codes: 200 ok, 400 validation, 429 throttled, 500 transport error.
+
+6.3 Mail Format
+	•	Subject: [Website Contact] {subject} — {name}
+	•	Text: plain text fallback.
+	•	HTML: table-based simple layout, no external images; includes submit time + client IP (if available).
+
+⸻
+
+7) Tailwind & Styling
+	•	Use CSS variables for brand colors; keep a neutral, corporate palette aligned with Figma.
+	•	Container widths: max-w-screen-xl center; section spacing py-16 md:py-24.
+	•	Buttons: primary (solid), secondary (outline). Focus rings visible.
+	•	Use @layer components for recurrent UI (cards, badges).
+
+⸻
+
+8) Accessibility
+	•	Color contrast ≥ 4.5:1 for text; 3:1 for large text.
+	•	All interactive elements keyboard-operable.
+	•	Skip link at top to #main.
+	•	Form: labels bound to inputs; error text under field; success region role="status".
+
+⸻
+
+9) Analytics & Privacy
+	•	Use lightweight, privacy-friendly analytics (e.g., Netlify Analytics or self-hosted simple script). Must be deferred and opt-out ready.
+	•	No tracking cookies by default. If a map/video provider sets cookies, gate behind user click.
+
+⸻
+
+10) Netlify Deployment
+
+astro.config.mjs
+	•	Use @astrojs/netlify adapter (SSR functions enabled).
+	•	Enable image service (Sharp).
+
+netlify.toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[plugins]]
+  package = "@netlify/edge-functions" # if needed for redirects/headers (optional)
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self'; frame-src https:;"
+
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap-index.xml"
+  status = 200
+
+  11) Commands & Tooling
+	•	npm run dev — Astro dev
+	•	npm run build — production build
+	•	npm run preview — preview
+	•	npm run lint / npm run format — quality gates
+ESLint: eslint:recommended, @typescript-eslint/recommended, Astro plugin.
+Prettier: Astro + Tailwind plugin.
+
+⸻
+
+12) Implementation Notes (Key Snippets)
+
+12.1 Astro Endpoint /src/pages/api/mail.ts
+	•	Create a serverless handler that:
+	1.	Parses JSON, validates with zod
+	2.	Runs rate limit + honeypot/time guard (+ captcha if env set)
+	3.	Sends with Nodemailer OAuth2
+	4.	Returns JSON { ok: true } or { ok: false, error }
+
+12.2 ContactForm Island
+	•	React/TSX component with controlled inputs, inline zod validation before POST, disables button while sending, shows success banner on 200, else error.
+
+12.3 Image Helper
+	•	Utility that returns a <picture> snippet with AVIF/WebP/srcset + sizes. Never hard-code width/height without aspect-ratio set to prevent layout shift.
+
+⸻
+
+13) Acceptance Criteria (Definition of Done)
+	•	Pixel-fit to Figma spacing/typography.
+	•	Lighthouse (mobile) ≥ 95/95/95/95.
+	•	Web Vitals synthetic check: LCP < 1.5s, CLS < 0.02, INP < 200ms.
+	•	All images responsive with AVIF/WebP + lazy except hero.
+	•	No client JS on /about and /services beyond reveal/accordion; /projects only lightbox/filter islands; /contact only form island.
+	•	Mail tested end-to-end with real Gmail OAuth2 tokens on Netlify; error scenarios handled.
+	•	Sitemap/robots present; OG/Twitter cards validated.
+	•	No console errors/warnings; 0 ESLint errors; Prettier clean.
+
+⸻
+
+14) Tasks for Cursor (Auto-Complete Prompts)
+	1.	Scaffold project
+	•	Create Astro project with Tailwind + TS, add Netlify adapter, Sharp, ESLint/Prettier.
+	2.	Build BaseLayout + Header/Footer from Figma; implement sticky nav and mobile drawer.
+	3.	Home sections: Hero → Highlights → About snapshot → Featured projects → CTA band.
+	4.	Inner pages with content blocks from Figma.
+	5.	Projects: card grid, slug pages, simple client filter, optional lightbox island.
+	6.	Contact: build ContactForm island + /api/mail endpoint; implement anti-spam + rate limit.
+	7.	SEO: add seo.ts, schema, OG images, sitemap/robots, canonical.
+	8.	Performance pass: images, preloads, hydration audit, font policy.
+	9.	QA: accessibility checks, forms, email delivery, deploy to Netlify with envs.
+
+⸻
+
+15) Environment & Secrets Setup (Netlify)
+	•	Add env vars from .env.example.
+	•	Grant Gmail API credentials and generate refresh token for the sender account (least-privilege; App Passwords are not used).
+	•	Rotate tokens quarterly; monitor 5xx from /api/mail.
+
+⸻
+
+16) Future-Proofing
+	•	Optional CMS (content collections) later without changing routes.
+	•	Project data as Markdown/JSON for SEO-friendly slugs.
+	•	Switchable i18n (TR default, EN secondary) via route groups /tr/* /en/* with hreflang.
+
+⸻
+
+Final Notes
+	•	No Netlify Forms anywhere. All form posts go to /api/mail.
+	•	Map/video embeds are behind a click-to-load consent gate.
+	•	Keep island JS footprint minimal and always lazy hydrate.
+    

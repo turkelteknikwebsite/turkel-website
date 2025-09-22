@@ -281,6 +281,145 @@
         "/projects/elcom-2019-totan-elektrik/gallery/9.jpg",
         "/projects/elcom-2019-totan-elektrik/gallery/10.jpg"
       ]
+    },
+    {
+      "id": "Electro-2023-federal-elektrik",
+      "title": "Electro 2023 Federal Elektrik",
+      "fairName": "Electro 2023 Federal Elektrik",
+      "location": "Rusya",
+      "date": "2023",
+      "company": "Federal Elektrik",
+      "type": "Premium Ahşap Stant",
+      "category": "Elektrik",
+      "featured": false,
+      "mainImage": "/projects/electro-2023-federal-elektrik/main.jpg",
+      "gallery": [
+        "/projects/electro-2023-federal-elektrik/gallery/1.jpg",
+        "/projects/electro-2023-federal-elektrik/gallery/2.jpg",
+        "/projects/electro-2023-federal-elektrik/gallery/3.jpg",
+        "/projects/electro-2023-federal-elektrik/gallery/4.jpg",
+        "/projects/electro-2023-federal-elektrik/gallery/5.jpg",
+        "/projects/electro-2023-federal-elektrik/gallery/6.jpg",
+        "/projects/electro-2023-federal-elektrik/gallery/7.jpg",
+        "/projects/electro-2023-federal-elektrik/gallery/8.jpg"
+      ]
+    },
+    {
+      "id": "Leshow-İstanbul-Podyum",
+      "title": "Leshow-İstanbul-Podyum",
+      "fairName": "Leshow-İstanbul-Podyum",
+      "location": "İstanbul",
+      "date": "2020",
+      "company": "Podyum",
+      "type": "Podyum",
+      "category": "Podyum Tasarımı",
+      "featured": false,
+      "mainImage": "/projects/leshow-istanbul-podyum/main.jpg",
+      "gallery": [
+        "/projects/leshow-istanbul-podyum/gallery/1.jpg",
+        "/projects/leshow-istanbul-podyum/gallery/2.jpg",
+        "/projects/leshow-istanbul-podyum/gallery/3.jpg",
+        "/projects/leshow-istanbul-podyum/gallery/4.jpg",
+        "/projects/leshow-istanbul-podyum/gallery/5.jpg",
+        "/projects/leshow-istanbul-podyum/gallery/6.jpg",
+        "/projects/leshow-istanbul-podyum/gallery/7.jpg",
+        "/projects/leshow-istanbul-podyum/gallery/8.jpg",
+        "/projects/leshow-istanbul-podyum/gallery/9.jpg",
+        "/projects/leshow-istanbul-podyum/gallery/10.jpg",
+        "/projects/leshow-istanbul-podyum/gallery/11.jpg",
+        "/projects/leshow-istanbul-podyum/gallery/12.jpg",
+        "/projects/leshow-istanbul-podyum/gallery/13.jpg",
+        "/projects/leshow-istanbul-podyum/gallery/14.jpg",
+        "/projects/leshow-istanbul-podyum/gallery/15.jpg",
+        "/projects/leshow-istanbul-podyum/gallery/16.jpg"
+      ]
+    }, 
+    {
+      "id": "Boot-Dusseldorf-2025-Setur-Marinas",
+      "title": "Boot Dusseldorf 2025 Setur Marinas",
+      "fairName": "Boot Dusseldorf 2025 Setur Marinas",
+      "location": "Almanya",
+      "date": "2025",
+      "company": "Setur Marinas",
+      "type": "Premium Ahşap Stant",
+      "category": "Elektrik",
+      "featured": false,
+      "mainImage": "/projects/boot-2025-setur-marinas/main.jpg",
+      "gallery": [
+        "/projects/boot-2025-setur-marinas/gallery/1.jpg",
+        "/projects/boot-2025-setur-marinas/gallery/2.jpg",
+        "/projects/boot-2025-setur-marinas/gallery/3.jpg"
+      ]
+    },
+    {
+      "id": "Dubai-Middle-East-Energy-2025-beta-enerji",
+      "title": "Dubai Middle East Energy 2025 Beta Enerji",
+      "fairName": "Dubai Middle East Energy 2025 Beta Enerji",
+      "location": "BAE",
+      "date": "2025",
+      "company": "Beta Enerji",
+      "type": "Premium Ahşap Stant",
+      "category": "enerji",
+      "featured": false,
+      "mainImage": "/projects/dubai-middle-east-energy-2025-beta-enerji/main.jpg",
+      "gallery": [
+        "/projects/dubai-middle-east-energy-2025-beta-enerji/gallery/1.jpg",
+        "/projects/dubai-middle-east-energy-2025-beta-enerji/gallery/2.jpg",
+        "/projects/dubai-middle-east-energy-2025-beta-enerji/gallery/3.jpg"
+      ]
+    },
+    {
+      "id": "Dubai-Middle-East-Energy-2025-isildar-plastic",
+      "title": "Dubai Middle East Energy 2025 Işıldar Plastik",
+      "fairName": "Dubai Middle East Energy 2025 Işıldar Plastik",
+      "location": "BAE",
+      "date": "2025",
+      "company": "Beta Enerji",
+      "type": "Premium Ahşap Stant",
+      "category": "plastik",
+      "featured": false,
+      "mainImage": "/projects/dubai-middle-east-energy-2025-isildar-plastic/main.jpg",
+      "gallery": [
+        "/projects/dubai-middle-east-energy-2025-isildar-plastic/gallery/1.jpg",
+        "/projects/dubai-middle-east-energy-2025-isildar-plastic/gallery/2.jpg",
+        "/projects/dubai-middle-east-energy-2025-isildar-plastic/gallery/3.jpg",
+        "/projects/dubai-middle-east-energy-2025-isildar-plastic/gallery/4.jpg"
+      ]
+    },
+    {
+      "id": "Dubai-Middle-East-Energy-2025-kym-kablo",
+      "title": "Dubai Middle East Energy 2025 Kym Kablo",
+      "fairName": "Dubai Middle East Energy 2025 Kym Kablo",
+      "location": "BAE",
+      "date": "2025",
+      "company": "Beta Enerji",
+      "type": "Premium Ahşap Stant",
+      "category": "kablo",
+      "featured": false,
+      "mainImage": "/projects/dubai-middle-east-energy-2025-kym-kablo/main.jpg",
+      "gallery": [
+        "/projects/dubai-middle-east-energy-2025-kym-kablo/gallery/1.jpg",
+        "/projects/dubai-middle-east-energy-2025-kym-kablo/gallery/2.jpg",
+        "/projects/dubai-middle-east-energy-2025-kym-kablo/gallery/3.jpg"
+      ]
+    },
+    {
+      "id": "Dubai-Middle-East-Energy-2025-pektas-kablo",
+      "title": "Dubai Middle East Energy 2025 Pektaş Kablo",
+      "fairName": "Dubai Middle East Energy 2025 Pektaş Kablo",
+      "location": "BAE",
+      "date": "2025",
+      "company": "Beta Enerji",
+      "type": "Premium Ahşap Stant",
+      "category": "kablo",
+      "featured": false,
+      "mainImage": "/projects/dubai-middle-east-energy-2025-pektas-kablo/main.jpg",
+      "gallery": [
+        "/projects/dubai-middle-east-energy-2025-pektas-kablo/gallery/1.jpg",
+        "/projects/dubai-middle-east-energy-2025-pektas-kablo/gallery/2.jpg",
+        "/projects/dubai-middle-east-energy-2025-pektas-kablo/gallery/3.jpg",
+        "/projects/dubai-middle-east-energy-2025-pektas-kablo/gallery/4.jpg"
+      ]
     }
   ],
   "categories": [

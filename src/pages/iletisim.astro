@@ -397,7 +397,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       try {
         // Collect form data
         const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
+        const data: Record<string, any> = Object.fromEntries(formData.entries());
         
         // Add timestamp
         data.timestamp = parseInt(timestampField.value);

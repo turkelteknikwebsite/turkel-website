@@ -332,7 +332,25 @@
         "/projects/leshow-istanbul-podyum/gallery/15.jpg",
         "/projects/leshow-istanbul-podyum/gallery/16.jpg"
       ]
-    }, 
+    },
+    {
+      "id": "Leshow-Moscow-Podyum",
+      "title": "Leshow-Moscow-Podyum",
+      "fairName": "Leshow-Moscow-Podyum",
+      "location": "Moscow",
+      "date": "2022",
+      "company": "Podyum",
+      "type": "Podyum",
+      "category": "Podyum Tasarımı",
+      "featured": false,
+      "mainImage": "/projects/leshow-moscow-podyum/main.jpg",
+      "gallery": [
+        "/projects/leshow-moscow-podyum/gallery/1.jpg",
+        "/projects/leshow-moscow-podyum/gallery/2.jpg",
+        "/projects/leshow-moscow-podyum/gallery/3.jpg",
+        "/projects/leshow-moscow-podyum/gallery/4.jpg"
+      ]
+    },
     {
       "id": "Boot-Dusseldorf-2025-Setur-Marinas",
       "title": "Boot Dusseldorf 2025 Setur Marinas",
@@ -480,7 +498,7 @@
       "id": "interauto-moscow-2019-akin-oto",
       "title": "Interauto Moscow 2019 Akin Otomotiv",
       "fairName": "Interauto Moscow 2019 Akin Otomotiv",
-      "location": "Interauto",
+      "location": "Moscow",
       "date": "2019",
       "company": "Akin Otomotiv",
       "type": "Premium Ahşap Stant",
@@ -495,11 +513,11 @@
     },
     {
       "id": "interauto-moscow-2019-ita-meks",
-      "title": "Interauto Moscow 2019 ITA Mesk",
-      "fairName": "Interauto Moscow 2019 ITA Mesk",
-      "location": "Interauto",
+      "title": "Interauto Moscow 2019 ITA Meks",
+      "fairName": "Interauto Moscow 2019 ITA Meks",
+      "location": "Moscow",
       "date": "2019",
-      "company": "ITA Mesk",
+      "company": "ITA Meks",
       "type": "Premium Ahşap Stant",
       "category": "Otomotiv",
       "featured": false,
@@ -514,7 +532,7 @@
       "id": "interauto-moscow-2019-atek-makine",
       "title": "Interauto Moscow 2019 Atek Makine",
       "fairName": "Interauto Moscow 2019 Atek Makine",
-      "location": "Interauto",
+      "location": "Moscow",
       "date": "2019",
       "company": "Atek Makine",
       "type": "Premium Ahşap Stant",
@@ -525,6 +543,42 @@
         "/projects/interauto-moscow-2019-atek-makine/gallery/1.jpg",
         "/projects/interauto-moscow-2019-atek-makine/gallery/2.jpg",
         "/projects/interauto-moscow-2019-atek-makine/gallery/3.jpg"
+      ]
+    },
+    {
+      "id": "kazakistan-homedeco-2025-Stantlarimiz",
+      "title": "Kazakistan HomeDeco 2025 Stantlarımız",
+      "fairName": "Kazakistan HomeDeco 2025 Stantlarımız",
+      "location": "Kazakistan",
+      "date": "2025",
+      "company": "Stantlarımız",
+      "type": "Premium Ahşap Stant",
+      "category": "Ev Tekstil",
+      "featured": false,
+      "mainImage": "/projects/kazakistan-homedeco-2025-stantlarimiz/main.jpg",
+      "gallery": [
+        "/projects/kazakistan-homedeco-2025-stantlarimiz/gallery/1.jpg",
+        "/projects/kazakistan-homedeco-2025-stantlarimiz/gallery/2.jpg",
+        "/projects/kazakistan-homedeco-2025-stantlarimiz/gallery/3.jpg"
+      ]
+    },
+    {
+      "id": "kazakistan-homedeco-2019-Kismet",
+      "title": "Kazakistan HomeDeco 2019 Kısmet",
+      "fairName": "Kazakistan HomeDeco 2019 Kısmet",
+      "location": "Kazakistan",
+      "date": "2019",
+      "company": "Stantlarımız",
+      "type": "Premium Ahşap Stant",
+      "category": "Ev Tekstil",
+      "featured": false,
+      "mainImage": "/projects/kazakistan-homedeco-2019-kismet/main.jpg",
+      "gallery": [
+        "/projects/kazakistan-homedeco-2019-kismet/gallery/1.jpg",
+        "/projects/kazakistan-homedeco-2019-kismet/gallery/2.jpg",
+        "/projects/kazakistan-homedeco-2019-kismet/gallery/3.jpg",
+        "/projects/kazakistan-homedeco-2019-kismet/gallery/4.jpg",
+        "/projects/kazakistan-homedeco-2019-kismet/gallery/5.jpg"
       ]
     }
   ],

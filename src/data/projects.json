@@ -419,6 +419,113 @@
         "/projects/dubai-middle-east-energy-2025-pektas-kablo/gallery/3.jpg",
         "/projects/dubai-middle-east-energy-2025-pektas-kablo/gallery/4.jpg"
       ]
+    },
+    {
+      "id": "heimtextile-moscow-2024-elizabeth",
+      "title": "Heimtextile Moscow 2024 Elizabeth",
+      "fairName": "Heimtextile Moscow 2024 Elizabeth",
+      "location": "Heimtextile",
+      "date": "2024",
+      "company": "Elizabeth",
+      "type": "Premium Ahşap Stant",
+      "category": "Tekstil",
+      "featured": false,
+      "mainImage": "/projects/heimtextile-moscow-2024-elizabeth/main.jpg",
+      "gallery": [
+        "/projects/heimtextile-moscow-2024-elizabeth/gallery/1.jpg",
+        "/projects/heimtextile-moscow-2024-elizabeth/gallery/2.jpg",
+        "/projects/heimtextile-moscow-2024-elizabeth/gallery/3.jpg",
+        "/projects/heimtextile-moscow-2024-elizabeth/gallery/4.jpg"
+      ]
+    },
+    {
+      "id": "heimtextile-moscow-2024-fortez",
+      "title": "Heimtextile Moscow 2024 Fortez",
+      "fairName": "Heimtextile Moscow 2024 Fortez",
+      "location": "Heimtextile",
+      "date": "2024",
+      "company": "Fortez",
+      "type": "Premium Ahşap Stant",
+      "category": "Tekstil",
+      "featured": false,
+      "mainImage": "/projects/heimtextile-moscow-2024-elizabeth/main.jpg",
+      "gallery": [
+        "/projects/heimtextile-moscow-2024-elizabeth/gallery/1.jpg",
+        "/projects/heimtextile-moscow-2024-elizabeth/gallery/2.jpg",
+        "/projects/heimtextile-moscow-2024-elizabeth/gallery/3.jpg",
+        "/projects/heimtextile-moscow-2024-elizabeth/gallery/4.jpg"
+      ]
+    },
+    {
+      "id": "heimtextile-moscow-2024-karna",
+      "title": "Heimtextile Moscow 2024 Karna",
+      "fairName": "Heimtextile Moscow 2024 Karna",
+      "location": "Heimtextile",
+      "date": "2024",
+      "company": "Karna",
+      "type": "Premium Ahşap Stant",
+      "category": "Tekstil",
+      "featured": false,
+      "mainImage": "/projects/heimtextile-moscow-2024-elizabeth/main.jpg",
+      "gallery": [
+        "/projects/heimtextile-moscow-2024-elizabeth/gallery/1.jpg",
+        "/projects/heimtextile-moscow-2024-elizabeth/gallery/2.jpg",
+        "/projects/heimtextile-moscow-2024-elizabeth/gallery/3.jpg",
+        "/projects/heimtextile-moscow-2024-elizabeth/gallery/4.jpg",
+        "/projects/heimtextile-moscow-2024-elizabeth/gallery/5.jpg",
+        "/projects/heimtextile-moscow-2024-elizabeth/gallery/6.jpg"
+      ]
+    },
+    {
+      "id": "interauto-moscow-2019-akin-oto",
+      "title": "Interauto Moscow 2019 Akin Otomotiv",
+      "fairName": "Interauto Moscow 2019 Akin Otomotiv",
+      "location": "Interauto",
+      "date": "2019",
+      "company": "Akin Otomotiv",
+      "type": "Premium Ahşap Stant",
+      "category": "Otomotiv",
+      "featured": false,
+      "mainImage": "/projects/interauto-moscow-2019-akin-oto/main.jpg",
+      "gallery": [
+        "/projects/interauto-moscow-2019-akin-oto/gallery/1.jpg",
+        "/projects/interauto-moscow-2019-akin-oto/gallery/2.jpg",
+        "/projects/interauto-moscow-2019-akin-oto/gallery/3.jpg"
+      ]
+    },
+    {
+      "id": "interauto-moscow-2019-ita-meks",
+      "title": "Interauto Moscow 2019 ITA Mesk",
+      "fairName": "Interauto Moscow 2019 ITA Mesk",
+      "location": "Interauto",
+      "date": "2019",
+      "company": "ITA Mesk",
+      "type": "Premium Ahşap Stant",
+      "category": "Otomotiv",
+      "featured": false,
+      "mainImage": "/projects/interauto-moscow-2019-ita-meks/main.jpg",
+      "gallery": [
+        "/projects/interauto-moscow-2019-ita-meks/gallery/1.jpg",
+        "/projects/interauto-moscow-2019-ita-meks/gallery/2.jpg",
+        "/projects/interauto-moscow-2019-ita-meks/gallery/3.jpg"
+      ]
+    },
+    {
+      "id": "interauto-moscow-2019-atek-makine",
+      "title": "Interauto Moscow 2019 Atek Makine",
+      "fairName": "Interauto Moscow 2019 Atek Makine",
+      "location": "Interauto",
+      "date": "2019",
+      "company": "Atek Makine",
+      "type": "Premium Ahşap Stant",
+      "category": "Otomotiv",
+      "featured": false,
+      "mainImage": "/projects/interauto-moscow-2019-atek-makine/main.jpg",
+      "gallery": [
+        "/projects/interauto-moscow-2019-atek-makine/gallery/1.jpg",
+        "/projects/interauto-moscow-2019-atek-makine/gallery/2.jpg",
+        "/projects/interauto-moscow-2019-atek-makine/gallery/3.jpg"
+      ]
     }
   ],
   "categories": [

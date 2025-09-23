@@ -2,8 +2,22 @@
 // Projects Section Component
 import projectsData from '../data/projects.json';
 
-// Sadece öne çıkan projeleri al
-const featuredProjects = projectsData.projects.filter(project => project.featured);
+// Sadece öne çıkan projeleri al ve sırala
+const featuredProjects = projectsData.projects
+  .filter(project => project.featured)
+  .sort((a, b) => {
+    // Tarihleri sayıya çevir (örn: "2023" → 2023)
+    const yearA = parseInt(a.date);
+    const yearB = parseInt(b.date);
+    
+    // Önce yıla göre sırala (büyükten küçüğe - en yeni en üstte)
+    if (yearA !== yearB) {
+      return yearB - yearA;
+    }
+    
+    // Aynı yılsa, başlığa göre alfabetik sırala (A-Z)
+    return a.title.localeCompare(b.title, 'tr', { sensitivity: 'base' });
+  });
 ---
 
 <section class="py-section-lg">

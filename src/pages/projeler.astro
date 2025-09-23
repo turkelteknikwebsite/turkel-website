@@ -2,8 +2,23 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import projectsData from '../data/projects.json';
 
-// Proje verilerini hazırla
-const projects = projectsData.projects;
+// Proje verilerini hazırla ve sırala
+// 1. Yıla göre sırala (en yeni → en eski)
+// 2. Aynı yıldaki projeleri alfabetik sırala (A → Z)
+const projects = projectsData.projects.sort((a, b) => {
+  // Tarihleri sayıya çevir (örn: "2023" → 2023)
+  const yearA = parseInt(a.date);
+  const yearB = parseInt(b.date);
+  
+  // Önce yıla göre sırala (büyükten küçüğe - en yeni en üstte)
+  if (yearA !== yearB) {
+    return yearB - yearA;
+  }
+  
+  // Aynı yılsa, başlığa göre alfabetik sırala (A-Z)
+  return a.title.localeCompare(b.title, 'tr', { sensitivity: 'base' });
+});
+
 const categories = projectsData.categories;
 ---
 

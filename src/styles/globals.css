@@ -46,7 +46,7 @@
 
   /* Section headings */
   .section-heading {
-    @apply font-hanken text-h2 text-navy leading-tight;
+    @apply font-hanken text-h3 text-navy leading-tight;
   }
 
   .section-subheading {

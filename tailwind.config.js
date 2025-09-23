@@ -18,6 +18,7 @@ module.exports = {
       fontSize: {
         'h1': ['120px', { lineHeight: '1.083', fontWeight: '500' }],
         'h2': ['110px', { lineHeight: '1.091', fontWeight: '500' }],
+        'h3': ['48px', { lineHeight: '1.2', fontWeight: '500' }],
         'h4': ['32px', { lineHeight: '1.313', fontWeight: '500' }],
         'h5': ['40px', { lineHeight: '1.25', fontWeight: '500' }],
         'body': ['16px', { lineHeight: '1.625', fontWeight: '400' }],

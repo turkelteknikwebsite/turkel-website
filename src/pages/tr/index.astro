@@ -13,8 +13,8 @@ const t = useTranslations(lang);
 ---
 
 <BaseLayout 
-  title="Türkel Global Stands - Exhibition Stand Design and Production"
-  description="Expert company in exhibition stand design and production. Custom decor stand, modular stand and group stand solutions to represent your brand in the strongest way in the exhibition area."
+  title="Türkel Global Stands - Fuar Standı Tasarım ve Üretimi"
+  description="Fuar standı tasarım ve üretiminde uzman firma. Özel dekor stand, modüler stand ve grup stand çözümleriyle fuar alanında markanızı en güçlü şekilde temsil etmek için buradayız."
 >
   <!-- Hero Section -->
   <section class="relative overflow-hidden h-screen min-h-[600px] max-h-[980px]" id="hero-slider">
@@ -25,7 +25,7 @@ const t = useTranslations(lang);
         <div class="absolute inset-0 h-full">
           <img 
             src="/hero-bg.jpg" 
-            alt="Türkel Global Stands - Elcom Exhibition Stand" 
+            alt="Türkel Global Stands - Elcom Fuar Standı" 
             class="w-full h-full object-cover"
             loading="eager"
             width="1920"
@@ -39,7 +39,7 @@ const t = useTranslations(lang);
         <div class="absolute inset-0 h-full">
           <img 
             src="/hero-bg-2.jpg" 
-            alt="Türkel Global Stands - Mebel Exhibition Stand" 
+            alt="Türkel Global Stands - Mebel Fuar Standı" 
             class="w-full h-full object-cover"
             loading="lazy"
             width="1920"
@@ -53,7 +53,7 @@ const t = useTranslations(lang);
         <div class="absolute inset-0 h-full">
           <img 
             src="/hero-bg-3.jpg" 
-            alt="Türkel Global Stands - İtm Exhibition Stand" 
+            alt="Türkel Global Stands - Teknoloji Fuar Standı" 
             class="w-full h-full object-cover"
             loading="lazy"
             width="1920"
@@ -61,16 +61,17 @@ const t = useTranslations(lang);
           />
         </div>
       </div>
-    </div>
-    
-    <!-- Overlay Content -->
-    <div class="absolute inset-0 z-10">
-      <div class="container h-full">
-        <div class="relative h-full">
+
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-black/40"></div>
+
+      <!-- Content -->
+      <div class="relative z-10 h-full flex items-center">
+        <div class="container">
           <!-- Mobile Projects Button - Bottom Center -->
           <div class="absolute bottom-24 left-1/2 transform -translate-x-1/2 md:hidden z-20">
-            <a href="/en/projects" class="inline-flex items-center px-6 py-3 bg-orange text-white text-sm font-medium rounded-lg hover:bg-orange/90 transition-colors duration-300 shadow-xl border-2 border-white/20">
-              <span>All Projects</span>
+            <a href="/projeler" class="inline-flex items-center px-6 py-3 bg-orange text-white text-sm font-medium rounded-lg hover:bg-orange/90 transition-colors duration-300 shadow-xl border-2 border-white/20">
+              <span>{t('projects.viewAll')}</span>
               <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
@@ -92,12 +93,12 @@ const t = useTranslations(lang);
               <div class="flex flex-col md:flex-row md:items-start md:justify-between space-y-4 md:space-y-0">
                 <!-- Left Section: Project Info -->
                 <div class="flex-shrink-0">
-                  <p class="text-body mb-2">Projects</p>
+                  <p class="text-body mb-2">Projeler</p>
                   <h1 class="text-2xl md:text-4xl font-semibold text-white leading-tight max-w-md mb-4" id="slide-title">
-                    Modern Premium Stand Design
+                    Modern Premium Stand Tasarımı
                   </h1>
-                  <a href="/en/projects" class="inline-flex items-center px-6 py-3 bg-orange text-white text-sm font-medium rounded-lg hover:bg-orange/90 transition-colors duration-300">
-                    <span>All Projects</span>
+                  <a href="/projeler" class="inline-flex items-center px-6 py-3 bg-orange text-white text-sm font-medium rounded-lg hover:bg-orange/90 transition-colors duration-300">
+                    <span>{t('projects.viewAll')}</span>
                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
@@ -108,25 +109,25 @@ const t = useTranslations(lang);
                 <div class="flex-1 md:mx-12">
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-4">
                     <div>
-                      <p class="text-body opacity-50 mb-1">Location</p>
-                      <p class="text-body" id="slide-location">Ukraine</p>
+                      <p class="text-body opacity-50 mb-1">Lokasyon</p>
+                      <p class="text-body" id="slide-location">Ukrayna</p>
                     </div>
                     <div>
-                      <p class="text-body opacity-50 mb-1">Exhibition</p>
+                      <p class="text-body opacity-50 mb-1">Fuar</p>
                       <p class="text-body" id="slide-fair">Elcom</p>
                     </div>
                     
                     <div>
-                      <p class="text-body opacity-50 mb-1">Date</p>
+                      <p class="text-body opacity-50 mb-1">Tarih</p>
                       <p class="text-body" id="slide-year">2019</p>
                     </div>
                     <div>
-                      <p class="text-body opacity-50 mb-1">Company</p>
+                      <p class="text-body opacity-50 mb-1">Firma</p>
                       <p class="text-body" id="slide-company">Mutlusan</p>
                     </div>
                     
                     <div class="md:col-span-2">
-                      <p class="text-body opacity-50 mb-1">Stand Type</p>
+                      <p class="text-body opacity-50 mb-1">Stand Tipi</p>
                       <p class="text-body" id="slide-type">Premium Stand</p>
                     </div>
                   </div>
@@ -154,43 +155,43 @@ const t = useTranslations(lang);
       </div>
     </div>
 
-    <!-- Slider JavaScript -->
-    <script>
+    <!-- JavaScript for Hero Slider -->
+    <script is:inline>
       document.addEventListener('DOMContentLoaded', function() {
         const slides = [
           {
-            title: "Modern Premium Stand Design",
-            location: "Ukraine",
+            title: "Modern Premium Stand Tasarımı",
+            location: "Ukrayna",
             fair: "Elcom",
             year: "2019",
             company: "Mutlusan",
             type: "Premium Stand"
           },
           {
-            title: "Modern Premium Stand Design",
-            location: "Russia",
+            title: "Modern Premium Stand Tasarımı",
+            location: "Türkiye",
             fair: "Mebel",
-            year: "2022",
-            company: "Ece Boya",
-            type: "Premium Stand"
+            year: "2020",
+            company: "Yıldız Mobilya",
+            type: "Özel Dekor Stand"
           },
           {
-            title: "Modern Premium Stand Design",
-            location: "Turkey",
-            fair: "İtm",
-            year: "2022",
-            company: "Lohia",
-            type: "Premium Stand"
+            title: "Teknoloji Stand Tasarımı",
+            location: "Almanya",
+            fair: "CeBIT",
+            year: "2021",
+            company: "TechCorp",
+            type: "Modüler Stand"
           }
         ];
-
-        let currentSlide = 0;
-        const totalSlides = slides.length;
 
         const slideElements = document.querySelectorAll('.hero-slide');
         const nextBtn = document.getElementById('next-slide');
         const prevBtn = document.getElementById('prev-slide');
         const currentSlideElement = document.getElementById('current-slide');
+        
+        let currentSlide = 0;
+        const totalSlides = slides.length;
 
         // Update slide content
         function updateSlideContent(index: number) {

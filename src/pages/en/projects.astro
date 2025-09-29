@@ -196,11 +196,137 @@ const projects = projectsData.projects;
       });
     }
 
-    // Rest of the JavaScript logic (same as Turkish version)
-    // ... (keeping it short for brevity, but would include all the filtering, modal, and event handling logic)
+    function updateActiveMainFilter() {
+      const mainFilterBtns = document.querySelectorAll('.main-filter-btn');
+      mainFilterBtns.forEach(btn => {
+        const category = btn.getAttribute('data-category');
+        if (category === currentMainCategory) {
+          btn.classList.add('active');
+          btn.style.cssText = 'display: inline-block; padding: 8px 12px; font-size: 12px; font-weight: 500; color: white; background: #f97316; border: 1px solid #f97316; border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap; box-shadow: 0 4px 12px rgba(249, 115, 22, 0.25);';
+        } else {
+          btn.classList.remove('active');
+          btn.style.cssText = 'display: inline-block; padding: 8px 12px; font-size: 12px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;';
+        }
+      });
+    }
+
+    function showSubFilters() {
+      const subFiltersContainer = document.getElementById('sub-filters');
+      if (!subFiltersContainer) return;
+
+      // Get unique sub-categories for stand-tasarimlari
+      const standProjects = projects.filter(p => getMainCategory(p) === 'stand-tasarimlari');
+      const subCategories = [...new Set(standProjects.map(p => p.subCategory).filter(Boolean))];
+      
+      // Limit to 5 sub-categories + "Other"
+      const displayedSubCategories = subCategories.slice(0, 5);
+      const hasOtherCategories = subCategories.length > 5 || standProjects.some(p => !p.subCategory);
+
+      let subFiltersHTML = `
+        <button class="sub-filter-btn active" data-subcategory="all" style="display: inline-block; padding: 6px 10px; font-size: 11px; font-weight: 500; color: white; background: #f97316; border: 1px solid #f97316; border-radius: 5px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap; box-shadow: 0 2px 8px rgba(249, 115, 22, 0.2);">
+          All
+        </button>
+      `;
+
+      displayedSubCategories.forEach(subCategory => {
+        const displayName = getSubCategoryDisplayName({subCategory});
+        const count = standProjects.filter(p => p.subCategory === subCategory).length;
+        subFiltersHTML += `
+          <button class="sub-filter-btn" data-subcategory="${subCategory}" style="display: inline-block; padding: 6px 10px; font-size: 11px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 5px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
+            ${displayName} (${count})
+          </button>
+        `;
+      });
+
+      if (hasOtherCategories) {
+        const otherCount = standProjects.filter(p => !displayedSubCategories.includes(p.subCategory)).length;
+        subFiltersHTML += `
+          <button class="sub-filter-btn" data-subcategory="other-categories" style="display: inline-block; padding: 6px 10px; font-size: 11px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 5px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
+            Other (${otherCount})
+          </button>
+        `;
+      }
+
+      subFiltersContainer.innerHTML = subFiltersHTML;
+      subFiltersContainer.style.display = 'flex';
+
+      // Add event listeners to sub-filter buttons
+      const subFilterBtns = document.querySelectorAll('.sub-filter-btn');
+      subFilterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          currentSubCategory = this.getAttribute('data-subcategory');
+          updateActiveSubFilter();
+          renderProjects();
+        });
+      });
+    }
+
+    function hideSubFilters() {
+      const subFiltersContainer = document.getElementById('sub-filters');
+      if (subFiltersContainer) {
+        subFiltersContainer.style.display = 'none';
+      }
+      currentSubCategory = 'all';
+    }
+
+    function updateActiveSubFilter() {
+      const subFilterBtns = document.querySelectorAll('.sub-filter-btn');
+      subFilterBtns.forEach(btn => {
+        const subcategory = btn.getAttribute('data-subcategory');
+        if (subcategory === currentSubCategory) {
+          btn.classList.add('active');
+          btn.style.cssText = 'display: inline-block; padding: 6px 10px; font-size: 11px; font-weight: 500; color: white; background: #f97316; border: 1px solid #f97316; border-radius: 5px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap; box-shadow: 0 2px 8px rgba(249, 115, 22, 0.2);';
+        } else {
+          btn.classList.remove('active');
+          btn.style.cssText = 'display: inline-block; padding: 6px 10px; font-size: 11px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 5px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;';
+        }
+      });
+    }
 
     // Initialize
     document.addEventListener('DOMContentLoaded', function() {
+      // Main filter event listeners
+      const mainFilterBtns = document.querySelectorAll('.main-filter-btn');
+      mainFilterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          currentMainCategory = this.getAttribute('data-category');
+          updateActiveMainFilter();
+          
+          if (currentMainCategory === 'stand-tasarimlari') {
+            showSubFilters();
+          } else {
+            hideSubFilters();
+          }
+          
+          renderProjects();
+        });
+      });
+
+      // Search functionality
+      const searchInput = document.getElementById('search-input');
+      const clearSearchBtn = document.getElementById('clear-search');
+      
+      if (searchInput) {
+        searchInput.addEventListener('input', function() {
+          searchTerm = this.value;
+          renderProjects();
+          
+          // Show/hide clear button
+          if (clearSearchBtn) {
+            clearSearchBtn.style.display = searchTerm ? 'block' : 'none';
+          }
+        });
+      }
+      
+      if (clearSearchBtn) {
+        clearSearchBtn.addEventListener('click', function() {
+          searchInput.value = '';
+          searchTerm = '';
+          this.style.display = 'none';
+          renderProjects();
+        });
+      }
+
       renderProjects();
       
       // URL parameter handling

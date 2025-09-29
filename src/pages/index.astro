@@ -6,6 +6,10 @@ import StatisticsSection from '../components/StatisticsSection.astro';
 import ProjectsSection from '../components/ProjectsSection.astro';
 import CTASection from '../components/CTASection.astro';
 import FAQSection from '../components/FAQSection.astro';
+import { getLangFromUrl, useTranslations } from '../utils/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <BaseLayout 
@@ -189,7 +193,7 @@ import FAQSection from '../components/FAQSection.astro';
         const currentSlideElement = document.getElementById('current-slide');
 
         // Update slide content
-        function updateSlideContent(index: number) {
+        function updateSlideContent(index) {
           const slide = slides[index];
           const titleEl = document.getElementById('slide-title');
           const locationEl = document.getElementById('slide-location');
@@ -208,9 +212,9 @@ import FAQSection from '../components/FAQSection.astro';
         }
 
         // Show slide
-        function showSlide(index: number) {
-          slideElements.forEach((slide: Element, i: number) => {
-            const htmlSlide = slide as HTMLElement;
+        function showSlide(index) {
+          slideElements.forEach((slide, i) => {
+            const htmlSlide = slide;
             if (i === index) {
               htmlSlide.classList.add('active');
               htmlSlide.style.opacity = '1';
@@ -248,22 +252,22 @@ import FAQSection from '../components/FAQSection.astro';
   </section>
 
   <!-- About Section -->
-  <AboutSection />
+  <AboutSection lang={lang} />
 
   <!-- Services Section -->
-  <ServicesSection />
+  <ServicesSection lang={lang} />
 
   <!-- Statistics Section -->
-  <StatisticsSection />
+  <StatisticsSection lang={lang} />
 
   <!-- Projects Section -->
-  <ProjectsSection />
+  <ProjectsSection lang={lang} />
 
   <!-- CTA Section -->
-  <CTASection />
+  <CTASection lang={lang} />
 
   <!-- FAQ Section -->
-  <FAQSection />
+  <FAQSection lang={lang} />
 
   <!-- Partners Section -->
   <section class="py-16 bg-cream/30">

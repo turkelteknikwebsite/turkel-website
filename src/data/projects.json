@@ -285,8 +285,7 @@
       "date": "2020",
       "company": "Podyum",
       "type": "Podyum",
-      "mainCategory": "stand-tasarimlari",
-      "subCategory": "other",
+      "mainCategory": "podyum-tasarimlari",
       "featured": false,
       "mainImage": "/projects/leshow-istanbul-podyum/main.jpg",
       "gallery": [
@@ -315,8 +314,7 @@
       "date": "2022",
       "company": "Podyum",
       "type": "Podyum",
-      "mainCategory": "stand-tasarimlari",
-      "subCategory": "other",
+      "mainCategory": "podyum-tasarimlari",
       "featured": false,
       "mainImage": "/projects/leshow-moscow-podyum/main.jpg",
       "gallery": [
@@ -370,8 +368,7 @@
       "date": "2025",
       "company": "Beta Enerji",
       "type": "Premium Ahşap Stant",
-      "mainCategory": "stand-tasarimlari",
-      "subCategory": "other",
+      "mainCategory": "podyum-tasarimlari",
       "featured": false,
       "mainImage": "/projects/dubai-middle-east-energy-2025-isildar-plastic/main.jpg",
       "gallery": [

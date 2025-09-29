@@ -80,31 +80,14 @@ const projects = projectsData.projects.sort((a, b) => {
           <button class="main-filter-btn" data-category="stand-tasarimlari" style="display: inline-block; padding: 12px 24px; font-size: 14px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 8px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
             Stand Tasarımları
           </button>
+          <button class="main-filter-btn" data-category="podyum-tasarimlari" style="display: inline-block; padding: 12px 24px; font-size: 14px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 8px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
+            Podyum Tasarımları
+          </button>
         </div>
 
         <!-- Sub Category Filter Buttons (for Stand Tasarımları) -->
         <div id="sub-filters" style="display: none; flex-wrap: wrap; justify-content: center; gap: 0.25rem; margin-bottom: 1rem; padding: 0 1rem;">
-          <button class="sub-filter-btn active" data-subcategory="all" style="display: inline-block; padding: 8px 16px; font-size: 12px; font-weight: 500; color: white; background: #f97316; border: 1px solid #f97316; border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
-            Tüm Stand Tasarımları
-          </button>
-          <button class="sub-filter-btn" data-subcategory="mobilya" style="display: inline-block; padding: 8px 16px; font-size: 12px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
-            Mobilya
-          </button>
-          <button class="sub-filter-btn" data-subcategory="teknoloji" style="display: inline-block; padding: 8px 16px; font-size: 12px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
-            Teknoloji
-          </button>
-          <button class="sub-filter-btn" data-subcategory="enerji" style="display: inline-block; padding: 8px 16px; font-size: 12px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
-            Enerji
-          </button>
-          <button class="sub-filter-btn" data-subcategory="tekstil" style="display: inline-block; padding: 8px 16px; font-size: 12px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
-            Tekstil
-          </button>
-          <button class="sub-filter-btn" data-subcategory="otomotiv" style="display: inline-block; padding: 8px 16px; font-size: 12px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
-            Otomotiv
-          </button>
-          <button class="sub-filter-btn" data-subcategory="other" style="display: inline-block; padding: 8px 16px; font-size: 12px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
-            Diğer
-          </button>
+          <!-- Dinamik olarak oluşturulacak -->
         </div>
 
 
@@ -135,7 +118,6 @@ const projects = projectsData.projects.sort((a, b) => {
           const searchInput = document.getElementById('search-input');
           const clearSearchBtn = document.getElementById('clear-search');
           const mainFilterBtns = document.querySelectorAll('.main-filter-btn');
-          const subFilterBtns = document.querySelectorAll('.sub-filter-btn');
           const subFiltersDiv = document.getElementById('sub-filters');
           
           let filteredProjects = [...projects];
@@ -145,7 +127,7 @@ const projects = projectsData.projects.sort((a, b) => {
           
           console.log('✅ Search input:', searchInput);
           console.log('✅ Main filter buttons:', mainFilterBtns.length);
-          console.log('✅ Sub filter buttons:', subFilterBtns.length);
+          console.log('✅ Sub filters div:', subFiltersDiv);
         
         // Proje kartı oluşturma fonksiyonu
         function createProjectCard(project, originalIndex) {
@@ -182,6 +164,7 @@ const projects = projectsData.projects.sort((a, b) => {
           if (project.mainCategory === 'grup-katilim') return 'Grup Katılım Stantlar';
           if (project.mainCategory === 'milli-katilim') return 'Milli Katılım Stantlar';
           if (project.mainCategory === 'stand-tasarimlari') return 'Stand Tasarımları';
+          if (project.mainCategory === 'podyum-tasarimlari') return 'Podyum Tasarımları';
           // Eski category alanı için backward compatibility
           if (project.category === 'grup-katilim') return 'Grup Katılım Stantlar';
           if (project.category === 'milli-katilim') return 'Milli Katılım Stantlar';
@@ -221,10 +204,14 @@ const projects = projectsData.projects.sort((a, b) => {
                 mainCategoryMatch = projectMainCategory === 'grup-katilim';
               } else if (currentMainCategory === 'milli-katilim') {
                 mainCategoryMatch = projectMainCategory === 'milli-katilim';
+              } else if (currentMainCategory === 'podyum-tasarimlari') {
+                mainCategoryMatch = projectMainCategory === 'podyum-tasarimlari';
               } else if (currentMainCategory === 'stand-tasarimlari') {
-                // Stand Tasarımları - grup-katilim ve milli-katilim dışındaki tüm kategoriler
+                // Stand Tasarımları - diğer ana kategoriler dışındaki tüm kategoriler
                 mainCategoryMatch = projectMainCategory === 'stand-tasarimlari' || 
-                                   (projectMainCategory !== 'grup-katilim' && projectMainCategory !== 'milli-katilim');
+                                   (projectMainCategory !== 'grup-katilim' && 
+                                    projectMainCategory !== 'milli-katilim' && 
+                                    projectMainCategory !== 'podyum-tasarimlari');
               }
             }
 
@@ -233,10 +220,29 @@ const projects = projectsData.projects.sort((a, b) => {
             if (currentMainCategory === 'stand-tasarimlari' && currentSubCategory !== 'all') {
               const projectSubCategory = project.subCategory || project.category;
               
-              if (currentSubCategory === 'other') {
-                // Diğer alt kategorisi - tanımlı alt kategoriler dışındakiler
-                const definedSubCategories = ['mobilya', 'teknoloji', 'enerji', 'tekstil', 'otomotiv', 'elektrik', 'ev-tekstil', 'makine', 'gida', 'saglik', 'insaat'];
-                subCategoryMatch = !definedSubCategories.includes(projectSubCategory?.toLowerCase());
+              if (currentSubCategory === 'other-categories') {
+                // "Diğer" kategorisi - en çok kullanılan 5 kategori dışındakiler
+                // Bu dinamik olarak hesaplanacak
+                const standProjects = projects.filter(p => {
+                  const pMainCategory = p.mainCategory || p.category;
+                  return pMainCategory === 'stand-tasarimlari' || 
+                         (pMainCategory !== 'grup-katilim' && 
+                          pMainCategory !== 'milli-katilim' && 
+                          pMainCategory !== 'podyum-tasarimlari');
+                });
+                
+                const subCategoryCounts = {};
+                standProjects.forEach(p => {
+                  const subCat = p.subCategory || p.category || 'other';
+                  subCategoryCounts[subCat] = (subCategoryCounts[subCat] || 0) + 1;
+                });
+                
+                const top5Categories = Object.entries(subCategoryCounts)
+                  .sort(([,a], [,b]) => b - a)
+                  .slice(0, 5)
+                  .map(([category]) => category);
+                
+                subCategoryMatch = !top5Categories.includes(projectSubCategory);
               } else {
                 subCategoryMatch = projectSubCategory?.toLowerCase() === currentSubCategory.toLowerCase();
               }
@@ -285,6 +291,91 @@ const projects = projectsData.projects.sort((a, b) => {
 
           console.log(`✅ ${filteredProjects.length} proje gösteriliyor`);
         }
+
+        // Alt kategori butonlarını dinamik oluştur
+        function createSubCategoryButtons() {
+          const subFiltersDiv = document.getElementById('sub-filters');
+          
+          // Stand tasarımı projelerini bul
+          const standProjects = projects.filter(project => {
+            const projectMainCategory = project.mainCategory || project.category;
+            return projectMainCategory === 'stand-tasarimlari' || 
+                   (projectMainCategory !== 'grup-katilim' && 
+                    projectMainCategory !== 'milli-katilim' && 
+                    projectMainCategory !== 'podyum-tasarimlari');
+          });
+
+          // Alt kategorileri say
+          const subCategoryCounts = {};
+          standProjects.forEach(project => {
+            const subCategory = project.subCategory || project.category || 'other';
+            subCategoryCounts[subCategory] = (subCategoryCounts[subCategory] || 0) + 1;
+          });
+
+          // En çok kullanılan 5 kategoriyi al
+          const sortedCategories = Object.entries(subCategoryCounts)
+            .sort(([,a], [,b]) => b - a)
+            .slice(0, 5);
+
+          // Butonları oluştur
+          let buttonsHTML = `
+            <button class="sub-filter-btn active" data-subcategory="all" style="display: inline-block; padding: 8px 16px; font-size: 12px; font-weight: 500; color: white; background: #f97316; border: 1px solid #f97316; border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
+              Tüm Stand Tasarımları
+            </button>
+          `;
+
+          // En çok kullanılan kategoriler
+          sortedCategories.forEach(([category, count]) => {
+            const displayName = getSubCategoryDisplayName({subCategory: category, category: category});
+            buttonsHTML += `
+              <button class="sub-filter-btn" data-subcategory="${category}" style="display: inline-block; padding: 8px 16px; font-size: 12px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
+                ${displayName} (${count})
+              </button>
+            `;
+          });
+
+          // Diğer kategoriler varsa "Diğer" butonu ekle
+          const totalShownProjects = sortedCategories.reduce((sum, [,count]) => sum + count, 0);
+          if (totalShownProjects < standProjects.length) {
+            const otherCount = standProjects.length - totalShownProjects;
+            buttonsHTML += `
+              <button class="sub-filter-btn" data-subcategory="other-categories" style="display: inline-block; padding: 8px 16px; font-size: 12px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
+                Diğer (${otherCount})
+              </button>
+            `;
+          }
+
+          subFiltersDiv.innerHTML = buttonsHTML;
+          
+          // Event listener'ları yeniden ekle
+          const newSubFilterBtns = document.querySelectorAll('.sub-filter-btn');
+          newSubFilterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+              console.log('Sub filter clicked:', this.dataset.subcategory);
+              
+              // Aktif butonu güncelle
+              newSubFilterBtns.forEach(b => {
+                b.classList.remove('active');
+                b.style.color = '#6b7280';
+                b.style.background = 'white';
+                b.style.borderColor = 'rgba(107, 114, 128, 0.3)';
+                b.style.boxShadow = 'none';
+              });
+              
+              this.classList.add('active');
+              this.style.color = 'white';
+              this.style.background = '#f97316';
+              this.style.borderColor = '#f97316';
+              this.style.boxShadow = '0 4px 12px rgba(249, 115, 22, 0.25)';
+              
+              currentSubCategory = this.dataset.subcategory;
+              filterProjects();
+            });
+          });
+        }
+
+        // Alt kategori butonlarını oluştur
+        createSubCategoryButtons();
 
         // İlk render
         renderProjects();
@@ -364,56 +455,13 @@ const projects = projectsData.projects.sort((a, b) => {
           });
         }
 
-        // Alt kategori filter butonları
-        if (subFilterBtns.length > 0) {
-          subFilterBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-              console.log('Sub filter clicked:', this.dataset.subcategory);
-              
-              // Aktif butonu güncelle
-              subFilterBtns.forEach(b => {
-                b.classList.remove('active');
-                // Inactive style
-                b.style.color = '#6b7280';
-                b.style.background = 'white';
-                b.style.borderColor = 'rgba(107, 114, 128, 0.3)';
-                b.style.boxShadow = 'none';
-              });
-              
-              this.classList.add('active');
-              // Active style
-              this.style.color = 'white';
-              this.style.background = '#f97316';
-              this.style.borderColor = '#f97316';
-              this.style.boxShadow = '0 4px 12px rgba(249, 115, 22, 0.25)';
-              
-              // Alt kategoriyi güncelle
-              currentSubCategory = this.dataset.subcategory;
-              
-              filterProjects();
-            });
-          });
-        }
+        // Alt kategori event listener'ları artık createSubCategoryButtons() içinde
 
         // Alt filtreleri sıfırla
         function resetSubFilters() {
-          subFilterBtns.forEach(b => {
-            b.classList.remove('active');
-            b.style.color = '#6b7280';
-            b.style.background = 'white';
-            b.style.borderColor = 'rgba(107, 114, 128, 0.3)';
-            b.style.boxShadow = 'none';
-          });
-          
-          // "Tüm Stand Tasarımları" butonunu aktif yap
-          const allSubBtn = document.querySelector('[data-subcategory="all"]');
-          if (allSubBtn) {
-            allSubBtn.classList.add('active');
-            allSubBtn.style.color = 'white';
-            allSubBtn.style.background = '#f97316';
-            allSubBtn.style.borderColor = '#f97316';
-            allSubBtn.style.boxShadow = '0 4px 12px rgba(249, 115, 22, 0.25)';
-          }
+          // Alt kategori butonlarını yeniden oluştur
+          createSubCategoryButtons();
+          currentSubCategory = 'all';
         }
 
         // Klavye kısayolları

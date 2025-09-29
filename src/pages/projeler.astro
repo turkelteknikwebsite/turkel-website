@@ -45,23 +45,67 @@ const categories = projectsData.categories;
   <section class="py-section-lg">
     <div class="container">
       <div class="max-w-7xl mx-auto">
-        <!-- Filter Buttons -->
+        <!-- Search Bar -->
+        <div class="max-w-md mx-auto mb-8 animate-on-scroll px-4 md:px-0">
+          <div class="relative">
+            <input 
+              type="text" 
+              id="search-input" 
+              placeholder="Proje ara... (fuar adı, şirket, lokasyon)" 
+              class="w-full px-4 py-3 pl-12 text-body border border-grey/30 rounded-lg focus:outline-none focus:border-orange focus:ring-2 focus:ring-orange/20 transition-all"
+            />
+            <div class="absolute left-4 top-1/2 transform -translate-y-1/2">
+              <svg class="w-5 h-5 text-grey" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </div>
+            <button id="clear-search" class="absolute right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-grey hover:text-orange transition-colors hidden">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Category Filter Buttons -->
         <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 md:mb-12 animate-on-scroll px-4 md:px-0">
-          <button class="filter-btn active" data-filter="all">
+          <button class="filter-btn active" data-category="all">
             Tüm Projeler
           </button>
-          <button class="filter-btn" data-filter="ozel-dekor">
-            Özel Dekor
+          <button class="filter-btn" data-category="grup-katilim">
+            Grup Katılım Stantlar
           </button>
-          <button class="filter-btn" data-filter="premium-moduler">
-            Premium Modüler
+          <button class="filter-btn" data-category="milli-katilim">
+            Milli Katılım Stantlar
           </button>
-          <button class="filter-btn" data-filter="premium-ahsap">
-            Premium Ahşap
+          <button class="filter-btn" data-category="stand-tasarimlari">
+            Stand Tasarımları
           </button>
-          <button class="filter-btn" data-filter="grup-stant">
-            Grup Stant
+          <button class="filter-btn" data-category="mobilya">
+            Mobilya
           </button>
+          <button class="filter-btn" data-category="teknoloji">
+            Teknoloji
+          </button>
+          <button class="filter-btn" data-category="enerji">
+            Enerji
+          </button>
+          <button class="filter-btn" data-category="tekstil">
+            Tekstil
+          </button>
+          <button class="filter-btn" data-category="otomotiv">
+            Otomotiv
+          </button>
+          <button class="filter-btn" data-category="other">
+            Diğer
+          </button>
+        </div>
+
+        <!-- Results Info -->
+        <div class="text-center mb-6 px-4 md:px-0">
+          <p id="results-info" class="text-body text-grey">
+            <span id="results-count">0</span> proje gösteriliyor
+          </p>
         </div>
 
         <!-- Projects Grid Container -->
@@ -69,20 +113,7 @@ const categories = projectsData.categories;
           <!-- Projects will be loaded here -->
         </div>
 
-        <!-- Load More Button -->
-        <div class="text-center mt-8 md:mt-12 px-4 md:px-0">
-          <button id="load-more-btn" class="btn-primary">
-            Daha Fazla Proje Yükle
-          </button>
-        </div>
-
-        <!-- Loading Indicator -->
-        <div id="loading-indicator" class="hidden text-center mt-8">
-          <div class="inline-flex items-center">
-            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-orange mr-3"></div>
-            <span class="text-body text-grey">Projeler yükleniyor...</span>
-          </div>
-        </div>
+        <!-- No results message will be shown in grid when needed -->
       </div>
     </div>
   </section>
@@ -96,34 +127,193 @@ const categories = projectsData.categories;
         console.log('✅ Proje sayısı:', projects.length);
         
         const grid = document.getElementById('projects-grid');
+        const searchInput = document.getElementById('search-input');
+        const clearSearchBtn = document.getElementById('clear-search');
+        const resultsCount = document.getElementById('results-count');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        
+        let filteredProjects = [...projects];
+        let currentCategory = 'all';
+        let currentSearchTerm = '';
+        
         if (grid) {
           console.log('✅ Grid bulundu');
         
-        // JSON'dan proje kartlarını oluştur
-        const projectCards = projects.map((project, index) => `
-          <div onclick="openModal(${index})" style="background: white; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 24px; cursor: pointer;">
-            <div style="position: relative; overflow: hidden; border-radius: 8px 8px 0 0;">
-              <img 
-                src="${project.mainImage}" 
-                alt="${project.title}" 
-                loading="lazy"
-                style="width: 100%; height: 200px; object-fit: cover; background: #f3f4f6;"
-                onerror="this.style.background='#f3f4f6'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='Görsel Yok';"
-              />
-            </div>
-            <div style="padding: 16px;">
-              <h3 style="font-size: 20px; font-weight: 600; color: #000; margin-bottom: 8px;">${project.title}</h3>
-              <div style="display: flex; justify-content: space-between; color: #6b7280; margin-bottom: 8px;">
-                <span>${project.location}</span>
-                <span>${project.date}</span>
+        // Proje kartı oluşturma fonksiyonu
+        function createProjectCard(project, originalIndex) {
+          return `
+            <div onclick="openModal(${originalIndex})" class="project-card" style="background: white; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 24px; cursor: pointer; transition: transform 0.3s ease-out;">
+              <div style="position: relative; overflow: hidden; border-radius: 8px 8px 0 0;">
+                <img 
+                  src="${project.mainImage}" 
+                  alt="${project.title}" 
+                  loading="lazy"
+                  style="width: 100%; height: 200px; object-fit: cover; background: #f3f4f6;"
+                  onerror="this.style.background='#f3f4f6'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='Görsel Yok';"
+                />
+                <div style="position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px;">
+                  ${getCategoryDisplayName(project.category)}
+                </div>
               </div>
-              <p style="color: #6b7280; margin: 0;">${project.type}</p>
+              <div style="padding: 16px;">
+                <h3 style="font-size: 18px; font-weight: 600; color: #000; margin-bottom: 8px; line-height: 1.3;">${project.title}</h3>
+                <div style="display: flex; flex-direction: column; gap: 4px; color: #6b7280; margin-bottom: 8px; font-size: 14px;">
+                  ${project.fairName ? `<span><i class="fas fa-calendar"></i> ${project.fairName}</span>` : ''}
+                  ${project.company ? `<span><i class="fas fa-building"></i> ${project.company}</span>` : ''}
+                  ${project.location ? `<span><i class="fas fa-map-marker-alt"></i> ${project.location}</span>` : ''}
+                  <span><i class="fas fa-clock"></i> ${project.date}</span>
+                </div>
+                <p style="color: #6b7280; margin: 0; font-size: 14px; font-weight: 500;">${project.type}</p>
+              </div>
             </div>
-          </div>
-        `).join('');
+          `;
+        }
+
+        // Kategori görünen adını döndür
+        function getCategoryDisplayName(category) {
+          const categoryMap = {
+            'grup-katilim': 'Grup Katılım',
+            'milli-katilim': 'Milli Katılım', 
+            'stand-tasarimlari': 'Stand Tasarımı',
+            'mobilya': 'Mobilya',
+            'teknoloji': 'Teknoloji',
+            'enerji': 'Enerji',
+            'tekstil': 'Tekstil',
+            'otomotiv': 'Otomotiv',
+            'Elektrik': 'Elektrik',
+            'Ev Tekstil': 'Ev Tekstil',
+            'Makine': 'Makine',
+            'Gıda': 'Gıda',
+            'Sağlık': 'Sağlık',
+            'İnşaat': 'İnşaat'
+          };
+          return categoryMap[category] || category || 'Diğer';
+        }
+
+        // Projeleri filtrele
+        function filterProjects() {
+          filteredProjects = projects.filter(project => {
+            // Kategori filtresi
+            let categoryMatch = true;
+            if (currentCategory !== 'all') {
+              if (currentCategory === 'other') {
+                // Diğer kategorisi - tanımlı kategoriler dışındakiler
+                const definedCategories = ['grup-katilim', 'milli-katilim', 'stand-tasarimlari', 'mobilya', 'teknoloji', 'enerji', 'tekstil', 'otomotiv'];
+                categoryMatch = !definedCategories.includes(project.category?.toLowerCase());
+              } else {
+                categoryMatch = project.category?.toLowerCase() === currentCategory.toLowerCase() ||
+                               project.category === currentCategory;
+              }
+            }
+
+            // Arama filtresi
+            let searchMatch = true;
+            if (currentSearchTerm) {
+              const searchFields = [
+                project.title,
+                project.fairName,
+                project.company,
+                project.location,
+                project.type,
+                getCategoryDisplayName(project.category)
+              ].filter(Boolean).join(' ').toLowerCase();
+              
+              searchMatch = searchFields.includes(currentSearchTerm.toLowerCase());
+            }
+
+            return categoryMatch && searchMatch;
+          });
+
+          renderProjects();
+        }
+
+        // Projeleri render et
+        function renderProjects() {
+          if (filteredProjects.length === 0) {
+            grid.innerHTML = `
+              <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: #6b7280;">
+                <div style="font-size: 48px; margin-bottom: 16px;">🔍</div>
+                <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 8px; color: #374151;">Proje bulunamadı</h3>
+                <p style="margin: 0;">Arama kriterlerinizi değiştirip tekrar deneyin.</p>
+              </div>
+            `;
+          } else {
+            const projectCards = filteredProjects.map(project => {
+              const originalIndex = projects.findIndex(p => p.id === project.id);
+              return createProjectCard(project, originalIndex);
+            }).join('');
+            
+            grid.innerHTML = projectCards;
+          }
+
+          // Sonuç sayısını güncelle
+          resultsCount.textContent = filteredProjects.length;
+          console.log(`✅ ${filteredProjects.length} proje gösteriliyor`);
+        }
+
+        // İlk render
+        renderProjects();
+
+        // Event Listeners
         
-        grid.innerHTML = projectCards;
-        console.log('✅ Gerçek projeler eklendi');
+        // Arama input'u
+        searchInput.addEventListener('input', function(e) {
+          currentSearchTerm = e.target.value.trim();
+          
+          // Clear button'u göster/gizle
+          if (currentSearchTerm) {
+            clearSearchBtn.classList.remove('hidden');
+          } else {
+            clearSearchBtn.classList.add('hidden');
+          }
+          
+          filterProjects();
+        });
+
+        // Arama temizle butonu
+        clearSearchBtn.addEventListener('click', function() {
+          searchInput.value = '';
+          currentSearchTerm = '';
+          clearSearchBtn.classList.add('hidden');
+          filterProjects();
+          searchInput.focus();
+        });
+
+        // Kategori filter butonları
+        filterBtns.forEach(btn => {
+          btn.addEventListener('click', function() {
+            // Aktif butonu güncelle
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Kategoriyi güncelle
+            currentCategory = this.dataset.category;
+            
+            filterProjects();
+          });
+        });
+
+        // Klavye kısayolları
+        document.addEventListener('keydown', function(e) {
+          // Ctrl/Cmd + K ile arama odakla
+          if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            searchInput.focus();
+            searchInput.select();
+          }
+          
+          // ESC ile arama temizle
+          if (e.key === 'Escape' && document.activeElement === searchInput) {
+            if (currentSearchTerm) {
+              searchInput.value = '';
+              currentSearchTerm = '';
+              clearSearchBtn.classList.add('hidden');
+              filterProjects();
+            } else {
+              searchInput.blur();
+            }
+          }
+        });
         
         // Modal HTML'ini sayfaya ekle (anasayfa ile aynı tasarım)
         const modalHTML = `
@@ -317,13 +507,7 @@ const categories = projectsData.categories;
           }
         });
         
-        console.log('✅ Projeler eklendi:', projects.length);
-        
-        // Load more butonu - şimdilik gizle (tüm projeler gösteriliyor)
-        const loadMoreBtn = document.getElementById('load-more-btn');
-        if (loadMoreBtn) {
-          loadMoreBtn.style.display = 'none';
-        }
+        console.log('✅ Projeler eklendi:', filteredProjects.length);
       } else {
         console.error('❌ Grid bulunamadı');
       }

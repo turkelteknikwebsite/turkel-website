@@ -1,27 +1,6 @@
 {
   "projects": [
     {
-      "id": "heimtextile-moscow-2024-karna",
-      "title": "Heimtextile Moscow 2024 Karna",
-      "fairName": "Heimtextile Moscow 2024 Karna",
-      "location": "Heimtextile",
-      "date": "2024",
-      "company": "Karna",
-      "type": "Premium Ahşap Stant",
-      "category": "Tekstil",
-      "featured": false,
-      "mainImage": "/projects/heimtextile-moscow-2024-karna/gallery/1759144018785.jpg",
-      "gallery": [
-        "/projects/heimtextile-moscow-2024-karna/gallery/1759144018635.jpg",
-        "/projects/heimtextile-moscow-2024-karna/gallery/1759144018641.jpg",
-        "/projects/heimtextile-moscow-2024-karna/gallery/1759144018643.jpg",
-        "/projects/heimtextile-moscow-2024-karna/gallery/1759144018646.jpg",
-        "/projects/heimtextile-moscow-2024-karna/gallery/1759144018648.jpg",
-        "/projects/heimtextile-moscow-2024-karna/gallery/1759144018650.jpg"
-      ],
-      "slug": "heimtextile-moscow-2024-karna"
-    },
-    {
       "id": "middle-east-energy-2023-kym-elektrik",
       "title": "Middle East Energy 2023 Kym Elektrik",
       "fairName": "Middle East Energy",
@@ -437,26 +416,6 @@
       ]
     },
     {
-      "id": "heimtextile-moscow-2024-karna",
-      "title": "Heimtextile Moscow 2024 Karna",
-      "fairName": "Heimtextile Moscow 2024 Karna",
-      "location": "Heimtextile",
-      "date": "2024",
-      "company": "Karna",
-      "type": "Premium Ahşap Stant",
-      "category": "Tekstil",
-      "featured": false,
-      "mainImage": "/projects/heimtextile-moscow-2024-elizabeth/main.jpg",
-      "gallery": [
-        "/projects/heimtextile-moscow-2024-elizabeth/gallery/1.jpg",
-        "/projects/heimtextile-moscow-2024-elizabeth/gallery/2.jpg",
-        "/projects/heimtextile-moscow-2024-elizabeth/gallery/3.jpg",
-        "/projects/heimtextile-moscow-2024-elizabeth/gallery/4.jpg",
-        "/projects/heimtextile-moscow-2024-elizabeth/gallery/5.jpg",
-        "/projects/heimtextile-moscow-2024-elizabeth/gallery/6.jpg"
-      ]
-    },
-    {
       "id": "interauto-moscow-2019-akin-oto",
       "title": "Interauto Moscow 2019 Akin Otomotiv",
       "fairName": "Interauto Moscow 2019 Akin Otomotiv",
@@ -561,6 +520,177 @@
         "/projects/kazakistan-homedeco-2019-sinbo/gallery/4.jpg",
         "/projects/kazakistan-homedeco-2019-kismet/gallery/5.jpg"
       ]
+    },
+    {
+      "title": "Heimtextile Moscow 2024 Fortez",
+      "fairName": "Heimtextiile",
+      "location": "Rusya",
+      "date": "2024",
+      "company": "Fortez",
+      "type": "Premium Ahşap Stant",
+      "category": "stand-tasarimlari",
+      "featured": false,
+      "gallery": [
+        "/projects/heimtextile-moscow-2024-fortez/gallery/1759144698209.jpg",
+        "/projects/heimtextile-moscow-2024-fortez/gallery/1759144698213.jpg",
+        "/projects/heimtextile-moscow-2024-fortez/gallery/1759144698217.jpg",
+        "/projects/heimtextile-moscow-2024-fortez/gallery/1759144698219.jpg"
+      ],
+      "id": "heimtextile-moscow-2024-fortez",
+      "mainImage": "/projects/heimtextile-moscow-2024-fortez/gallery/1759144698230.jpg"
+    },
+    {
+      "title": "Electro 2025 Devpan",
+      "fairName": "Electro",
+      "location": "Rusya",
+      "date": "2025",
+      "company": "Devpan",
+      "type": "Premium Ahşap Stant",
+      "category": "stand-tasarimlari",
+      "featured": false,
+      "gallery": [
+        "/projects/electro-2025-devpan/gallery/1759144823521.JPG",
+        "/projects/electro-2025-devpan/gallery/1759144823524.JPG",
+        "/projects/electro-2025-devpan/gallery/1759144823528.JPG"
+      ],
+      "id": "electro-2025-devpan",
+      "mainImage": "/projects/electro-2025-devpan/gallery/1759144823535.JPG"
+    },
+    {
+      "title": "Electro 2025 Geis",
+      "fairName": "Electro",
+      "location": "Rusya",
+      "date": "2025",
+      "company": "Geis",
+      "type": "Premium Ahşap Stant",
+      "category": "stand-tasarimlari",
+      "featured": false,
+      "gallery": [
+        "/projects/electro-2025-geis/gallery/1759144880575.JPG",
+        "/projects/electro-2025-geis/gallery/1759144880577.JPG",
+        "/projects/electro-2025-geis/gallery/1759144880578.JPG"
+      ],
+      "id": "electro-2025-geis",
+      "mainImage": "/projects/electro-2025-geis/gallery/1759144880586.JPG"
+    },
+    {
+      "title": "Kind and jugend 2025 mor design",
+      "fairName": "Kind and jugend ",
+      "location": "Almanya",
+      "date": "2025",
+      "company": "Mor  Design",
+      "type": "Premium Ahşap Stant",
+      "category": "stand-tasarimlari",
+      "featured": false,
+      "gallery": [
+        "/projects/kind-and-jugend-2025-mor-design/gallery/1759145080283.jpg",
+        "/projects/kind-and-jugend-2025-mor-design/gallery/1759145080284.jpg",
+        "/projects/kind-and-jugend-2025-mor-design/gallery/1759145080285.jpg",
+        "/projects/kind-and-jugend-2025-mor-design/gallery/1759145080286.jpg"
+      ],
+      "id": "kind-and-jugend-2025-mor-design",
+      "mainImage": "/projects/kind-and-jugend-2025-mor-design/gallery/1759145080293.jpg"
+    },
+    {
+      "title": "Wire and Tube 2024 Yeşilyurt",
+      "fairName": "Wire and Tube",
+      "location": "Almanya",
+      "date": "2024",
+      "company": "Yeşilyurt",
+      "type": "Premium Ahşap Stant",
+      "category": "stand-tasarimlari",
+      "featured": false,
+      "gallery": [
+        "/projects/wire-and-tube-2024-yesilyurt/gallery/1759145224230.jpeg",
+        "/projects/wire-and-tube-2024-yesilyurt/gallery/1759145224231.jpeg",
+        "/projects/wire-and-tube-2024-yesilyurt/gallery/1759145224232.jpeg"
+      ],
+      "id": "wire-and-tube-2024-yesilyurt",
+      "mainImage": "/projects/wire-and-tube-2024-yesilyurt/gallery/1759145224238.jpeg"
+    },
+    {
+      "title": "Middle East Energy 2025 Stantlarımız",
+      "fairName": "Middle East Energy",
+      "location": "BAE",
+      "date": "2025",
+      "company": "2025 Fuar Stantları",
+      "type": "Premium Ahşap Stant",
+      "category": "stand-tasarimlari",
+      "featured": false,
+      "gallery": [
+        "/projects/middle-east-energy-2025-stantlarimiz/gallery/1759145308827.jpg",
+        "/projects/middle-east-energy-2025-stantlarimiz/gallery/1759145308828.jpg",
+        "/projects/middle-east-energy-2025-stantlarimiz/gallery/1759145308828.jpg",
+        "/projects/middle-east-energy-2025-stantlarimiz/gallery/1759145308829.jpg"
+      ],
+      "id": "middle-east-energy-2025-stantlarimiz",
+      "mainImage": "/projects/middle-east-energy-2025-stantlarimiz/gallery/1759145308827.jpg"
+    },
+    {
+      "title": "Beauty 2024 Milli Katılım Standı",
+      "fairName": "Beauty 2024",
+      "location": "Almanya",
+      "date": "2024",
+      "company": "Milli Katılım",
+      "type": "Premium Ahşap Stant",
+      "category": "milli-katilim",
+      "featured": false,
+      "gallery": [
+        "/projects/beauty-2024-milli-katilim-standi/gallery/1759145410489.jpg",
+        "/projects/beauty-2024-milli-katilim-standi/gallery/1759145410491.jpg",
+        "/projects/beauty-2024-milli-katilim-standi/gallery/1759145410492.jpg",
+        "/projects/beauty-2024-milli-katilim-standi/gallery/1759145410493.jpg"
+      ],
+      "id": "beauty-2024-milli-katilim-standi",
+      "mainImage": "/projects/beauty-2024-milli-katilim-standi/gallery/1759145410500.jpg"
+    },
+    {
+      "title": "Boot Show 2025 Milli Katılım Standı",
+      "fairName": "Boot Show 2025",
+      "location": "Almanya",
+      "date": "2025",
+      "company": "Milli Katılım",
+      "type": "Premium Ahşap Stant",
+      "category": "milli-katilim",
+      "featured": false,
+      "gallery": [
+        "/projects/boot-show-2025-milli-katilim-standi/gallery/1759145531406.jpg",
+        "/projects/boot-show-2025-milli-katilim-standi/gallery/1759145531407.jpg"
+      ],
+      "id": "boot-show-2025-milli-katilim-standi",
+      "mainImage": "/projects/boot-show-2025-milli-katilim-standi/gallery/1759145531412.jpg"
+    },
+    {
+      "title": "Wire and Tube 2025 Milli Katılım Standı",
+      "fairName": "Wire and Tube",
+      "location": "Almanya",
+      "date": "2025",
+      "company": "Milli Katılım",
+      "type": "Premium Ahşap Stant",
+      "category": "milli-katilim",
+      "featured": false,
+      "gallery": [
+        "/projects/wire-and-tube-2025-milli-katilim-standi/gallery/1759145627944.jpeg",
+        "/projects/wire-and-tube-2025-milli-katilim-standi/gallery/1759145627945.jpeg"
+      ],
+      "id": "wire-and-tube-2025-milli-katilim-standi",
+      "mainImage": "/projects/wire-and-tube-2025-milli-katilim-standi/gallery/1759145627949.jpeg"
+    },
+    {
+      "title": "Sleep Expo 2024 Milli Katılım Standı",
+      "fairName": "Sleep Expo",
+      "location": "Hollanda",
+      "date": "2024",
+      "company": "Milli Katılım",
+      "type": "Premium Ahşap Stant",
+      "category": "milli-katilim",
+      "featured": false,
+      "gallery": [
+        "/projects/sleep-expo-2024-milli-katilim-standi/gallery/1759145683582.jpg",
+        "/projects/sleep-expo-2024-milli-katilim-standi/gallery/1759145683583.jpg"
+      ],
+      "id": "sleep-expo-2024-milli-katilim-standi",
+      "mainImage": "/projects/sleep-expo-2024-milli-katilim-standi/gallery/1759145683589.jpg"
     }
   ]
 }

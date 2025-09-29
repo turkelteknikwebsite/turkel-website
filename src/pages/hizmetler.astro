@@ -57,12 +57,12 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
         </div>
 
         <!-- Hizmet Kartları Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16" style="grid-auto-rows: 1fr;">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16 px-4 sm:px-0" style="grid-auto-rows: 1fr;">
           
           <!-- Stand Tasarımları Kartı -->
           <div class="group bg-white rounded-xl shadow-sm border border-grey/10 overflow-hidden hover:shadow-lg transition-all duration-300 animate-on-scroll">
             <!-- Header -->
-            <div class="bg-gradient-to-r from-slate-600 to-slate-700 p-6 text-white">
+            <div class="bg-gradient-to-r from-slate-600 to-slate-700 p-4 sm:p-6 text-white">
               <div class="flex items-center justify-between mb-4">
                 <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -76,8 +76,8 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
             </div>
             
             <!-- Örnek Projeler Mini Grid -->
-            <div class="p-4">
-              <div class="grid grid-cols-3 gap-2 mb-4">
+            <div class="p-3 sm:p-4">
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                 {elektrikProjects.map((project) => (
                   <div class="aspect-square rounded-lg overflow-hidden">
                     <img 
@@ -120,7 +120,7 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
               <!-- Buton -->
               <a 
                 href="/projeler?category=stand-tasarimlari" 
-                class="w-full inline-flex items-center justify-center px-4 py-2 bg-slate-600 text-white text-sm font-medium rounded-lg hover:bg-slate-700 transition-colors"
+                class="w-full inline-flex items-center justify-center px-3 sm:px-4 py-2 sm:py-2.5 bg-slate-600 text-white text-xs sm:text-sm font-medium rounded-lg hover:bg-slate-700 transition-colors"
               >
                 Tüm Projeleri Görüntüle
                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -133,7 +133,7 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
           <!-- Milli Katılım Stantları Kartı -->
           <div class="group bg-white rounded-xl shadow-sm border border-grey/10 overflow-hidden hover:shadow-lg transition-all duration-300 animate-on-scroll">
             <!-- Header -->
-            <div class="bg-gradient-to-r from-slate-600 to-slate-700 p-6 text-white">
+            <div class="bg-gradient-to-r from-slate-600 to-slate-700 p-4 sm:p-6 text-white">
               <div class="flex items-center justify-between mb-4">
                 <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -147,8 +147,8 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
             </div>
             
             <!-- Örnek Projeler Mini Grid -->
-            <div class="p-4">
-              <div class="grid grid-cols-3 gap-2 mb-4">
+            <div class="p-3 sm:p-4">
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                 {milliKatilimProjects.map((project) => (
                   <div class="aspect-square rounded-lg overflow-hidden">
                     <img 
@@ -191,7 +191,7 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
               <!-- Buton -->
               <a 
                 href="/projeler?category=milli-katilim" 
-                class="w-full inline-flex items-center justify-center px-4 py-2 bg-slate-600 text-white text-sm font-medium rounded-lg hover:bg-slate-700 transition-colors"
+                class="w-full inline-flex items-center justify-center px-3 sm:px-4 py-2 sm:py-2.5 bg-slate-600 text-white text-xs sm:text-sm font-medium rounded-lg hover:bg-slate-700 transition-colors"
               >
                 Tüm Projeleri Görüntüle
                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -204,7 +204,7 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
           <!-- Podyum Tasarımları Kartı -->
           <div class="group bg-white rounded-xl shadow-sm border border-grey/10 overflow-hidden hover:shadow-lg transition-all duration-300 animate-on-scroll">
             <!-- Header -->
-            <div class="bg-gradient-to-r from-slate-600 to-slate-700 p-6 text-white">
+            <div class="bg-gradient-to-r from-slate-600 to-slate-700 p-4 sm:p-6 text-white">
               <div class="flex items-center justify-between mb-4">
                 <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -218,8 +218,8 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
             </div>
             
             <!-- Örnek Projeler Mini Grid -->
-            <div class="p-4">
-              <div class="grid grid-cols-3 gap-2 mb-4">
+            <div class="p-3 sm:p-4">
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                 {podyumProjects.map((project) => (
                   <div class="aspect-square rounded-lg overflow-hidden">
                     <img 
@@ -268,7 +268,7 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
               <!-- Buton -->
               <a 
                 href="/projeler?category=podyum-tasarimlari" 
-                class="w-full inline-flex items-center justify-center px-4 py-2 bg-slate-600 text-white text-sm font-medium rounded-lg hover:bg-slate-700 transition-colors"
+                class="w-full inline-flex items-center justify-center px-3 sm:px-4 py-2 sm:py-2.5 bg-slate-600 text-white text-xs sm:text-sm font-medium rounded-lg hover:bg-slate-700 transition-colors"
               >
                 Tüm Projeleri Görüntüle
                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -282,7 +282,7 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
           {hasGrupKatilimProjects && (
             <div class="group bg-white rounded-xl shadow-sm border border-grey/10 overflow-hidden hover:shadow-lg transition-all duration-300 animate-on-scroll md:col-span-2 lg:col-span-1">
               <!-- Header -->
-              <div class="bg-gradient-to-r from-slate-600 to-slate-700 p-6 text-white">
+              <div class="bg-gradient-to-r from-slate-600 to-slate-700 p-4 sm:p-6 text-white">
                 <div class="flex items-center justify-between mb-4">
                   <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -296,8 +296,8 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
               </div>
               
               <!-- Örnek Projeler Mini Grid -->
-              <div class="p-4">
-                <div class="grid grid-cols-3 gap-2 mb-4">
+              <div class="p-3 sm:p-4">
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                   {grupKatilimProjects.map((project) => (
                     <div class="aspect-square rounded-lg overflow-hidden">
                       <img 
@@ -348,7 +348,7 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
                 <!-- Buton -->
                 <a 
                   href="/projeler?category=grup-katilim" 
-                  class="w-full inline-flex items-center justify-center px-4 py-2 bg-slate-600 text-white text-sm font-medium rounded-lg hover:bg-slate-700 transition-colors"
+                  class="w-full inline-flex items-center justify-center px-3 sm:px-4 py-2 sm:py-2.5 bg-slate-600 text-white text-xs sm:text-sm font-medium rounded-lg hover:bg-slate-700 transition-colors"
                 >
                   Tüm Projeleri Görüntüle
                   <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -362,13 +362,13 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
         </div>
 
         <!-- Alt Bilgi Bölümü -->
-        <div class="text-center animate-on-scroll">
-          <div class="bg-cream rounded-2xl p-8 md:p-12">
-            <h3 class="text-2xl font-semibold text-navy mb-4">Özel Tasarım Hizmeti</h3>
-            <p class="text-body text-grey max-w-2xl mx-auto mb-6">
+        <div class="text-center animate-on-scroll px-4 sm:px-0">
+          <div class="bg-cream rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12">
+            <h3 class="text-xl sm:text-2xl font-semibold text-navy mb-3 sm:mb-4">Özel Tasarım Hizmeti</h3>
+            <p class="text-sm sm:text-body text-grey max-w-2xl mx-auto mb-4 sm:mb-6 px-2 sm:px-0">
               Hayalinizdeki stant tasarımını gerçeğe dönüştürüyoruz. Sınırsız yaratıcılık ve özel çözümlerle markanızı en güçlü şekilde temsil ediyoruz.
             </p>
-            <div class="flex flex-wrap justify-center gap-4 text-sm text-grey mb-6">
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 text-xs sm:text-sm text-grey mb-4 sm:mb-6 px-2 sm:px-0">
               <span class="flex items-center">
                 <svg class="w-4 h-4 text-orange mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
@@ -390,7 +390,7 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
             </div>
             <a 
               href="/iletisim" 
-              class="inline-flex items-center px-8 py-3 bg-orange text-white font-semibold rounded-lg hover:bg-orange/90 transition-colors"
+              class="inline-flex items-center px-6 sm:px-8 py-2.5 sm:py-3 bg-orange text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-orange/90 transition-colors"
             >
               Ücretsiz Teklif Alın
               <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

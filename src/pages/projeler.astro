@@ -44,15 +44,15 @@ const projects = projectsData.projects.sort((a, b) => {
   <section class="py-section-lg">
     <div class="container">
       <div class="max-w-7xl mx-auto">
-        <!-- Search Bar -->
-        <div style="max-width: 28rem; margin: 0 auto 2rem auto; padding: 0 1rem;">
+    <!-- Search Bar -->
+    <div style="max-width: 28rem; margin: 0 auto 1.5rem auto; padding: 0 1rem;">
           <div style="position: relative;">
-            <input 
-              type="text" 
-              id="search-input" 
-              placeholder="Proje ara... (fuar adı, şirket, lokasyon)" 
-              style="width: 100%; padding: 12px 16px 12px 48px; font-size: 14px; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 8px; transition: all 0.3s ease;"
-            />
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Proje ara..." 
+          style="width: 100%; padding: 10px 14px 10px 40px; font-size: 14px; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 8px; transition: all 0.3s ease;"
+        />
             <div style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #6b7280;">
               <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -66,33 +66,33 @@ const projects = projectsData.projects.sort((a, b) => {
           </div>
         </div>
 
-        <!-- Main Category Filter Buttons -->
-        <div id="main-filters" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 1rem; padding: 0 1rem;">
-          <button class="main-filter-btn active" data-category="all" style="display: inline-block; padding: 12px 24px; font-size: 14px; font-weight: 500; color: white; background: #f97316; border: 1px solid #f97316; border-radius: 8px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap; box-shadow: 0 4px 12px rgba(249, 115, 22, 0.25);">
+    <!-- Main Category Filter Buttons -->
+    <div id="main-filters" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem; margin-bottom: 1rem; padding: 0 0.5rem;">
+          <button class="main-filter-btn active" data-category="all" style="display: inline-block; padding: 8px 12px; font-size: 12px; font-weight: 500; color: white; background: #f97316; border: 1px solid #f97316; border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap; box-shadow: 0 4px 12px rgba(249, 115, 22, 0.25);">
             Tüm Projeler
           </button>
-          <button class="main-filter-btn" data-category="grup-katilim" style="display: inline-block; padding: 12px 24px; font-size: 14px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 8px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
+          <button class="main-filter-btn" data-category="grup-katilim" style="display: inline-block; padding: 8px 12px; font-size: 12px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
             Grup Katılım Stantlar
           </button>
-          <button class="main-filter-btn" data-category="milli-katilim" style="display: inline-block; padding: 12px 24px; font-size: 14px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 8px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
+          <button class="main-filter-btn" data-category="milli-katilim" style="display: inline-block; padding: 8px 12px; font-size: 12px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
             Milli Katılım Stantlar
           </button>
-          <button class="main-filter-btn" data-category="stand-tasarimlari" style="display: inline-block; padding: 12px 24px; font-size: 14px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 8px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
+          <button class="main-filter-btn" data-category="stand-tasarimlari" style="display: inline-block; padding: 8px 12px; font-size: 12px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
             Stand Tasarımları
           </button>
-          <button class="main-filter-btn" data-category="podyum-tasarimlari" style="display: inline-block; padding: 12px 24px; font-size: 14px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 8px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
+          <button class="main-filter-btn" data-category="podyum-tasarimlari" style="display: inline-block; padding: 8px 12px; font-size: 12px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
             Podyum Tasarımları
           </button>
         </div>
 
-        <!-- Sub Category Filter Buttons (for Stand Tasarımları) -->
-        <div id="sub-filters" style="display: none; flex-wrap: wrap; justify-content: center; gap: 0.25rem; margin-bottom: 1rem; padding: 0 1rem;">
+    <!-- Sub Category Filter Buttons (for Stand Tasarımları) -->
+    <div id="sub-filters" style="display: none; flex-wrap: wrap; justify-content: center; gap: 0.25rem; margin-bottom: 1rem; padding: 0 0.5rem;">
           <!-- Dinamik olarak oluşturulacak -->
         </div>
 
 
         <!-- Projects Grid Container -->
-        <div id="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; padding: 0 1rem;">
+        <div id="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; padding: 0 0.5rem;">
           <!-- Projects will be loaded here -->
         </div>
 
@@ -319,7 +319,7 @@ const projects = projectsData.projects.sort((a, b) => {
 
           // Butonları oluştur
           let buttonsHTML = `
-            <button class="sub-filter-btn active" data-subcategory="all" style="display: inline-block; padding: 8px 16px; font-size: 12px; font-weight: 500; color: white; background: #f97316; border: 1px solid #f97316; border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
+            <button class="sub-filter-btn active" data-subcategory="all" style="display: inline-block; padding: 6px 12px; font-size: 11px; font-weight: 500; color: white; background: #f97316; border: 1px solid #f97316; border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
               Tüm Stand Tasarımları
             </button>
           `;
@@ -328,7 +328,7 @@ const projects = projectsData.projects.sort((a, b) => {
           sortedCategories.forEach(([category, count]) => {
             const displayName = getSubCategoryDisplayName({subCategory: category});
             buttonsHTML += `
-              <button class="sub-filter-btn" data-subcategory="${category}" style="display: inline-block; padding: 8px 16px; font-size: 12px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
+              <button class="sub-filter-btn" data-subcategory="${category}" style="display: inline-block; padding: 6px 12px; font-size: 11px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
                 ${displayName} (${count})
               </button>
             `;
@@ -338,7 +338,7 @@ const projects = projectsData.projects.sort((a, b) => {
           const projectsWithoutSubCategory = standProjects.filter(p => !p.subCategory);
           if (projectsWithoutSubCategory.length > 0) {
             buttonsHTML += `
-              <button class="sub-filter-btn" data-subcategory="other-categories" style="display: inline-block; padding: 8px 16px; font-size: 12px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
+              <button class="sub-filter-btn" data-subcategory="other-categories" style="display: inline-block; padding: 6px 12px; font-size: 11px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
                 Diğer (${projectsWithoutSubCategory.length})
               </button>
             `;

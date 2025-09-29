@@ -25,13 +25,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- About Content -->
   <section class="py-section-lg">
     <div class="container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start px-4 md:px-0">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-start px-4 md:px-0">
         <!-- Left Image -->
-        <div class="animate-on-scroll">
+        <div class="lg:col-span-2 animate-on-scroll">
           <img 
             src="/about-image.jpg" 
             alt="Türkel Global Stands Hakkımızda" 
-            class="w-full h-auto rounded-lg"
+            class="w-full h-auto rounded-lg max-w-md mx-auto lg:mx-0"
             loading="lazy"
             width="1024"
             height="1024"
@@ -39,7 +39,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
         
         <!-- Right Content -->
-        <div class="space-y-8">
+        <div class="lg:col-span-3 space-y-8">
           <div class="animate-on-scroll">
             <h2 class="text-xl md:text-h4 font-semibold text-black mb-4 md:mb-6">
               Özel Stant Tasarımlarında Güvenilir Çözüm Ortağınız

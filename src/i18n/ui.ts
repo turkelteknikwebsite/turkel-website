@@ -45,6 +45,16 @@ export const ui = {
     // FAQ Section
     'faq.title': 'Sıkça Sorulan Sorular',
     'faq.subtitle': 'Fuar standı tasarım ve üretim hizmetlerimiz hakkında merak ettikleriniz.',
+    'faq.q1': 'Tasarım süreci nasıl işliyor?',
+    'faq.a1': 'Tasarım sürecimiz genellikle ihtiyaçlarınızı ve tercihlerinizi görüşmek için yapılan ilk danışmanlıkla başlar. Buradan hareketle bir tasarım konsepti geliştiriyoruz ve geri bildirim için size sunuyoruz. Tasarım kesinleştikten sonra üretim aşamasına geçiyoruz.',
+    'faq.q2': 'Hangi ülkelerde hizmet veriyorsunuz?',
+    'faq.a2': 'Türkiye\'nin yanı sıra Almanya, Fransa, Hollanda, İtalya, Birleşik Arap Emirlikleri, Suudi Arabistan gibi birçok ülkede hizmet veriyoruz. Uluslararası projeleriniz için bizimle iletişime geçebilirsiniz.',
+    'faq.q3': 'Proje teslim süreniz ne kadar?',
+    'faq.a3': 'Proje teslim süremiz tasarımın karmaşıklığına ve boyutuna bağlı olarak değişiklik gösterir. Genellikle 2-4 hafta arasında değişen sürelerde projelerinizi tamamlıyoruz.',
+    'faq.q4': 'Fiyat teklifi nasıl alabilirim?',
+    'faq.a4': 'İletişim sayfamızdaki formu doldurarak veya doğrudan telefon ile bizimle iletişime geçerek ücretsiz fiyat teklifi alabilirsiniz. Detaylı bilgi için randevu da ayarlayabiliriz.',
+    'faq.q5': 'Kurulum hizmeti veriyor musunuz?',
+    'faq.a5': 'Evet, tasarım ve üretimden sonra profesyonel kurulum hizmeti de sunuyoruz. Deneyimli ekibimiz standınızı fuar alanında güvenli ve zamanında kurar.',
     
     // Footer
     'footer.company': 'Türkel Global Stands',
@@ -103,6 +113,16 @@ export const ui = {
     // FAQ Section
     'faq.title': 'Frequently Asked Questions',
     'faq.subtitle': 'What you wonder about our exhibition stand design and production services.',
+    'faq.q1': 'How does the design process work?',
+    'faq.a1': 'Our design process typically begins with an initial consultation to discuss your needs and preferences. From there, we develop a design concept and present it to you for feedback. Once the design is finalized, we move to the production phase.',
+    'faq.q2': 'Which countries do you serve?',
+    'faq.a2': 'In addition to Turkey, we serve in many countries such as Germany, France, Netherlands, Italy, United Arab Emirates, Saudi Arabia. You can contact us for your international projects.',
+    'faq.q3': 'What is your project delivery time?',
+    'faq.a3': 'Our project delivery time varies depending on the complexity and size of the design. We typically complete your projects in 2-4 weeks.',
+    'faq.q4': 'How can I get a price quote?',
+    'faq.a4': 'You can get a free price quote by filling out the form on our contact page or by contacting us directly by phone. We can also arrange an appointment for detailed information.',
+    'faq.q5': 'Do you provide installation service?',
+    'faq.a5': 'Yes, we also provide professional installation service after design and production. Our experienced team installs your stand safely and on time in the exhibition area.',
     
     // Footer
     'footer.company': 'Türkel Global Stands',

@@ -1,6 +1,14 @@
 ---
 // Projects Section Component
 import projectsData from '../data/projects.json';
+import { getLangFromUrl, useTranslations, translatePath } from '../utils/i18n';
+
+export interface Props {
+  lang?: string;
+}
+
+const { lang = 'tr' } = Astro.props;
+const t = useTranslations(lang as 'tr' | 'en');
 
 // En son projeleri al (tarih sırasına göre)
 const featuredProjects = projectsData.projects
@@ -26,7 +34,7 @@ const featuredProjects = projectsData.projects
     <div class="flex items-center justify-between mb-16 animate-on-scroll">
       <div class="flex items-center space-x-8">
         <h2 class="text-h5 font-semibold text-black">
-          Projeler
+          {t('projects.title')}
         </h2>
         <div class="flex items-center space-x-3 text-body text-grey">
           <span class="font-bold" id="current-project">01</span>
@@ -82,8 +90,8 @@ const featuredProjects = projectsData.projects
 
     <!-- Projects Link -->
     <div class="text-center mt-12 animate-on-scroll">
-      <a href="/projeler" class="btn-primary">
-        Tüm Projeler
+      <a href={translatePath('/projeler', lang)} class="btn-primary">
+        {t('projects.viewAll')}
       </a>
     </div>
 

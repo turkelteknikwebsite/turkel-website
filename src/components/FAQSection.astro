@@ -1,5 +1,13 @@
 ---
 // FAQ Section Component
+import { getLangFromUrl, useTranslations, translatePath } from '../utils/i18n';
+
+export interface Props {
+  lang?: string;
+}
+
+const { lang = 'tr' } = Astro.props;
+const t = useTranslations(lang as 'tr' | 'en');
 ---
 
 <section class="relative py-section overflow-hidden bg-gradient-to-br from-white via-cream/30 to-white">
@@ -32,7 +40,7 @@
       <!-- Section Header - Centered -->
       <div class="text-center mb-16 animate-on-scroll">
         <div class="flex items-center justify-center space-x-8 mb-8">
-          <h2 class="section-heading">Sıkça Sorulan Sorular</h2>
+          <h2 class="section-heading">{t('faq.title')}</h2>
           <div class="flex items-center space-x-4 text-body text-grey">
             <span class="font-bold" id="current-faq">01</span>
             <div class="w-12 h-px bg-grey"></div>
@@ -40,7 +48,7 @@
           </div>
         </div>
         <p class="text-lg text-grey max-w-2xl mx-auto">
-          Fuar standı tasarımı ve üretimi hakkında merak ettiğiniz soruların yanıtları
+          {t('faq.subtitle')}
         </p>
       </div>
       
@@ -51,7 +59,7 @@
           <button class="w-full py-8 flex items-center text-left group faq-button" aria-expanded="true" data-faq="1">
             <div class="flex items-center space-x-6 flex-1">
               <span class="text-body text-grey">01</span>
-              <h3 class="text-h4 font-semibold text-black">Tasarım süreci nasıl işliyor?</h3>
+              <h3 class="text-h4 font-semibold text-black">{t('faq.q1')}</h3>
             </div>
             <div class="w-12 h-12 rounded-full border border-orange flex items-center justify-center flex-shrink-0 ml-6">
               <svg class="w-5 h-5 text-orange transform rotate-180 transition-transform faq-icon" fill="currentColor" viewBox="0 0 20 20">
@@ -63,9 +71,7 @@
           <div class="faq-content pb-8" data-content="1">
             <div class="bg-cream p-6 rounded-lg ml-12">
               <p class="text-body text-grey leading-relaxed">
-                Tasarım sürecimiz genellikle ihtiyaçlarınızı ve tercihlerinizi görüşmek için yapılan ilk 
-                danışmanlıkla başlar. Buradan hareketle bir tasarım konsepti geliştiriyoruz ve geri bildirim 
-                için size sunuyoruz. Tasarım kesinleştikten sonra üretim aşamasına geçiyoruz.
+                {t('faq.a1')}
               </p>
             </div>
           </div>
@@ -76,7 +82,7 @@
           <button class="w-full py-8 flex items-center text-left group faq-button" aria-expanded="false" data-faq="2">
             <div class="flex items-center space-x-6 flex-1">
               <span class="text-body text-grey">02</span>
-              <h3 class="text-h4 font-semibold text-black">Sürdürülebilirlik konusundaki yaklaşımınız nedir?</h3>
+              <h3 class="text-h4 font-semibold text-black">{t('faq.q2')}</h3>
             </div>
             <div class="w-12 h-12 rounded-full border border-grey flex items-center justify-center flex-shrink-0 ml-6">
               <svg class="w-5 h-5 text-grey transition-transform faq-icon" fill="currentColor" viewBox="0 0 20 20">
@@ -88,9 +94,7 @@
           <div class="faq-content hidden pb-8" data-content="2">
             <div class="bg-cream p-6 rounded-lg ml-12">
               <p class="text-body text-grey leading-relaxed">
-                Çevre dostu malzemeler kullanarak sürdürülebilir tasarım yaklaşımı benimser, 
-                geri dönüştürülebilir materyalleri tercih ederiz. Enerji verimli üretim süreçleri 
-                ve minimal atık politikası ile çevresel etkimizi azaltmaya odaklanırız.
+                {t('faq.a2')}
               </p>
             </div>
           </div>

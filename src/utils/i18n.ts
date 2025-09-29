@@ -182,3 +182,30 @@ export function translatePath(path: string, lang: string): string {
   }
   return `/${lang}${translatedPath}`;
 }
+
+export function getOppositeLanguagePath(currentUrl: URL): string {
+  const currentLang = getLangFromUrl(currentUrl);
+  const targetLang = currentLang === 'tr' ? 'en' : 'tr';
+  
+  // Get the current path without language prefix
+  let currentPath = currentUrl.pathname;
+  if (currentLang === 'en') {
+    currentPath = currentPath.replace('/en', '') || '/';
+  }
+  
+  // Find the corresponding path in the opposite language
+  const currentMappings = urlMappings[currentLang];
+  const targetMappings = urlMappings[targetLang];
+  
+  // Find the key that matches the current path
+  let targetPath = currentPath;
+  for (const [key, value] of Object.entries(currentMappings)) {
+    if (value === currentPath) {
+      targetPath = targetMappings[key as keyof typeof targetMappings] || currentPath;
+      break;
+    }
+  }
+  
+  // Return the translated path
+  return translatePath(targetPath, targetLang);
+}

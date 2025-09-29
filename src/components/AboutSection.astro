@@ -1,5 +1,13 @@
 ---
 // About Section Component
+import { getLangFromUrl, useTranslations, translatePath } from '../utils/i18n';
+
+export interface Props {
+  lang?: string;
+}
+
+const { lang = 'tr' } = Astro.props;
+const t = useTranslations(lang as 'tr' | 'en');
 ---
 
 <section class="py-section-lg">
@@ -23,31 +31,33 @@
         <!-- Section Title - Slightly Higher -->
         <div class="animate-on-scroll">
           <h2 class="section-heading mb-6">
-            Hakkımızda
+            {t('about.title')}
           </h2>
         </div>
         
         <div class="space-y-6 animate-on-scroll">
-          <h3 class="text-h4 text-grey">Özel Stant Tasarımlarında Güvenilir Çözüm Ortağınız</h3>
+          <h3 class="text-h4 text-grey">{t('about.subtitle')}</h3>
           
           <div class="space-y-6 text-body text-grey">
             <p>
-              Türkel Global Stands olarak, fuar sürecinizin her aşamasında yanınızdayız. 
-              Teknik ekibimizle birlikte ihtiyaçlarınıza en uygun katılım modelini belirleyerek, 
-              sürecinizi yenilikçi ve tam kapsamlı bir yaklaşımla yönetiyoruz.
+              {lang === 'en' 
+                ? 'As Türkel Global Stands, we are with you at every stage of your exhibition process. Together with our technical team, we determine the most suitable participation model for your needs and manage your process with an innovative and comprehensive approach.'
+                : 'Türkel Global Stands olarak, fuar sürecinizin her aşamasında yanınızdayız. Teknik ekibimizle birlikte ihtiyaçlarınıza en uygun katılım modelini belirleyerek, sürecinizi yenilikçi ve tam kapsamlı bir yaklaşımla yönetiyoruz.'
+              }
             </p>
             
             <p>
-              Gelişmiş AR-GE çalışmalarımız, özgün tasarımlarımız, etkin üretim ve hızlı montaj 
-              sonrası hizmetlerimizle fark yaratıyoruz. Hedefimiz, her projede müşterilerimize 
-              en yüksek memnuniyeti sağlamak ve markanızı fuar alanında en güçlü şekilde temsil etmektir.
+              {lang === 'en'
+                ? 'We make a difference with our advanced R&D studies, original designs, effective production and fast assembly post-services. Our goal is to provide the highest satisfaction to our customers in every project and to represent your brand in the strongest way in the exhibition area.'
+                : 'Gelişmiş AR-GE çalışmalarımız, özgün tasarımlarımız, etkin üretim ve hızlı montaj sonrası hizmetlerimizle fark yaratıyoruz. Hedefimiz, her projede müşterilerimize en yüksek memnuniyeti sağlamak ve markanızı fuar alanında en güçlü şekilde temsil etmektir.'
+              }
             </p>
           </div>
           
           <!-- About Button -->
           <div class="pt-4">
-            <a href="/hakkimizda" class="btn-primary">
-              Hakkımızda
+            <a href={translatePath('/hakkimizda', lang)} class="btn-primary">
+              {t('about.readMore')}
             </a>
           </div>
         </div>

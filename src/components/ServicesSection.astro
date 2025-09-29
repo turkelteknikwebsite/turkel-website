@@ -1,5 +1,13 @@
 ---
 // Services Section Component
+import { getLangFromUrl, useTranslations, translatePath } from '../utils/i18n';
+
+export interface Props {
+  lang?: string;
+}
+
+const { lang = 'tr' } = Astro.props;
+const t = useTranslations(lang as 'tr' | 'en');
 ---
 
 <section class="py-section">
@@ -18,7 +26,7 @@
         </div>
         
         <h2 class="section-heading animate-on-scroll">
-          Hizmetlerimiz
+          {t('services.title')}
         </h2>
         
         <!-- Services List -->
@@ -29,7 +37,7 @@
               <div class="flex items-center space-x-4 md:space-x-6">
                 <span class="text-sm md:text-body text-grey">01</span>
                 <h3 class="text-lg md:text-h5 text-grey opacity-50 group-hover:text-black group-hover:opacity-100 transition-all">
-                  Özel Dekor Stant
+                  {lang === 'en' ? 'Custom Decor Stand' : 'Özel Dekor Stant'}
                 </h3>
               </div>
               <button class="service-arrow w-10 h-10 md:w-12 md:h-12 rounded-full border border-orange flex items-center justify-center hover:bg-orange transition-all opacity-0 group-hover:opacity-100">
@@ -47,7 +55,7 @@
               <div class="flex items-center space-x-4 md:space-x-6">
                 <span class="text-sm md:text-body text-grey">02</span>
                 <h3 class="text-lg md:text-h5 text-grey opacity-50 group-hover:text-black group-hover:opacity-100 transition-all">
-                  Standart Stant
+                  {lang === 'en' ? 'Standard Stand' : 'Standart Stant'}
                 </h3>
               </div>
               <button class="service-arrow w-10 h-10 md:w-12 md:h-12 rounded-full border border-orange flex items-center justify-center hover:bg-orange transition-all opacity-0 group-hover:opacity-100">
@@ -65,7 +73,7 @@
               <div class="flex items-center space-x-4 md:space-x-6">
                 <span class="text-sm md:text-body text-grey">03</span>
                 <h3 class="text-lg md:text-h5 text-grey opacity-50 group-hover:text-black group-hover:opacity-100 transition-all">
-                  Premium Modüler
+                  {lang === 'en' ? 'Premium Modular' : 'Premium Modüler'}
                 </h3>
               </div>
               <button class="service-arrow w-10 h-10 md:w-12 md:h-12 rounded-full border border-orange flex items-center justify-center hover:bg-orange transition-all opacity-0 group-hover:opacity-100">
@@ -83,7 +91,7 @@
               <div class="flex items-center space-x-4 md:space-x-6">
                 <span class="text-sm md:text-body text-grey">04</span>
                 <h3 class="text-lg md:text-h5 text-grey opacity-50 group-hover:text-black group-hover:opacity-100 transition-all">
-                  Premium Ahşap
+                  {lang === 'en' ? 'Premium Wood' : 'Premium Ahşap'}
                 </h3>
               </div>
               <button class="service-arrow w-10 h-10 md:w-12 md:h-12 rounded-full border border-orange flex items-center justify-center hover:bg-orange transition-all opacity-0 group-hover:opacity-100">
@@ -101,7 +109,7 @@
               <div class="flex items-center space-x-4 md:space-x-6">
                 <span class="text-sm md:text-body text-grey">05</span>
                 <h3 class="text-lg md:text-h5 text-grey opacity-50 group-hover:text-black group-hover:opacity-100 transition-all">
-                  Milli Katılım Stant
+                  {lang === 'en' ? 'National Participation Stand' : 'Milli Katılım Stant'}
                 </h3>
               </div>
               <button class="service-arrow w-10 h-10 md:w-12 md:h-12 rounded-full border border-orange flex items-center justify-center hover:bg-orange transition-all opacity-0 group-hover:opacity-100">
@@ -119,7 +127,7 @@
               <div class="flex items-center space-x-4 md:space-x-6">
                 <span class="text-sm md:text-body text-grey">06</span>
                 <h3 class="text-lg md:text-h5 text-grey opacity-50 group-hover:text-black group-hover:opacity-100 transition-all">
-                  Podyum Üretimi ve Kurulumu
+                  {lang === 'en' ? 'Podium Production & Installation' : 'Podyum Üretimi ve Kurulumu'}
                 </h3>
               </div>
               <button class="service-arrow w-10 h-10 md:w-12 md:h-12 rounded-full border border-orange flex items-center justify-center hover:bg-orange transition-all opacity-0 group-hover:opacity-100">
@@ -137,7 +145,7 @@
               <div class="flex items-center space-x-4 md:space-x-6">
                 <span class="text-sm md:text-body text-grey">07</span>
                 <h3 class="text-lg md:text-h5 text-grey opacity-50 group-hover:text-black group-hover:opacity-100 transition-all">
-                  Siz isteyin biz tasarlayalım
+                  {lang === 'en' ? 'You request, we design' : 'Siz isteyin biz tasarlayalım'}
                 </h3>
               </div>
               <button class="service-arrow w-10 h-10 md:w-12 md:h-12 rounded-full border border-orange flex items-center justify-center hover:bg-orange transition-all opacity-0 group-hover:opacity-100">
@@ -152,8 +160,8 @@
         
         <!-- Hizmetlerimiz Button -->
         <div class="mt-8 animate-on-scroll">
-          <a href="/hizmetler" class="btn-primary">
-            Hizmetlerimiz
+          <a href={translatePath('/hizmetler', lang)} class="btn-primary">
+            {t('services.viewAll')}
           </a>
         </div>
 

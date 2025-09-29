@@ -1,6 +1,6 @@
 ---
 import { generateStructuredData } from '../utils/seo';
-import { getLangFromUrl, useTranslations, translatePath } from '../utils/i18n';
+import { getLangFromUrl, useTranslations, translatePath, getOppositeLanguagePath } from '../utils/i18n';
 import '../styles/globals.css';
 
 export interface Props {
@@ -128,7 +128,7 @@ const finalStructuredData = structuredData || defaultStructuredData;
             <!-- Language Switcher -->
             <div class="hidden md:flex items-center space-x-2 ml-4">
               <a 
-                href={lang === 'tr' ? `/en${Astro.url.pathname}` : Astro.url.pathname.replace('/en', '')}
+                href={getOppositeLanguagePath(Astro.url)}
                 class="flex items-center space-x-1 px-3 py-1 rounded-md hover:bg-beige/50 transition-colors text-sm font-medium"
                 aria-label={lang === 'tr' ? 'Switch to English' : 'Türkçe\'ye geç'}
               >
@@ -168,7 +168,7 @@ const finalStructuredData = structuredData || defaultStructuredData;
                     <!-- Mobile Language Switcher -->
                     <div class="border-t border-beige/50 pt-4 mt-4">
                       <a 
-                        href={lang === 'tr' ? `/en${Astro.url.pathname}` : Astro.url.pathname.replace('/en', '')}
+                        href={getOppositeLanguagePath(Astro.url)}
                         class="flex items-center space-x-2 nav-link"
                         aria-label={lang === 'tr' ? 'Switch to English' : 'Türkçe\'ye geç'}
                       >

@@ -1,5 +1,13 @@
 ---
 // Statistics Section Component
+import { getLangFromUrl, useTranslations, translatePath } from '../utils/i18n';
+
+export interface Props {
+  lang?: string;
+}
+
+const { lang = 'tr' } = Astro.props;
+const t = useTranslations(lang as 'tr' | 'en');
 ---
 
 <section class="relative py-section overflow-hidden">
@@ -22,19 +30,19 @@
           <!-- Stat 1 -->
           <div class="text-center">
             <div class="text-h2 font-hanken font-medium text-black mb-2">400+</div>
-            <div class="text-body text-grey">Fuar</div>
+            <div class="text-body text-grey">{t('stats.fairs')}</div>
           </div>
           
           <!-- Stat 2 -->
           <div class="text-center">
             <div class="text-h2 font-hanken font-medium text-black mb-2">14.000+</div>
-            <div class="text-body text-grey">Stant Kurulumu</div>
+            <div class="text-body text-grey">{t('stats.standInstallations')}</div>
           </div>
           
           <!-- Stat 3 -->
           <div class="text-center">
             <div class="text-h2 font-hanken font-medium text-black mb-2">50+</div>
-            <div class="text-body text-grey">Lokasyon</div>
+            <div class="text-body text-grey">{t('stats.locations')}</div>
           </div>
         </div>
         
@@ -67,13 +75,13 @@
           <!-- Stat 1 -->
           <div class="text-center">
             <div class="text-h2 font-hanken font-medium text-black mb-2">400+</div>
-            <div class="text-body text-grey">Fuar</div>
+            <div class="text-body text-grey">{t('stats.fairs')}</div>
           </div>
           
           <!-- Stat 2 -->
           <div class="text-center">
             <div class="text-h2 font-hanken font-medium text-black mb-2">14.000+</div>
-            <div class="text-body text-grey">Stant Kurulumu</div>
+            <div class="text-body text-grey">{t('stats.standInstallations')}</div>
           </div>
         </div>
         
@@ -101,7 +109,7 @@
         <!-- 50+ Lokasyon (Below Line) - Perfectly centered -->
         <div class="text-center mb-16 animate-on-scroll">
           <div class="text-h2 font-hanken font-medium text-black mb-2">50+</div>
-          <div class="text-body text-grey">Lokasyon</div>
+          <div class="text-body text-grey">{t('stats.locations')}</div>
         </div>
       </div>
     </div>

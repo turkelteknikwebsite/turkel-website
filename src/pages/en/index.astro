@@ -70,7 +70,7 @@ const t = useTranslations(lang);
           <!-- Mobile Projects Button - Bottom Center -->
           <div class="absolute bottom-24 left-1/2 transform -translate-x-1/2 md:hidden z-20">
             <a href="/en/projects" class="inline-flex items-center px-6 py-3 bg-orange text-white text-sm font-medium rounded-lg hover:bg-orange/90 transition-colors duration-300 shadow-xl border-2 border-white/20">
-              <span>All Projects</span>
+              <span>{t('hero.allProjects')}</span>
               <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
@@ -92,12 +92,12 @@ const t = useTranslations(lang);
               <div class="flex flex-col md:flex-row md:items-start md:justify-between space-y-4 md:space-y-0">
                 <!-- Left Section: Project Info -->
                 <div class="flex-shrink-0">
-                  <p class="text-body mb-2">Projects</p>
+                  <p class="text-body mb-2">{t('hero.projects')}</p>
                   <h1 class="text-2xl md:text-4xl font-semibold text-white leading-tight max-w-md mb-4" id="slide-title">
-                    Modern Premium Stand Design
+                    {t('hero.slideTitle')}
                   </h1>
                   <a href="/en/projects" class="inline-flex items-center px-6 py-3 bg-orange text-white text-sm font-medium rounded-lg hover:bg-orange/90 transition-colors duration-300">
-                    <span>All Projects</span>
+                    <span>{t('hero.allProjects')}</span>
                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
@@ -108,25 +108,25 @@ const t = useTranslations(lang);
                 <div class="flex-1 md:mx-12">
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-4">
                     <div>
-                      <p class="text-body opacity-50 mb-1">Location</p>
+                      <p class="text-body opacity-50 mb-1">{t('hero.location')}</p>
                       <p class="text-body" id="slide-location">Ukraine</p>
                     </div>
                     <div>
-                      <p class="text-body opacity-50 mb-1">Exhibition</p>
+                      <p class="text-body opacity-50 mb-1">{t('hero.exhibition')}</p>
                       <p class="text-body" id="slide-fair">Elcom</p>
                     </div>
                     
                     <div>
-                      <p class="text-body opacity-50 mb-1">Date</p>
+                      <p class="text-body opacity-50 mb-1">{t('hero.date')}</p>
                       <p class="text-body" id="slide-year">2019</p>
                     </div>
                     <div>
-                      <p class="text-body opacity-50 mb-1">Company</p>
+                      <p class="text-body opacity-50 mb-1">{t('hero.company')}</p>
                       <p class="text-body" id="slide-company">Mutlusan</p>
                     </div>
                     
                     <div class="md:col-span-2">
-                      <p class="text-body opacity-50 mb-1">Stand Type</p>
+                      <p class="text-body opacity-50 mb-1">{t('hero.standType')}</p>
                       <p class="text-body" id="slide-type">Premium Stand</p>
                     </div>
                   </div>

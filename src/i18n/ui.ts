@@ -13,6 +13,14 @@ export const ui = {
     'hero.title3': 'Markanızı En Güçlü Şekilde Temsil Ediyoruz',
     'hero.subtitle': 'Özel dekor stand, modüler stand ve grup stand çözümleriyle fuar alanında markanızı en güçlü şekilde temsil etmek için buradayız.',
     'hero.cta': 'Projelerimizi İnceleyin',
+    'hero.projects': 'Projeler',
+    'hero.allProjects': 'Tüm Projeler',
+    'hero.slideTitle': 'Modern Premium Stand Tasarımı',
+    'hero.location': 'Lokasyon',
+    'hero.exhibition': 'Fuar',
+    'hero.date': 'Tarih',
+    'hero.company': 'Şirket',
+    'hero.standType': 'Stand Tipi',
     
     // Services Section
     'services.title': 'Hizmetlerimiz',
@@ -41,6 +49,9 @@ export const ui = {
     'stats.projects': 'Tamamlanan Proje',
     'stats.clients': 'Mutlu Müşteri',
     'stats.countries': 'Ülke',
+    'stats.fairs': 'Fuar',
+    'stats.standInstallations': 'Stant Kurulumu',
+    'stats.locations': 'Lokasyon',
     
     // FAQ Section
     'faq.title': 'Sıkça Sorulan Sorular',
@@ -81,6 +92,14 @@ export const ui = {
     'hero.title3': 'We Represent Your Brand in the Strongest Way',
     'hero.subtitle': 'We are here to represent your brand in the strongest way in the exhibition area with custom decor stand, modular stand and group stand solutions.',
     'hero.cta': 'Explore Our Projects',
+    'hero.projects': 'Projects',
+    'hero.allProjects': 'All Projects',
+    'hero.slideTitle': 'Modern Premium Stand Design',
+    'hero.location': 'Location',
+    'hero.exhibition': 'Exhibition',
+    'hero.date': 'Date',
+    'hero.company': 'Company',
+    'hero.standType': 'Stand Type',
     
     // Services Section
     'services.title': 'Our Services',
@@ -109,6 +128,9 @@ export const ui = {
     'stats.projects': 'Completed Projects',
     'stats.clients': 'Happy Clients',
     'stats.countries': 'Countries',
+    'stats.fairs': 'Exhibitions',
+    'stats.standInstallations': 'Stand Installations',
+    'stats.locations': 'Locations',
     
     // FAQ Section
     'faq.title': 'Frequently Asked Questions',

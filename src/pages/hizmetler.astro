@@ -204,7 +204,7 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
           <!-- Podyum Tasarımları Kartı -->
           <div class="group bg-white rounded-xl shadow-sm border border-grey/10 overflow-hidden hover:shadow-lg transition-all duration-300 animate-on-scroll">
             <!-- Header -->
-            <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-6 text-white">
+            <div class="bg-gradient-to-r from-amber-500 to-yellow-600 p-6 text-white">
               <div class="flex items-center justify-between mb-4">
                 <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -219,7 +219,7 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
             
             <!-- Örnek Projeler Mini Grid -->
             <div class="p-4">
-              <div class="grid grid-cols-3 gap-2 mb-4">
+              <div class="grid grid-cols-2 gap-2 mb-4">
                 {podyumProjects.map((project) => (
                   <div class="aspect-square rounded-lg overflow-hidden">
                     <img 
@@ -229,38 +229,32 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
                     />
                   </div>
                 ))}
-                <!-- Boş alan için placeholder -->
-                <div class="aspect-square rounded-lg bg-grey/10 flex items-center justify-center">
-                  <svg class="w-6 h-6 text-grey/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                  </svg>
-                </div>
               </div>
               
               <!-- Özellikler -->
               <div class="space-y-1.5 mb-4">
                 <div class="flex items-center text-xs text-grey">
-                  <span class="w-1.5 h-1.5 bg-purple-600 rounded-full mr-2 flex-shrink-0"></span>
+                  <span class="w-1.5 h-1.5 bg-amber-500 rounded-full mr-2 flex-shrink-0"></span>
                   Özel Tasarım
                 </div>
                 <div class="flex items-center text-xs text-grey">
-                  <span class="w-1.5 h-1.5 bg-purple-600 rounded-full mr-2 flex-shrink-0"></span>
+                  <span class="w-1.5 h-1.5 bg-amber-500 rounded-full mr-2 flex-shrink-0"></span>
                   Güvenlik Standartları
                 </div>
                 <div class="flex items-center text-xs text-grey">
-                  <span class="w-1.5 h-1.5 bg-purple-600 rounded-full mr-2 flex-shrink-0"></span>
+                  <span class="w-1.5 h-1.5 bg-amber-500 rounded-full mr-2 flex-shrink-0"></span>
                   Hızlı Kurulum
                 </div>
                 <div class="flex items-center text-xs text-grey">
-                  <span class="w-1.5 h-1.5 bg-purple-600 rounded-full mr-2 flex-shrink-0"></span>
+                  <span class="w-1.5 h-1.5 bg-amber-500 rounded-full mr-2 flex-shrink-0"></span>
                   Estetik Görünüm
                 </div>
                 <div class="flex items-center text-xs text-grey">
-                  <span class="w-1.5 h-1.5 bg-purple-600 rounded-full mr-2 flex-shrink-0"></span>
+                  <span class="w-1.5 h-1.5 bg-amber-500 rounded-full mr-2 flex-shrink-0"></span>
                   Teknik Destek
                 </div>
                 <div class="flex items-center text-xs text-grey">
-                  <span class="w-1.5 h-1.5 bg-purple-600 rounded-full mr-2 flex-shrink-0"></span>
+                  <span class="w-1.5 h-1.5 bg-amber-500 rounded-full mr-2 flex-shrink-0"></span>
                   Ses & Işık Teknolojisi
                 </div>
               </div>
@@ -268,7 +262,7 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
               <!-- Buton -->
               <a 
                 href="/projeler?category=podyum-tasarimlari" 
-                class="w-full inline-flex items-center justify-center px-4 py-2 bg-purple-600 text-white text-sm font-medium rounded-lg hover:bg-purple-700 transition-colors"
+                class="w-full inline-flex items-center justify-center px-4 py-2 bg-amber-500 text-white text-sm font-medium rounded-lg hover:bg-amber-600 transition-colors"
               >
                 Tüm Projeleri Görüntüle
                 <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">

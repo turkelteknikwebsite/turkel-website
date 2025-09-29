@@ -8,7 +8,8 @@
       "date": "2023",
       "company": "Kym Elektrik",
       "type": "Premium Ahşap Stant",
-      "category": "enerji",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "enerji",
       "featured": true,
       "mainImage": "/projects/middle-east-energy-2023-kym-elektrik/main.jpg",
       "gallery": [
@@ -26,7 +27,8 @@
       "date": "2019",
       "company": "Günsan Elektrik",
       "type": "Premium Ahşap Stant",
-      "category": "Elektrik",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "elektrik",
       "featured": true,
       "mainImage": "/projects/elcom-2019-gunsan-elektrik/main.jpg",
       "gallery": [
@@ -43,7 +45,8 @@
       "date": "2022",
       "company": "Efendi Fabric",
       "type": "Premium Ahşap Stant",
-      "category": "Tekstil",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "tekstil",
       "featured": true,
       "mainImage": "/projects/mebel-2022-efendi-fabric/main.jpg",
       "gallery": [
@@ -60,7 +63,8 @@
       "date": "2022",
       "company": "Kanca",
       "type": "Premium Ahşap Stant",
-      "category": "Ulaşım",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "otomotiv",
       "featured": false,
       "mainImage": "/projects/inno-trans-2022-kanca/main.jpg",
       "gallery": [
@@ -76,7 +80,8 @@
       "date": "2018",
       "company": "Günsan Elektrik",
       "type": "Premium Ahşap Stant",
-      "category": "Elektrik",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "elektrik",
       "featured": true,
       "mainImage": "/projects/elcom-2018-gunsan-elektrik/main.jpg",
       "gallery": [
@@ -93,7 +98,8 @@
       "date": "2018",
       "company": "Kendal Elektrik",
       "type": "Premium Ahşap Stant",
-      "category": "Elektrik",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "elektrik",
       "featured": true,
       "mainImage": "/projects/elcom-2018-kendal-elektrik/main.jpg",
       "gallery": [
@@ -112,7 +118,8 @@
       "date": "2019",
       "company": "Kendal Elektrik",
       "type": "Premium Ahşap Stant",
-      "category": "Elektrik",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "elektrik",
       "featured": false,
       "mainImage": "/projects/elcom-2019-kendal-elektrik/main.jpg",
       "gallery": [
@@ -131,7 +138,8 @@
       "date": "2018",
       "company": "Luna Elektrik",
       "type": "Premium Ahşap Stant",
-      "category": "enerji",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "enerji",
       "featured": false,
       "mainImage": "/projects/light-2018-luna-elektrik/main.jpg",
       "gallery": [
@@ -151,7 +159,8 @@
       "date": "2019",
       "company": "Mutlusan Elektrik",
       "type": "Premium Ahşap Stant",
-      "category": "elektrik",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "elektrik",
       "featured": false,
       "mainImage": "/projects/elcom-2019-mutlusan-elektrik/main.jpg",
       "gallery": [
@@ -169,7 +178,8 @@
       "date": "2019",
       "company": "Nilson Elektrik",
       "type": "Premium Ahşap Stant",
-      "category": "Elektrik",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "elektrik",
       "featured": false,
       "mainImage": "/projects/elcom-2019-nilson-elektrik/main.jpg",
       "gallery": [
@@ -189,7 +199,8 @@
       "date": "2019",
       "company": "Ovivo Elektrik",
       "type": "Premium Ahşap Stant",
-      "category": "Elektrik",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "elektrik",
       "featured": false,
       "mainImage": "/projects/elcom-2019-ovio-elektrik/main.jpg",
       "gallery": [
@@ -206,7 +217,8 @@
       "date": "2023",
       "company": "Sigma Elektrik",
       "type": "Premium Ahşap Stant",
-      "category": "enerji",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "enerji",
       "featured": true,
       "mainImage": "/projects/middle-east-energy-2023-sigma-elektrik/main.jpg",
       "gallery": [
@@ -225,7 +237,8 @@
       "date": "2019",
       "company": "Totan Elektrik",
       "type": "Premium Ahşap Stant",
-      "category": "Elektrik",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "elektrik",
       "featured": false,
       "mainImage": "/projects/elcom-2019-totan-elektrik/main.jpg",
       "gallery": [
@@ -249,7 +262,8 @@
       "date": "2023",
       "company": "Federal Elektrik",
       "type": "Premium Ahşap Stant",
-      "category": "Elektrik",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "elektrik",
       "featured": false,
       "mainImage": "/projects/electro-2023-federal-elektrik/main.jpg",
       "gallery": [
@@ -271,7 +285,8 @@
       "date": "2020",
       "company": "Podyum",
       "type": "Podyum",
-      "category": "Podyum Tasarımı",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "other",
       "featured": false,
       "mainImage": "/projects/leshow-istanbul-podyum/main.jpg",
       "gallery": [
@@ -300,7 +315,8 @@
       "date": "2022",
       "company": "Podyum",
       "type": "Podyum",
-      "category": "Podyum Tasarımı",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "other",
       "featured": false,
       "mainImage": "/projects/leshow-moscow-podyum/main.jpg",
       "gallery": [
@@ -318,7 +334,8 @@
       "date": "2025",
       "company": "Setur Marinas",
       "type": "Premium Ahşap Stant",
-      "category": "Elektrik",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "elektrik",
       "featured": false,
       "mainImage": "/projects/boot-2025-setur-marinas/main.jpg",
       "gallery": [
@@ -335,7 +352,8 @@
       "date": "2025",
       "company": "Beta Enerji",
       "type": "Premium Ahşap Stant",
-      "category": "enerji",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "enerji",
       "featured": false,
       "mainImage": "/projects/dubai-middle-east-energy-2025-beta-enerji/main.jpg",
       "gallery": [
@@ -352,7 +370,8 @@
       "date": "2025",
       "company": "Beta Enerji",
       "type": "Premium Ahşap Stant",
-      "category": "plastik",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "other",
       "featured": false,
       "mainImage": "/projects/dubai-middle-east-energy-2025-isildar-plastic/main.jpg",
       "gallery": [
@@ -370,7 +389,8 @@
       "date": "2025",
       "company": "Beta Enerji",
       "type": "Premium Ahşap Stant",
-      "category": "kablo",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "elektrik",
       "featured": false,
       "mainImage": "/projects/dubai-middle-east-energy-2025-kym-kablo/main.jpg",
       "gallery": [
@@ -387,7 +407,8 @@
       "date": "2025",
       "company": "Beta Enerji",
       "type": "Premium Ahşap Stant",
-      "category": "kablo",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "elektrik",
       "featured": false,
       "mainImage": "/projects/dubai-middle-east-energy-2025-pektas-kablo/main.jpg",
       "gallery": [
@@ -405,7 +426,8 @@
       "date": "2024",
       "company": "Elizabeth",
       "type": "Premium Ahşap Stant",
-      "category": "Tekstil",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "tekstil",
       "featured": false,
       "mainImage": "/projects/heimtextile-moscow-2024-elizabeth/main.jpg",
       "gallery": [
@@ -423,7 +445,8 @@
       "date": "2019",
       "company": "Akin Otomotiv",
       "type": "Premium Ahşap Stant",
-      "category": "Otomotiv",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "otomotiv",
       "featured": false,
       "mainImage": "/projects/interauto-moscow-2019-akin-oto/main.jpg",
       "gallery": [
@@ -440,7 +463,8 @@
       "date": "2019",
       "company": "ITA Meks",
       "type": "Premium Ahşap Stant",
-      "category": "Otomotiv",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "otomotiv",
       "featured": false,
       "mainImage": "/projects/interauto-moscow-2019-ita-meks/main.jpg",
       "gallery": [
@@ -457,7 +481,8 @@
       "date": "2019",
       "company": "Atek Makine",
       "type": "Premium Ahşap Stant",
-      "category": "Otomotiv",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "otomotiv",
       "featured": false,
       "mainImage": "/projects/interauto-moscow-2019-atek-makine/main.jpg",
       "gallery": [
@@ -474,7 +499,8 @@
       "date": "2025",
       "company": "Stantlarımız",
       "type": "Premium Ahşap Stant",
-      "category": "Ev Tekstil",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "ev-tekstil",
       "featured": false,
       "mainImage": "/projects/kazakistan-homedeco-2025-stantlarimiz/main.jpg",
       "gallery": [
@@ -491,7 +517,8 @@
       "date": "2019",
       "company": "Kısmet",
       "type": "Premium Ahşap Stant",
-      "category": "Ev Tekstil",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "ev-tekstil",
       "featured": false,
       "mainImage": "/projects/kazakistan-homedeco-2019-kismet/main.jpg",
       "gallery": [
@@ -510,7 +537,8 @@
       "date": "2019",
       "company": "Sinbo",
       "type": "Premium Ahşap Stant",
-      "category": "Ev Tekstil",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "ev-tekstil",
       "featured": false,
       "mainImage": "/projects/kazakistan-homedeco-2019-sinbo/main.jpg",
       "gallery": [
@@ -528,7 +556,7 @@
       "date": "2024",
       "company": "Fortez",
       "type": "Premium Ahşap Stant",
-      "category": "stand-tasarimlari",
+      "mainCategory": "stand-tasarimlari",
       "featured": false,
       "gallery": [
         "/projects/heimtextile-moscow-2024-fortez/gallery/1759144698209.jpg",
@@ -546,7 +574,7 @@
       "date": "2025",
       "company": "Devpan",
       "type": "Premium Ahşap Stant",
-      "category": "stand-tasarimlari",
+      "mainCategory": "stand-tasarimlari",
       "featured": false,
       "gallery": [
         "/projects/electro-2025-devpan/gallery/1759144823521.JPG",
@@ -563,7 +591,7 @@
       "date": "2025",
       "company": "Geis",
       "type": "Premium Ahşap Stant",
-      "category": "stand-tasarimlari",
+      "mainCategory": "stand-tasarimlari",
       "featured": false,
       "gallery": [
         "/projects/electro-2025-geis/gallery/1759144880575.JPG",
@@ -580,7 +608,7 @@
       "date": "2025",
       "company": "Mor  Design",
       "type": "Premium Ahşap Stant",
-      "category": "stand-tasarimlari",
+      "mainCategory": "stand-tasarimlari",
       "featured": false,
       "gallery": [
         "/projects/kind-and-jugend-2025-mor-design/gallery/1759145080283.jpg",
@@ -598,7 +626,7 @@
       "date": "2024",
       "company": "Yeşilyurt",
       "type": "Premium Ahşap Stant",
-      "category": "stand-tasarimlari",
+      "mainCategory": "stand-tasarimlari",
       "featured": false,
       "gallery": [
         "/projects/wire-and-tube-2024-yesilyurt/gallery/1759145224230.jpeg",
@@ -615,7 +643,7 @@
       "date": "2025",
       "company": "2025 Fuar Stantları",
       "type": "Premium Ahşap Stant",
-      "category": "stand-tasarimlari",
+      "mainCategory": "stand-tasarimlari",
       "featured": false,
       "gallery": [
         "/projects/middle-east-energy-2025-stantlarimiz/gallery/1759145308827.jpg",
@@ -633,7 +661,7 @@
       "date": "2024",
       "company": "Milli Katılım",
       "type": "Premium Ahşap Stant",
-      "category": "milli-katilim",
+      "mainCategory": "milli-katilim",
       "featured": false,
       "gallery": [
         "/projects/beauty-2024-milli-katilim-standi/gallery/1759145410489.jpg",
@@ -651,7 +679,7 @@
       "date": "2025",
       "company": "Milli Katılım",
       "type": "Premium Ahşap Stant",
-      "category": "milli-katilim",
+      "mainCategory": "milli-katilim",
       "featured": false,
       "gallery": [
         "/projects/boot-show-2025-milli-katilim-standi/gallery/1759145531406.jpg",
@@ -667,7 +695,7 @@
       "date": "2025",
       "company": "Milli Katılım",
       "type": "Premium Ahşap Stant",
-      "category": "milli-katilim",
+      "mainCategory": "milli-katilim",
       "featured": false,
       "gallery": [
         "/projects/wire-and-tube-2025-milli-katilim-standi/gallery/1759145627944.jpeg",
@@ -683,7 +711,7 @@
       "date": "2024",
       "company": "Milli Katılım",
       "type": "Premium Ahşap Stant",
-      "category": "milli-katilim",
+      "mainCategory": "milli-katilim",
       "featured": false,
       "gallery": [
         "/projects/sleep-expo-2024-milli-katilim-standi/gallery/1759145683582.jpg",

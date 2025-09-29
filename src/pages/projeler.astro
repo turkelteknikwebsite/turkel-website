@@ -108,13 +108,6 @@ const categories = projectsData.categories;
           </button>
         </div>
 
-        <!-- Results Info -->
-        <div style="text-align: center; margin-bottom: 2rem; padding: 0 1rem;">
-          <div id="results-info" style="background: rgba(107, 114, 128, 0.1); color: #6b7280; padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 8px;">
-            <div style="width: 8px; height: 8px; background: #f97316; border-radius: 50%;"></div>
-            <span id="results-count">0</span> proje gösteriliyor
-          </div>
-        </div>
 
         <!-- Projects Grid Container -->
         <div id="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; padding: 0 1rem;">
@@ -142,7 +135,6 @@ const categories = projectsData.categories;
           // DOM elementlerini bul
           const searchInput = document.getElementById('search-input');
           const clearSearchBtn = document.getElementById('clear-search');
-          const resultsCount = document.getElementById('results-count');
           const mainFilterBtns = document.querySelectorAll('.main-filter-btn');
           const subFilterBtns = document.querySelectorAll('.sub-filter-btn');
           const subFiltersDiv = document.getElementById('sub-filters');
@@ -169,7 +161,7 @@ const categories = projectsData.categories;
                   onerror="this.style.background='#f3f4f6'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='Görsel Yok';"
                 />
                 <div style="position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px;">
-                  ${getMainCategory(project.category)}
+                  ${getMainCategory(project)}
                 </div>
               </div>
               <div style="padding: 16px;">
@@ -187,29 +179,35 @@ const categories = projectsData.categories;
         }
 
         // Ana kategori belirleme fonksiyonu
-        function getMainCategory(category) {
-          if (category === 'grup-katilim') return 'Grup Katılım Stantlar';
-          if (category === 'milli-katilim') return 'Milli Katılım Stantlar';
+        function getMainCategory(project) {
+          if (project.mainCategory === 'grup-katilim') return 'Grup Katılım Stantlar';
+          if (project.mainCategory === 'milli-katilim') return 'Milli Katılım Stantlar';
+          if (project.mainCategory === 'stand-tasarimlari') return 'Stand Tasarımları';
+          // Eski category alanı için backward compatibility
+          if (project.category === 'grup-katilim') return 'Grup Katılım Stantlar';
+          if (project.category === 'milli-katilim') return 'Milli Katılım Stantlar';
           // Diğer tüm kategoriler Stand Tasarımları altında
           return 'Stand Tasarımları';
         }
 
         // Alt kategori görünen adını döndür (sadece Stand Tasarımları için)
-        function getSubCategoryDisplayName(category) {
+        function getSubCategoryDisplayName(project) {
+          const subCategory = project.subCategory || project.category;
           const categoryMap = {
             'mobilya': 'Mobilya',
             'teknoloji': 'Teknoloji',
             'enerji': 'Enerji',
             'tekstil': 'Tekstil',
             'otomotiv': 'Otomotiv',
-            'Elektrik': 'Elektrik',
-            'Ev Tekstil': 'Ev Tekstil',
-            'Makine': 'Makine',
-            'Gıda': 'Gıda',
-            'Sağlık': 'Sağlık',
-            'İnşaat': 'İnşaat'
+            'elektrik': 'Elektrik',
+            'ev-tekstil': 'Ev Tekstil',
+            'makine': 'Makine',
+            'gida': 'Gıda',
+            'saglik': 'Sağlık',
+            'insaat': 'İnşaat',
+            'other': 'Diğer'
           };
-          return categoryMap[category] || category || 'Diğer';
+          return categoryMap[subCategory] || subCategory || 'Diğer';
         }
 
         // Projeleri filtrele
@@ -218,26 +216,30 @@ const categories = projectsData.categories;
             // Ana kategori filtresi
             let mainCategoryMatch = true;
             if (currentMainCategory !== 'all') {
+              const projectMainCategory = project.mainCategory || project.category;
+              
               if (currentMainCategory === 'grup-katilim') {
-                mainCategoryMatch = project.category === 'grup-katilim';
+                mainCategoryMatch = projectMainCategory === 'grup-katilim';
               } else if (currentMainCategory === 'milli-katilim') {
-                mainCategoryMatch = project.category === 'milli-katilim';
+                mainCategoryMatch = projectMainCategory === 'milli-katilim';
               } else if (currentMainCategory === 'stand-tasarimlari') {
                 // Stand Tasarımları - grup-katilim ve milli-katilim dışındaki tüm kategoriler
-                mainCategoryMatch = project.category !== 'grup-katilim' && project.category !== 'milli-katilim';
+                mainCategoryMatch = projectMainCategory === 'stand-tasarimlari' || 
+                                   (projectMainCategory !== 'grup-katilim' && projectMainCategory !== 'milli-katilim');
               }
             }
 
             // Alt kategori filtresi (sadece Stand Tasarımları seçiliyse)
             let subCategoryMatch = true;
             if (currentMainCategory === 'stand-tasarimlari' && currentSubCategory !== 'all') {
+              const projectSubCategory = project.subCategory || project.category;
+              
               if (currentSubCategory === 'other') {
                 // Diğer alt kategorisi - tanımlı alt kategoriler dışındakiler
-                const definedSubCategories = ['mobilya', 'teknoloji', 'enerji', 'tekstil', 'otomotiv', 'Elektrik', 'Ev Tekstil', 'Makine', 'Gıda', 'Sağlık', 'İnşaat'];
-                subCategoryMatch = !definedSubCategories.includes(project.category);
+                const definedSubCategories = ['mobilya', 'teknoloji', 'enerji', 'tekstil', 'otomotiv', 'elektrik', 'ev-tekstil', 'makine', 'gida', 'saglik', 'insaat'];
+                subCategoryMatch = !definedSubCategories.includes(projectSubCategory?.toLowerCase());
               } else {
-                subCategoryMatch = project.category?.toLowerCase() === currentSubCategory.toLowerCase() ||
-                                 project.category === currentSubCategory;
+                subCategoryMatch = projectSubCategory?.toLowerCase() === currentSubCategory.toLowerCase();
               }
             }
 
@@ -250,8 +252,8 @@ const categories = projectsData.categories;
                 project.company,
                 project.location,
                 project.type,
-                getMainCategory(project.category),
-                getSubCategoryDisplayName(project.category)
+                getMainCategory(project),
+                getSubCategoryDisplayName(project)
               ].filter(Boolean).join(' ').toLowerCase();
               
               searchMatch = searchFields.includes(currentSearchTerm.toLowerCase());
@@ -282,10 +284,6 @@ const categories = projectsData.categories;
             grid.innerHTML = projectCards;
           }
 
-          // Sonuç sayısını güncelle
-          if (resultsCount) {
-            resultsCount.textContent = filteredProjects.length;
-          }
           console.log(`✅ ${filteredProjects.length} proje gösteriliyor`);
         }
 

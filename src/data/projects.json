@@ -563,7 +563,8 @@
         "/projects/heimtextile-moscow-2024-fortez/gallery/1759144698219.jpg"
       ],
       "id": "heimtextile-moscow-2024-fortez",
-      "mainImage": "/projects/heimtextile-moscow-2024-fortez/gallery/1759144698230.jpg"
+      "mainImage": "/projects/heimtextile-moscow-2024-fortez/gallery/1759144698230.jpg",
+      "subCategory": "tekstil"
     },
     {
       "title": "Electro 2025 Devpan",
@@ -580,7 +581,8 @@
         "/projects/electro-2025-devpan/gallery/1759144823528.JPG"
       ],
       "id": "electro-2025-devpan",
-      "mainImage": "/projects/electro-2025-devpan/gallery/1759144823535.JPG"
+      "mainImage": "/projects/electro-2025-devpan/gallery/1759144823535.JPG",
+      "subCategory": "elektrik"
     },
     {
       "title": "Electro 2025 Geis",
@@ -597,7 +599,8 @@
         "/projects/electro-2025-geis/gallery/1759144880578.JPG"
       ],
       "id": "electro-2025-geis",
-      "mainImage": "/projects/electro-2025-geis/gallery/1759144880586.JPG"
+      "mainImage": "/projects/electro-2025-geis/gallery/1759144880586.JPG",
+      "subCategory": "elektrik"
     },
     {
       "title": "Kind and jugend 2025 mor design",
@@ -615,7 +618,8 @@
         "/projects/kind-and-jugend-2025-mor-design/gallery/1759145080286.jpg"
       ],
       "id": "kind-and-jugend-2025-mor-design",
-      "mainImage": "/projects/kind-and-jugend-2025-mor-design/gallery/1759145080293.jpg"
+      "mainImage": "/projects/kind-and-jugend-2025-mor-design/gallery/1759145080293.jpg",
+      "subCategory": "other"
     },
     {
       "title": "Wire and Tube 2024 Yeşilyurt",
@@ -632,7 +636,8 @@
         "/projects/wire-and-tube-2024-yesilyurt/gallery/1759145224232.jpeg"
       ],
       "id": "wire-and-tube-2024-yesilyurt",
-      "mainImage": "/projects/wire-and-tube-2024-yesilyurt/gallery/1759145224238.jpeg"
+      "mainImage": "/projects/wire-and-tube-2024-yesilyurt/gallery/1759145224238.jpeg",
+      "subCategory": "makine"
     },
     {
       "title": "Middle East Energy 2025 Stantlarımız",
@@ -650,7 +655,8 @@
         "/projects/middle-east-energy-2025-stantlarimiz/gallery/1759145308829.jpg"
       ],
       "id": "middle-east-energy-2025-stantlarimiz",
-      "mainImage": "/projects/middle-east-energy-2025-stantlarimiz/gallery/1759145308827.jpg"
+      "mainImage": "/projects/middle-east-energy-2025-stantlarimiz/gallery/1759145308827.jpg",
+      "subCategory": "enerji"
     },
     {
       "title": "Beauty 2024 Milli Katılım Standı",

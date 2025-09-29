@@ -221,28 +221,8 @@ const projects = projectsData.projects.sort((a, b) => {
               const projectSubCategory = project.subCategory || project.category;
               
               if (currentSubCategory === 'other-categories') {
-                // "Diğer" kategorisi - en çok kullanılan 5 kategori dışındakiler
-                // Bu dinamik olarak hesaplanacak
-                const standProjects = projects.filter(p => {
-                  const pMainCategory = p.mainCategory || p.category;
-                  return pMainCategory === 'stand-tasarimlari' || 
-                         (pMainCategory !== 'grup-katilim' && 
-                          pMainCategory !== 'milli-katilim' && 
-                          pMainCategory !== 'podyum-tasarimlari');
-                });
-                
-                const subCategoryCounts = {};
-                standProjects.forEach(p => {
-                  const subCat = p.subCategory || p.category || 'other';
-                  subCategoryCounts[subCat] = (subCategoryCounts[subCat] || 0) + 1;
-                });
-                
-                const top5Categories = Object.entries(subCategoryCounts)
-                  .sort(([,a], [,b]) => b - a)
-                  .slice(0, 5)
-                  .map(([category]) => category);
-                
-                subCategoryMatch = !top5Categories.includes(projectSubCategory);
+                // "Diğer" kategorisi - subCategory alanı olmayan projeler
+                subCategoryMatch = !project.subCategory;
               } else {
                 subCategoryMatch = projectSubCategory?.toLowerCase() === currentSubCategory.toLowerCase();
               }
@@ -305,11 +285,13 @@ const projects = projectsData.projects.sort((a, b) => {
                     projectMainCategory !== 'podyum-tasarimlari');
           });
 
-          // Alt kategorileri say
+          // Alt kategorileri say (sadece gerçek subCategory değerleri)
           const subCategoryCounts = {};
           standProjects.forEach(project => {
-            const subCategory = project.subCategory || project.category || 'other';
-            subCategoryCounts[subCategory] = (subCategoryCounts[subCategory] || 0) + 1;
+            const subCategory = project.subCategory;
+            if (subCategory) { // Sadece subCategory alanı olan projeleri say
+              subCategoryCounts[subCategory] = (subCategoryCounts[subCategory] || 0) + 1;
+            }
           });
 
           // En çok kullanılan 5 kategoriyi al
@@ -326,7 +308,7 @@ const projects = projectsData.projects.sort((a, b) => {
 
           // En çok kullanılan kategoriler
           sortedCategories.forEach(([category, count]) => {
-            const displayName = getSubCategoryDisplayName({subCategory: category, category: category});
+            const displayName = getSubCategoryDisplayName({subCategory: category});
             buttonsHTML += `
               <button class="sub-filter-btn" data-subcategory="${category}" style="display: inline-block; padding: 8px 16px; font-size: 12px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
                 ${displayName} (${count})
@@ -334,13 +316,12 @@ const projects = projectsData.projects.sort((a, b) => {
             `;
           });
 
-          // Diğer kategoriler varsa "Diğer" butonu ekle
-          const totalShownProjects = sortedCategories.reduce((sum, [,count]) => sum + count, 0);
-          if (totalShownProjects < standProjects.length) {
-            const otherCount = standProjects.length - totalShownProjects;
+          // SubCategory olmayan projeler için "Diğer" butonu
+          const projectsWithoutSubCategory = standProjects.filter(p => !p.subCategory);
+          if (projectsWithoutSubCategory.length > 0) {
             buttonsHTML += `
               <button class="sub-filter-btn" data-subcategory="other-categories" style="display: inline-block; padding: 8px 16px; font-size: 12px; font-weight: 500; color: #6b7280; background: white; border: 1px solid rgba(107, 114, 128, 0.3); border-radius: 6px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; white-space: nowrap;">
-                Diğer (${otherCount})
+                Diğer (${projectsWithoutSubCategory.length})
               </button>
             `;
           }

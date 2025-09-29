@@ -11,5 +11,12 @@ export default defineConfig({
   compressHTML: true,
   build: {
     inlineStylesheets: 'auto'
+  },
+  i18n: {
+    defaultLocale: 'tr',
+    locales: ['tr', 'en'],
+    routing: {
+      prefixDefaultLocale: false
+    }
   }
 });

@@ -1,0 +1,367 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServicesSection from '../../components/ServicesSection.astro';
+import AboutSection from '../../components/AboutSection.astro';
+import StatisticsSection from '../../components/StatisticsSection.astro';
+import ProjectsSection from '../../components/ProjectsSection.astro';
+import CTASection from '../../components/CTASection.astro';
+import FAQSection from '../../components/FAQSection.astro';
+---
+
+<BaseLayout 
+  title="Türkel Global Stands - Exhibition Stand Design and Production"
+  description="Expert company in exhibition stand design and production. Custom decor stand, modular stand and group stand solutions to represent your brand in the strongest way in the exhibition area."
+>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden h-screen min-h-[600px] max-h-[980px]" id="hero-slider">
+    <!-- Slider Container -->
+    <div class="relative w-full h-full">
+      <!-- Slide 1 -->
+      <div class="hero-slide active absolute inset-0" data-slide="0">
+        <div class="absolute inset-0 h-full">
+          <img 
+            src="/hero-bg.jpg" 
+            alt="Türkel Global Stands - Elcom Exhibition Stand" 
+            class="w-full h-full object-cover"
+            loading="eager"
+            width="1920"
+            height="824"
+          />
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="hero-slide absolute inset-0 opacity-0" data-slide="1">
+        <div class="absolute inset-0 h-full">
+          <img 
+            src="/hero-bg-2.jpg" 
+            alt="Türkel Global Stands - Mebel Exhibition Stand" 
+            class="w-full h-full object-cover"
+            loading="lazy"
+            width="1920"
+            height="824"
+          />
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="hero-slide absolute inset-0 opacity-0" data-slide="2">
+        <div class="absolute inset-0 h-full">
+          <img 
+            src="/hero-bg-3.jpg" 
+            alt="Türkel Global Stands - İtm Exhibition Stand" 
+            class="w-full h-full object-cover"
+            loading="lazy"
+            width="1920"
+            height="824"
+          />
+        </div>
+      </div>
+    </div>
+    
+    <!-- Overlay Content -->
+    <div class="absolute inset-0 z-10">
+      <div class="container h-full">
+        <div class="relative h-full">
+          <!-- Mobile Projects Button - Bottom Center -->
+          <div class="absolute bottom-24 left-1/2 transform -translate-x-1/2 md:hidden z-20">
+            <a href="/en/projects" class="inline-flex items-center px-6 py-3 bg-orange text-white text-sm font-medium rounded-lg hover:bg-orange/90 transition-colors duration-300 shadow-xl border-2 border-white/20">
+              <span>All Projects</span>
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Scroll Indicator - Bottom Left (Lower Position) -->
+          <div class="absolute bottom-16 left-0 md:left-0 px-4 md:px-0">
+            <div class="flex items-center space-x-2 md:space-x-4 text-sm md:text-body text-grey">
+              <span class="font-bold text-grey" id="current-slide">01</span>
+              <div class="w-8 md:w-12 h-px bg-grey"></div>
+              <span class="text-grey">03</span>
+            </div>
+          </div>
+          
+          <!-- Project Info Card - Bottom Right (Shifted More Right) -->
+          <div class="absolute bottom-0 right-0 w-full px-4 md:max-w-4xl md:pr-8 hidden md:block">
+            <div class="bg-navy text-white p-4 md:p-8 rounded-lg ml-auto w-full md:w-auto md:min-w-[900px]">
+              <div class="flex flex-col md:flex-row md:items-start md:justify-between space-y-4 md:space-y-0">
+                <!-- Left Section: Project Info -->
+                <div class="flex-shrink-0">
+                  <p class="text-body mb-2">Projects</p>
+                  <h1 class="text-2xl md:text-4xl font-semibold text-white leading-tight max-w-md mb-4" id="slide-title">
+                    Modern Premium Stand Design
+                  </h1>
+                  <a href="/en/projects" class="inline-flex items-center px-6 py-3 bg-orange text-white text-sm font-medium rounded-lg hover:bg-orange/90 transition-colors duration-300">
+                    <span>All Projects</span>
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                </div>
+                
+                <!-- Center Section: Details Grid -->
+                <div class="flex-1 md:mx-12">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-8 gap-y-2 md:gap-y-4">
+                    <div>
+                      <p class="text-body opacity-50 mb-1">Location</p>
+                      <p class="text-body" id="slide-location">Ukraine</p>
+                    </div>
+                    <div>
+                      <p class="text-body opacity-50 mb-1">Exhibition</p>
+                      <p class="text-body" id="slide-fair">Elcom</p>
+                    </div>
+                    
+                    <div>
+                      <p class="text-body opacity-50 mb-1">Date</p>
+                      <p class="text-body" id="slide-year">2019</p>
+                    </div>
+                    <div>
+                      <p class="text-body opacity-50 mb-1">Company</p>
+                      <p class="text-body" id="slide-company">Mutlusan</p>
+                    </div>
+                    
+                    <div class="md:col-span-2">
+                      <p class="text-body opacity-50 mb-1">Stand Type</p>
+                      <p class="text-body" id="slide-type">Premium Stand</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Right Section: Navigation Arrows -->
+                <div class="flex flex-row md:flex-col space-x-2 md:space-x-0 md:space-y-2 flex-shrink-0 justify-center md:justify-start">
+                  <!-- Next Arrow - Points Right -->
+                  <button id="next-slide" class="w-12 h-12 md:w-16 md:h-16 rounded-full border border-orange flex items-center justify-center hover:bg-orange transition-colors group">
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-orange group-hover:text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </button>
+                  <!-- Previous Arrow - Points Left -->
+                  <button id="prev-slide" class="w-12 h-12 md:w-16 md:h-16 rounded-full border border-beige/30 flex items-center justify-center opacity-50 hover:opacity-100 hover:border-orange transition-all group">
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-beige group-hover:text-orange" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slider JavaScript -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const slides = [
+          {
+            title: "Modern Premium Stand Design",
+            location: "Ukraine",
+            fair: "Elcom",
+            year: "2019",
+            company: "Mutlusan",
+            type: "Premium Stand"
+          },
+          {
+            title: "Modern Premium Stand Design",
+            location: "Russia",
+            fair: "Mebel",
+            year: "2022",
+            company: "Ece Boya",
+            type: "Premium Stand"
+          },
+          {
+            title: "Modern Premium Stand Design",
+            location: "Turkey",
+            fair: "İtm",
+            year: "2022",
+            company: "Lohia",
+            type: "Premium Stand"
+          }
+        ];
+
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        const slideElements = document.querySelectorAll('.hero-slide');
+        const nextBtn = document.getElementById('next-slide');
+        const prevBtn = document.getElementById('prev-slide');
+        const currentSlideElement = document.getElementById('current-slide');
+
+        // Update slide content
+        function updateSlideContent(index: number) {
+          const slide = slides[index];
+          const titleEl = document.getElementById('slide-title');
+          const locationEl = document.getElementById('slide-location');
+          const fairEl = document.getElementById('slide-fair');
+          const yearEl = document.getElementById('slide-year');
+          const companyEl = document.getElementById('slide-company');
+          const typeEl = document.getElementById('slide-type');
+          
+          if (titleEl) titleEl.textContent = slide.title;
+          if (locationEl) locationEl.textContent = slide.location;
+          if (fairEl) fairEl.textContent = slide.fair;
+          if (yearEl) yearEl.textContent = slide.year;
+          if (companyEl) companyEl.textContent = slide.company;
+          if (typeEl) typeEl.textContent = slide.type;
+          if (currentSlideElement) currentSlideElement.textContent = String(index + 1).padStart(2, '0');
+        }
+
+        // Show slide
+        function showSlide(index: number) {
+          slideElements.forEach((slide: Element, i: number) => {
+            const htmlSlide = slide as HTMLElement;
+            if (i === index) {
+              htmlSlide.classList.add('active');
+              htmlSlide.style.opacity = '1';
+            } else {
+              htmlSlide.classList.remove('active');
+              htmlSlide.style.opacity = '0';
+            }
+          });
+          updateSlideContent(index);
+        }
+
+        // Next slide
+        function nextSlide() {
+          currentSlide = (currentSlide + 1) % totalSlides;
+          showSlide(currentSlide);
+        }
+
+        // Previous slide
+        function prevSlide() {
+          currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+          showSlide(currentSlide);
+        }
+
+        // Event listeners
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+        // Auto-slide (optional - every 5 seconds)
+        setInterval(nextSlide, 5000);
+
+        // Initialize
+        showSlide(0);
+      });
+    </script>
+  </section>
+
+  <!-- About Section -->
+  <AboutSection />
+
+  <!-- Services Section -->
+  <ServicesSection />
+
+  <!-- Statistics Section -->
+  <StatisticsSection />
+
+  <!-- Projects Section -->
+  <ProjectsSection />
+
+  <!-- CTA Section -->
+  <CTASection />
+
+  <!-- FAQ Section -->
+  <FAQSection />
+
+  <!-- Partners Section -->
+  <section class="py-16 bg-cream/30">
+    <div class="container">
+      <!-- Section Header -->
+      <div class="text-center mb-12 animate-on-scroll">
+        <h2 class="text-h3 font-hanken font-medium text-navy mb-4">Our Partners</h2>
+        <p class="text-body text-grey max-w-2xl mx-auto">
+          Together with our reliable business partners worldwide, we provide the highest quality exhibition stand solutions.
+        </p>
+      </div>
+
+      <!-- Partners Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 items-center animate-on-scroll">
+        <!-- Partner 1 -->
+        <div class="flex justify-center">
+          <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 w-full h-20 flex items-center justify-center">
+            <img 
+              src="/partner/logo1.png" 
+              alt="Partner 1" 
+              class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <!-- Partner 2 -->
+        <div class="flex justify-center">
+          <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 w-full h-20 flex items-center justify-center">
+            <img 
+              src="/partner/logo2.png" 
+              alt="Partner 2" 
+              class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <!-- Partner 3 -->
+        <div class="flex justify-center">
+          <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 w-full h-20 flex items-center justify-center">
+            <img 
+              src="/partner/logo3.png" 
+              alt="Partner 3" 
+              class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <!-- Partner 4 -->
+        <div class="flex justify-center">
+          <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 w-full h-20 flex items-center justify-center">
+            <img 
+              src="/partner/logo4.png" 
+              alt="Partner 4" 
+              class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <!-- Partner 5 -->
+        <div class="flex justify-center">
+          <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 w-full h-20 flex items-center justify-center">
+            <img 
+              src="/partner/logo5.png" 
+              alt="Partner 5" 
+              class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <!-- Partner 6 -->
+        <div class="flex justify-center">
+          <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 w-full h-20 flex items-center justify-center">
+            <img 
+              src="/partner/logo6.png" 
+              alt="Partner 6" 
+              class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <!-- Partner 7 -->
+        <div class="flex justify-center">
+          <div class="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 w-full h-20 flex items-center justify-center">
+            <img 
+              src="/partner/logo7.png" 
+              alt="Partner 7" 
+              class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,5 +1,6 @@
 ---
 import { generateStructuredData } from '../utils/seo';
+import { getLangFromUrl, useTranslations, translatePath } from '../utils/i18n';
 import '../styles/globals.css';
 
 export interface Props {
@@ -20,6 +21,9 @@ const {
   structuredData
 } = Astro.props;
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
 
 // Generate default structured data based on page
@@ -37,7 +41,7 @@ const finalStructuredData = structuredData || defaultStructuredData;
 ---
 
 <!doctype html>
-<html lang="tr" class="scroll-smooth">
+<html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -96,7 +100,7 @@ const finalStructuredData = structuredData || defaultStructuredData;
       <nav class="container" aria-label="Ana navigasyon">
         <div class="flex items-center justify-between py-4">
           <!-- Logo -->
-          <a href="/" class="flex-shrink-0" aria-label="Türkel Global Stands Ana Sayfa">
+          <a href={translatePath('/', lang)} class="flex-shrink-0" aria-label="Türkel Global Stands Ana Sayfa">
             <img 
               src="/logo.png" 
               alt="Türkel Global Stands Logo" 
@@ -107,18 +111,32 @@ const finalStructuredData = structuredData || defaultStructuredData;
             />
           </a>
           
-                  <!-- Desktop Navigation -->
-                  <div class="hidden md:flex items-center space-x-6">
-                    <a href="/" class={`nav-link ${Astro.url.pathname === '/' ? 'text-navy' : ''}`}>Anasayfa</a>
-                    <span class="text-orange font-medium">/</span>
-                    <a href="/hakkimizda" class={`nav-link ${Astro.url.pathname === '/hakkimizda' ? 'text-navy' : ''}`}>Hakkımızda</a>
-                    <span class="text-orange font-medium">/</span>
-                    <a href="/hizmetler" class={`nav-link ${Astro.url.pathname === '/hizmetler' ? 'text-navy' : ''}`}>Hizmetlerimiz</a>
-                    <span class="text-orange font-medium">/</span>
-                    <a href="/projeler" class={`nav-link ${Astro.url.pathname === '/projeler' ? 'text-navy' : ''}`}>Projeler</a>
-                    <span class="text-orange font-medium">/</span>
-                    <a href="/iletisim" class={`nav-link ${Astro.url.pathname === '/iletisim' ? 'text-navy' : ''}`}>İletişim</a>
-                  </div>
+          <div class="flex items-center space-x-4">
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-6">
+              <a href={translatePath('/', lang)} class={`nav-link ${Astro.url.pathname === translatePath('/', lang) ? 'text-navy' : ''}`}>{t('nav.home')}</a>
+              <span class="text-orange font-medium">/</span>
+              <a href={translatePath('/hakkimizda', lang)} class={`nav-link ${Astro.url.pathname === translatePath('/hakkimizda', lang) ? 'text-navy' : ''}`}>{t('nav.about')}</a>
+              <span class="text-orange font-medium">/</span>
+              <a href={translatePath('/hizmetler', lang)} class={`nav-link ${Astro.url.pathname === translatePath('/hizmetler', lang) ? 'text-navy' : ''}`}>{t('nav.services')}</a>
+              <span class="text-orange font-medium">/</span>
+              <a href={translatePath('/projeler', lang)} class={`nav-link ${Astro.url.pathname === translatePath('/projeler', lang) ? 'text-navy' : ''}`}>{t('nav.projects')}</a>
+              <span class="text-orange font-medium">/</span>
+              <a href={translatePath('/iletisim', lang)} class={`nav-link ${Astro.url.pathname === translatePath('/iletisim', lang) ? 'text-navy' : ''}`}>{t('nav.contact')}</a>
+            </div>
+            
+            <!-- Language Switcher -->
+            <div class="hidden md:flex items-center space-x-2 ml-4">
+              <a 
+                href={lang === 'tr' ? `/en${Astro.url.pathname}` : Astro.url.pathname.replace('/en', '')}
+                class="flex items-center space-x-1 px-3 py-1 rounded-md hover:bg-beige/50 transition-colors text-sm font-medium"
+                aria-label={lang === 'tr' ? 'Switch to English' : 'Türkçe\'ye geç'}
+              >
+                <span class="text-lg">{lang === 'tr' ? '🇺🇸' : '🇹🇷'}</span>
+                <span>{lang === 'tr' ? 'EN' : 'TR'}</span>
+              </a>
+            </div>
+          </div>
           
           <!-- Mobile Menu Button -->
           <button 
@@ -141,11 +159,23 @@ const finalStructuredData = structuredData || defaultStructuredData;
                   role="menu"
                 >
                   <div class="flex flex-col space-y-4">
-                    <a href="/" class={`nav-link ${Astro.url.pathname === '/' ? 'text-navy' : ''}`} role="menuitem">Anasayfa</a>
-                    <a href="/hakkimizda" class={`nav-link ${Astro.url.pathname === '/hakkimizda' ? 'text-navy' : ''}`} role="menuitem">Hakkımızda</a>
-                    <a href="/hizmetler" class={`nav-link ${Astro.url.pathname === '/hizmetler' ? 'text-navy' : ''}`} role="menuitem">Hizmetlerimiz</a>
-                    <a href="/projeler" class={`nav-link ${Astro.url.pathname === '/projeler' ? 'text-navy' : ''}`} role="menuitem">Projeler</a>
-                    <a href="/iletisim" class={`nav-link ${Astro.url.pathname === '/iletisim' ? 'text-navy' : ''}`} role="menuitem">İletişim</a>
+                    <a href={translatePath('/', lang)} class={`nav-link ${Astro.url.pathname === translatePath('/', lang) ? 'text-navy' : ''}`} role="menuitem">{t('nav.home')}</a>
+                    <a href={translatePath('/hakkimizda', lang)} class={`nav-link ${Astro.url.pathname === translatePath('/hakkimizda', lang) ? 'text-navy' : ''}`} role="menuitem">{t('nav.about')}</a>
+                    <a href={translatePath('/hizmetler', lang)} class={`nav-link ${Astro.url.pathname === translatePath('/hizmetler', lang) ? 'text-navy' : ''}`} role="menuitem">{t('nav.services')}</a>
+                    <a href={translatePath('/projeler', lang)} class={`nav-link ${Astro.url.pathname === translatePath('/projeler', lang) ? 'text-navy' : ''}`} role="menuitem">{t('nav.projects')}</a>
+                    <a href={translatePath('/iletisim', lang)} class={`nav-link ${Astro.url.pathname === translatePath('/iletisim', lang) ? 'text-navy' : ''}`} role="menuitem">{t('nav.contact')}</a>
+                    
+                    <!-- Mobile Language Switcher -->
+                    <div class="border-t border-beige/50 pt-4 mt-4">
+                      <a 
+                        href={lang === 'tr' ? `/en${Astro.url.pathname}` : Astro.url.pathname.replace('/en', '')}
+                        class="flex items-center space-x-2 nav-link"
+                        aria-label={lang === 'tr' ? 'Switch to English' : 'Türkçe\'ye geç'}
+                      >
+                        <span class="text-lg">{lang === 'tr' ? '🇺🇸' : '🇹🇷'}</span>
+                        <span>{lang === 'tr' ? 'English' : 'Türkçe'}</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
       </nav>

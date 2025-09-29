@@ -142,7 +142,7 @@ const projects = projectsData.projects;
             <div style="aspect-ratio: 4/3; overflow: hidden;">
               <img 
                 src="${project.mainImage}" 
-                alt="${project.title}"
+                alt="${project.titleEn || project.title}"
                 style="width: 100%; height: 100%; object-cover; transition: transform 0.3s ease;"
                 loading="lazy"
               />
@@ -154,13 +154,13 @@ const projects = projectsData.projects;
                 </span>
               </div>
               <h3 style="font-size: 1.125rem; font-weight: 600; color: #1f2937; margin-bottom: 0.5rem; line-height: 1.4;">
-                ${project.title}
+                ${project.titleEn || project.title}
               </h3>
               <div style="display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.875rem; color: #6b7280;">
-                ${project.fairName ? `<div><strong>Exhibition:</strong> ${project.fairName}</div>` : ''}
-                ${project.location ? `<div><strong>Location:</strong> ${project.location}</div>` : ''}
+                ${(project.fairNameEn || project.fairName) ? `<div><strong>Exhibition:</strong> ${project.fairNameEn || project.fairName}</div>` : ''}
+                ${(project.locationEn || project.location) ? `<div><strong>Location:</strong> ${project.locationEn || project.location}</div>` : ''}
                 ${project.date ? `<div><strong>Year:</strong> ${project.date}</div>` : ''}
-                ${project.company ? `<div><strong>Company:</strong> ${project.company}</div>` : ''}
+                ${(project.companyEn || project.company) ? `<div><strong>Company:</strong> ${project.companyEn || project.company}</div>` : ''}
               </div>
             </div>
           </div>
@@ -187,10 +187,10 @@ const projects = projectsData.projects;
         
         // Search filter
         const matchesSearch = searchTerm === '' || 
-          project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          (project.fairName && project.fairName.toLowerCase().includes(searchTerm.toLowerCase())) ||
-          (project.location && project.location.toLowerCase().includes(searchTerm.toLowerCase())) ||
-          (project.company && project.company.toLowerCase().includes(searchTerm.toLowerCase()));
+          (project.titleEn || project.title).toLowerCase().includes(searchTerm.toLowerCase()) ||
+          ((project.fairNameEn || project.fairName) && (project.fairNameEn || project.fairName).toLowerCase().includes(searchTerm.toLowerCase())) ||
+          ((project.locationEn || project.location) && (project.locationEn || project.location).toLowerCase().includes(searchTerm.toLowerCase())) ||
+          ((project.companyEn || project.company) && (project.companyEn || project.company).toLowerCase().includes(searchTerm.toLowerCase()));
         
         return matchesMainCategory && matchesSubCategory && matchesSearch;
       });

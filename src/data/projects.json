@@ -1,25 +1,6 @@
 {
   "projects": [
     {
-      "id": "middle-east-energy-2023-kym-elektrik",
-      "title": "Middle East Energy 2023 Kym Elektrik",
-      "fairName": "Middle East Energy",
-      "location": "BAE",
-      "date": "2023",
-      "company": "Kym Elektrik",
-      "type": "Premium Ahşap Stant",
-      "mainCategory": "stand-tasarimlari",
-      "subCategory": "enerji",
-      "featured": true,
-      "mainImage": "/projects/middle-east-energy-2023-kym-elektrik/main.jpg",
-      "gallery": [
-        "/projects/middle-east-energy-2023-kym-elektrik/gallery/1.jpg",
-        "/projects/middle-east-energy-2023-kym-elektrik/gallery/2.jpg",
-        "/projects/middle-east-energy-2023-kym-elektrik/gallery/3.jpg",
-        "/projects/middle-east-energy-2023-kym-elektrik/gallery/4.jpg"
-      ]
-    },
-    {
       "id": "elcom-2019-gunsan-elektrik",
       "title": "Elcom 2019 Günsan Elektrik",
       "fairName": "Elcom",
@@ -299,11 +280,7 @@
         "/projects/leshow-istanbul-podyum/gallery/8.jpg",
         "/projects/leshow-istanbul-podyum/gallery/9.jpg",
         "/projects/leshow-istanbul-podyum/gallery/10.jpg",
-        "/projects/leshow-istanbul-podyum/gallery/11.jpg",
-        "/projects/leshow-istanbul-podyum/gallery/12.jpg",
-        "/projects/leshow-istanbul-podyum/gallery/14.jpg",
-        "/projects/leshow-istanbul-podyum/gallery/15.jpg",
-        "/projects/leshow-istanbul-podyum/gallery/16.jpg"
+        "/projects/leshow-istanbul-podyum/gallery/11.jpg"
       ]
     },
     {
@@ -487,24 +464,6 @@
         "/projects/interauto-moscow-2019-atek-makine/gallery/1.jpg",
         "/projects/interauto-moscow-2019-atek-makine/gallery/2.jpg",
         "/projects/interauto-moscow-2019-atek-makine/gallery/3.jpg"
-      ]
-    },
-    {
-      "id": "kazakistan-homedeco-2025-Stantlarimiz",
-      "title": "Kazakistan HomeDeco 2025 Stantlarımız",
-      "fairName": "Kazakistan HomeDeco 2025 Stantlarımız",
-      "location": "Kazakistan",
-      "date": "2025",
-      "company": "Stantlarımız",
-      "type": "Premium Ahşap Stant",
-      "mainCategory": "stand-tasarimlari",
-      "subCategory": "ev-tekstil",
-      "featured": false,
-      "mainImage": "/projects/kazakistan-homedeco-2025-stantlarimiz/main.jpg",
-      "gallery": [
-        "/projects/kazakistan-homedeco-2025-stantlarimiz/gallery/1.jpg",
-        "/projects/kazakistan-homedeco-2025-stantlarimiz/gallery/2.jpg",
-        "/projects/kazakistan-homedeco-2025-stantlarimiz/gallery/3.jpg"
       ]
     },
     {
@@ -723,6 +682,24 @@
       ],
       "id": "sleep-expo-2024-milli-katilim-standi",
       "mainImage": "/projects/sleep-expo-2024-milli-katilim-standi/gallery/1759145683589.jpg"
+    },
+    {
+      "title": "Kazakistan HomeDeco 2025 Stantlarımız",
+      "fairName": "Kazakistan HomeDeco 2025 Stantlarımız",
+      "location": "Kazakistan",
+      "date": "2025",
+      "company": "Standlarımız",
+      "type": "Premium Ahşap Stant",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "ev-tekstil",
+      "featured": false,
+      "gallery": [
+        "/projects/kazakistan-homedeco-2025-stantlarimiz/gallery/1759151354683.jpg",
+        "/projects/kazakistan-homedeco-2025-stantlarimiz/gallery/1759151354690.jpg",
+        "/projects/kazakistan-homedeco-2025-stantlarimiz/gallery/1759151354695.jpg"
+      ],
+      "mainImage": "/projects/kazakistan-homedeco-2025-stantlarimiz/gallery/1759151354713.jpg",
+      "id": "kazakistan-homedeco-2025-stantlarimiz"
     }
   ]
 }

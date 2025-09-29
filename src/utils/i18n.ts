@@ -155,9 +155,30 @@ export function getRouteFromUrl(url: URL): string {
   return pathname;
 }
 
-export function translatePath(path: string, lang: string): string {
-  if (lang === defaultLang) {
-    return path;
+// URL mappings for different languages
+const urlMappings = {
+  tr: {
+    '/': '/',
+    '/hakkimizda': '/hakkimizda',
+    '/hizmetler': '/hizmetler', 
+    '/projeler': '/projeler',
+    '/iletisim': '/iletisim'
+  },
+  en: {
+    '/': '/',
+    '/hakkimizda': '/about',
+    '/hizmetler': '/services',
+    '/projeler': '/projects', 
+    '/iletisim': '/contact'
   }
-  return `/${lang}${path}`;
+} as const;
+
+export function translatePath(path: string, lang: string): string {
+  const mappings = urlMappings[lang as keyof typeof urlMappings] || urlMappings[defaultLang];
+  const translatedPath = mappings[path as keyof typeof mappings] || path;
+  
+  if (lang === defaultLang) {
+    return translatedPath;
+  }
+  return `/${lang}${translatedPath}`;
 }

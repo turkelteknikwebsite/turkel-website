@@ -1,0 +1,468 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import projectsData from '../../data/projects.json';
+
+// Filter projects by main categories
+const projects = projectsData.projects;
+
+// Stand Designs projects (most used 3 sub-categories)
+const standProjects = projects.filter(p => p.mainCategory === 'stand-tasarimlari');
+const elektrikProjects = standProjects.filter(p => p.subCategory === 'elektrik').slice(0, 3);
+
+// National Participation projects
+const milliKatilimProjects = projects.filter(p => p.mainCategory === 'milli-katilim').slice(0, 3);
+
+// Podium Designs projects
+const podyumProjects = projects.filter(p => p.mainCategory === 'podyum-tasarimlari').slice(0, 3);
+
+// Group Participation projects (if any)
+const grupKatilimProjects = projects.filter(p => p.mainCategory === 'grup-katilim').slice(0, 3);
+
+// Check if group participation projects exist
+const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
+---
+
+<BaseLayout 
+  title="Our Services - Türkel Global Stands"
+  description="Custom decor stand, standard stand, premium modular, premium wood, national participation stand, podium production and custom design services."
+>
+  <!-- Page Header -->
+  <section class="py-16 bg-navy text-white">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center animate-on-scroll">
+        <h1 class="text-h4 font-hanken font-medium mb-4">
+          Our Services
+        </h1>
+        <p class="text-body text-white/80 text-lg leading-relaxed">
+          We provide professional service in all processes from exhibition stand design to production, 
+          from installation to dismantling. We produce solutions that will represent your brand 
+          in the strongest way.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Overview - Compact Design -->
+  <section class="py-16">
+    <div class="container">
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-12 animate-on-scroll">
+          <h2 class="section-heading mb-6">Our Services</h2>
+          <p class="text-body text-grey max-w-3xl mx-auto">
+            We provide professional service in all processes from exhibition stand design to production, from installation to dismantling.
+          </p>
+        </div>
+
+        <!-- Service Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16 px-4 sm:px-0" style="grid-auto-rows: 1fr;">
+          
+          <!-- Stand Designs Card -->
+          <div class="group bg-white rounded-xl shadow-sm border border-grey/10 overflow-hidden hover:shadow-lg transition-all duration-300 animate-on-scroll">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-slate-600 to-slate-700 p-4 sm:p-6 text-white">
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                  </svg>
+                </div>
+                <span class="text-sm bg-white/20 px-3 py-1 rounded-full">{standProjects.length} Projects</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Stand Designs</h3>
+              <p class="text-white/90 text-sm">Custom design stand solutions</p>
+            </div>
+            
+            <!-- Sample Projects Mini Grid -->
+            <div class="p-3 sm:p-4">
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                {elektrikProjects.map((project) => (
+                  <div class="aspect-square rounded-lg overflow-hidden">
+                    <img 
+                      src={project.mainImage} 
+                      alt={project.title}
+                      class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                ))}
+              </div>
+              
+              <!-- Features -->
+              <div class="space-y-1.5 mb-4">
+                <div class="flex items-center text-xs text-grey">
+                  <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                  Premium Wood Stand
+                </div>
+                <div class="flex items-center text-xs text-grey">
+                  <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                  Premium Modular Stand
+                </div>
+                <div class="flex items-center text-xs text-grey">
+                  <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                  Custom Decor Stand
+                </div>
+                <div class="flex items-center text-xs text-grey">
+                  <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                  Modular System Stand
+                </div>
+                <div class="flex items-center text-xs text-grey">
+                  <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                  Wood Decor Stand
+                </div>
+                <div class="flex items-center text-xs text-grey">
+                  <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                  Classic Stand
+                </div>
+              </div>
+              
+              <!-- Button -->
+              <a 
+                href="/en/projects?category=stand-tasarimlari" 
+                class="w-full inline-flex items-center justify-center px-3 sm:px-4 py-2 sm:py-2.5 bg-slate-600 text-white text-xs sm:text-sm font-medium rounded-lg hover:bg-slate-700 transition-colors"
+              >
+                View All Projects
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- National Participation Stands Card -->
+          <div class="group bg-white rounded-xl shadow-sm border border-grey/10 overflow-hidden hover:shadow-lg transition-all duration-300 animate-on-scroll">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-slate-600 to-slate-700 p-4 sm:p-6 text-white">
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <span class="text-sm bg-white/20 px-3 py-1 rounded-full">{milliKatilimProjects.length} Projects</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-2">National Participation Stands</h3>
+              <p class="text-white/90 text-sm">Coordinated and strong image</p>
+            </div>
+            
+            <!-- Sample Projects Mini Grid -->
+            <div class="p-3 sm:p-4">
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                {milliKatilimProjects.map((project) => (
+                  <div class="aspect-square rounded-lg overflow-hidden">
+                    <img 
+                      src={project.mainImage} 
+                      alt={project.title}
+                      class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                ))}
+              </div>
+              
+              <!-- Features -->
+              <div class="space-y-1.5 mb-4">
+                <div class="flex items-center text-xs text-grey">
+                  <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                  Coordinated Design
+                </div>
+                <div class="flex items-center text-xs text-grey">
+                  <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                  Strong Image & Representation
+                </div>
+                <div class="flex items-center text-xs text-grey">
+                  <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                  Cost Advantage
+                </div>
+                <div class="flex items-center text-xs text-grey">
+                  <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                  Professional Service
+                </div>
+                <div class="flex items-center text-xs text-grey">
+                  <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                  International Standards
+                </div>
+                <div class="flex items-center text-xs text-grey">
+                  <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                  Single Coordination
+                </div>
+              </div>
+              
+              <!-- Button -->
+              <a 
+                href="/en/projects?category=milli-katilim" 
+                class="w-full inline-flex items-center justify-center px-3 sm:px-4 py-2 sm:py-2.5 bg-slate-600 text-white text-xs sm:text-sm font-medium rounded-lg hover:bg-slate-700 transition-colors"
+              >
+                View All Projects
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Podium Designs Card -->
+          <div class="group bg-white rounded-xl shadow-sm border border-grey/10 overflow-hidden hover:shadow-lg transition-all duration-300 animate-on-scroll">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-slate-600 to-slate-700 p-4 sm:p-6 text-white">
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m0 0V3a1 1 0 011 1v4.586l2.707 2.707A1 1 0 0121 12v8a1 1 0 01-1 1H4a1 1 0 01-1-1v-8a1 1 0 01.293-.707L6 8.586V4a1 1 0 011-1V2z"></path>
+                  </svg>
+                </div>
+                <span class="text-sm bg-white/20 px-3 py-1 rounded-full">{podyumProjects.length} Projects</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Podium Designs</h3>
+              <p class="text-white/90 text-sm">Professional stage solutions</p>
+            </div>
+            
+            <!-- Sample Projects Mini Grid -->
+            <div class="p-3 sm:p-4">
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                {podyumProjects.map((project) => (
+                  <div class="aspect-square rounded-lg overflow-hidden">
+                    <img 
+                      src={project.mainImage} 
+                      alt={project.title}
+                      class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                ))}
+                {/* Placeholders for empty spaces */}
+                {Array.from({length: 3 - podyumProjects.length}).map(() => (
+                  <div class="aspect-square rounded-lg bg-grey/10 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-grey/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
+                  </div>
+                ))}
+              </div>
+              
+              <!-- Features -->
+              <div class="space-y-1.5 mb-4">
+                <div class="flex items-center text-xs text-grey">
+                  <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                  Custom Design
+                </div>
+                <div class="flex items-center text-xs text-grey">
+                  <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                  Safety Standards
+                </div>
+                <div class="flex items-center text-xs text-grey">
+                  <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                  Fast Installation
+                </div>
+                <div class="flex items-center text-xs text-grey">
+                  <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                  Aesthetic Appearance
+                </div>
+                <div class="flex items-center text-xs text-grey">
+                  <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                  Technical Support
+                </div>
+                <div class="flex items-center text-xs text-grey">
+                  <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                  Sound & Light Technology
+                </div>
+              </div>
+              
+              <!-- Button -->
+              <a 
+                href="/en/projects?category=podyum-tasarimlari" 
+                class="w-full inline-flex items-center justify-center px-3 sm:px-4 py-2 sm:py-2.5 bg-slate-600 text-white text-xs sm:text-sm font-medium rounded-lg hover:bg-slate-700 transition-colors"
+              >
+                View All Projects
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Group Participation Stands Card (Conditional) -->
+          {hasGrupKatilimProjects && (
+            <div class="group bg-white rounded-xl shadow-sm border border-grey/10 overflow-hidden hover:shadow-lg transition-all duration-300 animate-on-scroll md:col-span-2 lg:col-span-1">
+              <!-- Header -->
+              <div class="bg-gradient-to-r from-slate-600 to-slate-700 p-4 sm:p-6 text-white">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                  </div>
+                  <span class="text-sm bg-white/20 px-3 py-1 rounded-full">{grupKatilimProjects.length} Projects</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Group Participation Stands</h3>
+                <p class="text-white/90 text-sm">Strong unity solutions</p>
+              </div>
+              
+              <!-- Sample Projects Mini Grid -->
+              <div class="p-3 sm:p-4">
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                  {grupKatilimProjects.map((project) => (
+                    <div class="aspect-square rounded-lg overflow-hidden">
+                      <img 
+                        src={project.mainImage} 
+                        alt={project.title}
+                        class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+                  ))}
+                  {/* Placeholders for empty spaces */}
+                  {Array.from({length: 3 - grupKatilimProjects.length}).map(() => (
+                    <div class="aspect-square rounded-lg bg-grey/10 flex items-center justify-center">
+                      <svg class="w-6 h-6 text-grey/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                      </svg>
+                    </div>
+                  ))}
+                </div>
+                
+                <!-- Features -->
+                <div class="space-y-1.5 mb-4">
+                  <div class="flex items-center text-xs text-grey">
+                    <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                    Cost Sharing
+                  </div>
+                  <div class="flex items-center text-xs text-grey">
+                    <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                    Strong Presentation
+                  </div>
+                  <div class="flex items-center text-xs text-grey">
+                    <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                    Coordinated Design
+                  </div>
+                  <div class="flex items-center text-xs text-grey">
+                    <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                    Common Areas
+                  </div>
+                  <div class="flex items-center text-xs text-grey">
+                    <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                    Single Coordination
+                  </div>
+                  <div class="flex items-center text-xs text-grey">
+                    <span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-2 flex-shrink-0"></span>
+                    Synergy Effect
+                  </div>
+                </div>
+                
+                <!-- Button -->
+                <a 
+                  href="/en/projects?category=grup-katilim" 
+                  class="w-full inline-flex items-center justify-center px-3 sm:px-4 py-2 sm:py-2.5 bg-slate-600 text-white text-xs sm:text-sm font-medium rounded-lg hover:bg-slate-700 transition-colors"
+                >
+                  View All Projects
+                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          )}
+
+        </div>
+
+        <!-- Bottom Info Section -->
+        <div class="text-center animate-on-scroll px-4 sm:px-0">
+          <div class="bg-cream rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12">
+            <h3 class="text-xl sm:text-2xl font-semibold text-navy mb-3 sm:mb-4">Custom Design Service</h3>
+            <p class="text-sm sm:text-body text-grey max-w-2xl mx-auto mb-4 sm:mb-6 px-2 sm:px-0">
+              We turn your dream stand design into reality. With unlimited creativity and special solutions, we represent your brand in the strongest way.
+            </p>
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 text-xs sm:text-sm text-grey mb-4 sm:mb-6 px-2 sm:px-0">
+              <span class="flex items-center">
+                <svg class="w-4 h-4 text-orange mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                3D Design & Visualization
+              </span>
+              <span class="flex items-center">
+                <svg class="w-4 h-4 text-orange mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Professional Installation
+              </span>
+              <span class="flex items-center">
+                <svg class="w-4 h-4 text-orange mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Support During Exhibition
+              </span>
+            </div>
+            <a 
+              href="/en/contact" 
+              class="inline-flex items-center px-6 sm:px-8 py-2.5 sm:py-3 bg-orange text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-orange/90 transition-colors"
+            >
+              Get Free Quote
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="py-section-lg bg-cream">
+    <div class="container">
+      <div class="max-w-6xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-12 md:mb-16 animate-on-scroll px-4 md:px-0">
+          <h2 class="section-heading mb-6">
+            Our Working Process
+          </h2>
+          <p class="text-body text-grey max-w-3xl mx-auto">
+            With our professional approach, we meticulously manage your projects from start to finish.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 px-4 md:px-0">
+          <!-- Step 1 -->
+          <div class="text-center animate-on-scroll">
+            <div class="w-12 h-12 md:w-16 md:h-16 bg-orange rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4 text-white font-bold text-lg md:text-xl">
+              1
+            </div>
+            <h3 class="text-lg md:text-h5 font-semibold text-navy mb-2 md:mb-3">Concept & Design</h3>
+            <p class="text-body text-grey">
+              We analyze your needs and develop a concept suitable for your brand.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="text-center animate-on-scroll">
+            <div class="w-12 h-12 md:w-16 md:h-16 bg-orange rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4 text-white font-bold text-lg md:text-xl">
+              2
+            </div>
+            <h3 class="text-lg md:text-h5 font-semibold text-navy mb-2 md:mb-3">3D Visualization</h3>
+            <p class="text-body text-grey">
+              We visualize your design with 3D models and present it for your approval.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="text-center animate-on-scroll">
+            <div class="w-12 h-12 md:w-16 md:h-16 bg-orange rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4 text-white font-bold text-lg md:text-xl">
+              3
+            </div>
+            <h3 class="text-lg md:text-h5 font-semibold text-navy mb-2 md:mb-3">Production & Quality</h3>
+            <p class="text-body text-grey">
+              We produce at high quality standards and control every detail.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="text-center animate-on-scroll">
+            <div class="w-12 h-12 md:w-16 md:h-16 bg-orange rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4 text-white font-bold text-lg md:text-xl">
+              4
+            </div>
+            <h3 class="text-lg md:text-h5 font-semibold text-navy mb-2 md:mb-3">Installation & Support</h3>
+            <p class="text-body text-grey">
+              We install with our professional team and provide support throughout the exhibition.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,24 +1,22 @@
 {
   "projects": [
     {
-      "id": "kazakistan-homedeco-2019-Sinbo",
-      "title": "Kazakistan HomeDeco 2019 Sinbo",
-      "fairName": "Kazakistan HomeDeco 2019 Sinbo",
-      "location": "Kazakistan",
-      "date": "2019",
-      "company": "Sinbo",
+      "id": "heimtextile-moscow-2024-fortez",
+      "title": "Heimtextile Moscow 2024 Fortez",
+      "fairName": "Heimtextile Moscow 2024 Fortez",
+      "location": "Heimtextile",
+      "date": "2024",
+      "company": "Fortez",
       "type": "Premium Ahşap Stant",
-      "category": "Ev Tekstil",
+      "category": "Tekstil",
       "featured": false,
       "gallery": [
-        "/projects/kazakistan-homedeco-2019-Sinbo/gallery/1759142256787.jpg",
-        "/projects/kazakistan-homedeco-2019-Sinbo/gallery/1759142256789.jpg",
-        "/projects/kazakistan-homedeco-2019-Sinbo/gallery/1759142256792.jpg",
-        "/projects/kazakistan-homedeco-2019-Sinbo/gallery/1759142256794.jpg",
-        "/projects/kazakistan-homedeco-2019-Sinbo/gallery/1759142256795.jpg",
-        "/projects/kazakistan-homedeco-2019-Sinbo/gallery/1759142256797.jpg"
+        "/projects/heimtextile-moscow-2024-fortez/gallery/1759143440938.jpg",
+        "/projects/heimtextile-moscow-2024-fortez/gallery/1759143440941.jpg",
+        "/projects/heimtextile-moscow-2024-fortez/gallery/1759143440944.jpg",
+        "/projects/heimtextile-moscow-2024-fortez/gallery/1759143440946.jpg"
       ],
-      "mainImage": "/projects/kazakistan-homedeco-2019-Sinbo/gallery/1759142256807.jpg"
+      "mainImage": "/projects/heimtextile-moscow-2024-fortez/gallery/1759143440963.jpg"
     },
     {
       "id": "itm-2022-lohia",

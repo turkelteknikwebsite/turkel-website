@@ -194,7 +194,7 @@ const t = useTranslations(lang);
         const totalSlides = slides.length;
 
         // Update slide content
-        function updateSlideContent(index: number) {
+        function updateSlideContent(index) {
           const slide = slides[index];
           const titleEl = document.getElementById('slide-title');
           const locationEl = document.getElementById('slide-location');
@@ -213,9 +213,9 @@ const t = useTranslations(lang);
         }
 
         // Show slide
-        function showSlide(index: number) {
-          slideElements.forEach((slide: Element, i: number) => {
-            const htmlSlide = slide as HTMLElement;
+        function showSlide(index) {
+          slideElements.forEach((slide, i) => {
+            const htmlSlide = slide;
             if (i === index) {
               htmlSlide.classList.add('active');
               htmlSlide.style.opacity = '1';

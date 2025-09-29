@@ -44,389 +44,291 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
     </div>
   </section>
 
-  <!-- Stand Tasarımları Section -->
-  <section class="py-section-lg">
+  <!-- Services Overview - Kompakt Tasarım -->
+  <section class="py-16">
     <div class="container">
       <div class="max-w-7xl mx-auto">
         <!-- Section Header -->
         <div class="text-center mb-12 animate-on-scroll">
-          <h2 class="section-heading mb-6">Stand Tasarımları</h2>
+          <h2 class="section-heading mb-6">Hizmetlerimiz</h2>
           <p class="text-body text-grey max-w-3xl mx-auto">
-            Markanızı en güçlü şekilde temsil edecek özel tasarım stant çözümleri. 
-            Her sektöre uygun, yaratıcı ve etkileyici tasarımlar.
+            Fuar standı tasarımından üretimine, kurulumundan sökümüne kadar tüm süreçlerde profesyonel hizmet sunuyoruz.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
-          <!-- Stand Tipleri Bilgi Kartı -->
-          <div class="lg:col-span-1">
-            <div class="bg-gradient-to-br from-orange to-orange/80 rounded-xl p-6 text-white h-full">
-              <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold mb-4">Stand Tipleri</h3>
-              <ul class="space-y-3 text-sm">
-                <li class="flex items-start">
-                  <span class="text-white/80 mr-2">•</span>
-                  <span><strong>Premium Ahşap Stant:</strong> Doğal ahşap malzemelerle prestijli görünüm</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-white/80 mr-2">•</span>
-                  <span><strong>Premium Modüler Stant:</strong> Esnek ve yeniden kullanılabilir sistem</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-white/80 mr-2">•</span>
-                  <span><strong>Özel Dekor Stant:</strong> Tamamen özelleştirilmiş tasarım</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-white/80 mr-2">•</span>
-                  <span><strong>Modüler Sistem Stant:</strong> Hızlı kurulum ve ekonomik çözüm</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-white/80 mr-2">•</span>
-                  <span><strong>Ahşap Dekor Stant:</strong> Ahşap detaylarla şık tasarım</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-white/80 mr-2">•</span>
-                  <span><strong>Klasik Stant:</strong> Geleneksel ve güvenilir çözümler</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Örnek Projeler -->
-          <div class="lg:col-span-3">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {elektrikProjects.map((project) => (
-                <div class="bg-white rounded-lg shadow-sm border border-grey/10 overflow-hidden hover:shadow-md transition-shadow animate-on-scroll">
-                  <div class="aspect-[4/3] overflow-hidden">
-                    <img 
-                      src={project.mainImage} 
-                      alt={project.title}
-                      class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div class="p-4">
-                    <div class="flex items-center justify-between mb-2">
-                      <span class="text-xs bg-orange/10 text-orange px-2 py-1 rounded-full font-medium">
-                        Elektrik
-                      </span>
-                      <span class="text-xs text-grey">{project.date}</span>
-                    </div>
-                    <h4 class="font-semibold text-navy mb-1 line-clamp-2">{project.title}</h4>
-                    <p class="text-sm text-grey mb-2">{project.fairName}</p>
-                    <div class="flex items-center justify-between">
-                      <span class="text-xs text-grey">{project.location}</span>
-                      <span class="text-xs bg-grey/10 text-grey px-2 py-1 rounded">{project.type}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <!-- Tüm Projeler Butonu -->
-        <div class="text-center animate-on-scroll">
-          <a 
-            href="/projeler?category=stand-tasarimlari" 
-            class="inline-flex items-center px-8 py-4 bg-orange text-white font-semibold rounded-lg hover:bg-orange/90 transition-colors"
-          >
-            <span>Tüm Stand Tasarımlarını Görüntüle</span>
-            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Milli Katılım Stantları Section -->
-  <section class="py-section-lg bg-cream">
-    <div class="container">
-      <div class="max-w-7xl mx-auto">
-        <!-- Section Header -->
-        <div class="text-center mb-12 animate-on-scroll">
-          <h2 class="section-heading mb-6">Milli Katılım Stantları</h2>
-          <p class="text-body text-grey max-w-3xl mx-auto">
-            Türkiye'nin uluslararası fuarlardaki milli katılım projelerinde koordineli ve güçlü bir imaj yaratmak için özel tasarlanmış çözümler.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
-          <!-- Milli Katılım Bilgi Kartı -->
-          <div class="lg:col-span-1">
-            <div class="bg-gradient-to-br from-navy to-navy/80 rounded-xl p-6 text-white h-full">
-              <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold mb-4">Milli Katılım Avantajları</h3>
-              <ul class="space-y-3 text-sm">
-                <li class="flex items-start">
-                  <span class="text-white/80 mr-2">•</span>
-                  <span><strong>Koordineli Tasarım:</strong> Tüm katılımcılar için uyumlu görünüm</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-white/80 mr-2">•</span>
-                  <span><strong>Güçlü İmaj:</strong> Türkiye markasını güçlü temsil</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-white/80 mr-2">•</span>
-                  <span><strong>Maliyet Avantajı:</strong> Toplu üretim ekonomisi</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-white/80 mr-2">•</span>
-                  <span><strong>Profesyonel Hizmet:</strong> Tek noktadan koordinasyon</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-white/80 mr-2">•</span>
-                  <span><strong>Uluslararası Standart:</strong> Dünya çapında kabul gören kalite</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Örnek Projeler -->
-          <div class="lg:col-span-3">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {milliKatilimProjects.map((project) => (
-                <div class="bg-white rounded-lg shadow-sm border border-grey/10 overflow-hidden hover:shadow-md transition-shadow animate-on-scroll">
-                  <div class="aspect-[4/3] overflow-hidden">
-                    <img 
-                      src={project.mainImage} 
-                      alt={project.title}
-                      class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div class="p-4">
-                    <div class="flex items-center justify-between mb-2">
-                      <span class="text-xs bg-navy/10 text-navy px-2 py-1 rounded-full font-medium">
-                        Milli Katılım
-                      </span>
-                      <span class="text-xs text-grey">{project.date}</span>
-                    </div>
-                    <h4 class="font-semibold text-navy mb-1 line-clamp-2">{project.title}</h4>
-                    <p class="text-sm text-grey mb-2">{project.fairName}</p>
-                    <div class="flex items-center justify-between">
-                      <span class="text-xs text-grey">{project.location}</span>
-                      <span class="text-xs bg-grey/10 text-grey px-2 py-1 rounded">{project.type}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <!-- Tüm Projeler Butonu -->
-        <div class="text-center animate-on-scroll">
-          <a 
-            href="/projeler?category=milli-katilim" 
-            class="inline-flex items-center px-8 py-4 bg-navy text-white font-semibold rounded-lg hover:bg-navy/90 transition-colors"
-          >
-            <span>Tüm Milli Katılım Projelerini Görüntüle</span>
-            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Podyum Tasarımları Section -->
-  <section class="py-section-lg">
-    <div class="container">
-      <div class="max-w-7xl mx-auto">
-        <!-- Section Header -->
-        <div class="text-center mb-12 animate-on-scroll">
-          <h2 class="section-heading mb-6">Podyum Tasarımları</h2>
-          <p class="text-body text-grey max-w-3xl mx-auto">
-            Etkinlik ve fuarlar için profesyonel podyum tasarımı, üretimi ve kurulumu. 
-            Güvenli, estetik ve etkileyici sahne çözümleri.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
-          <!-- Podyum Bilgi Kartı -->
-          <div class="lg:col-span-1">
-            <div class="bg-gradient-to-br from-purple-600 to-purple-700 rounded-xl p-6 text-white h-full">
-              <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m0 0V3a1 1 0 011 1v4.586l2.707 2.707A1 1 0 0121 12v8a1 1 0 01-1 1H4a1 1 0 01-1-1v-8a1 1 0 01.293-.707L6 8.586V4a1 1 0 011-1V2z"></path>
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold mb-4">Podyum Özellikleri</h3>
-              <ul class="space-y-3 text-sm">
-                <li class="flex items-start">
-                  <span class="text-white/80 mr-2">•</span>
-                  <span><strong>Özel Tasarım:</strong> İhtiyaca göre boyut ve şekil</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-white/80 mr-2">•</span>
-                  <span><strong>Güvenlik:</strong> Tüm güvenlik standartlarına uygun</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-white/80 mr-2">•</span>
-                  <span><strong>Hızlı Kurulum:</strong> Profesyonel ekip ile hızlı montaj</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-white/80 mr-2">•</span>
-                  <span><strong>Estetik Görünüm:</strong> Etkinliğe uygun tasarım</span>
-                </li>
-                <li class="flex items-start">
-                  <span class="text-white/80 mr-2">•</span>
-                  <span><strong>Teknik Destek:</strong> Ses, ışık ve sahne teknolojisi</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Örnek Projeler -->
-          <div class="lg:col-span-3">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {podyumProjects.map((project) => (
-                <div class="bg-white rounded-lg shadow-sm border border-grey/10 overflow-hidden hover:shadow-md transition-shadow animate-on-scroll">
-                  <div class="aspect-[4/3] overflow-hidden">
-                    <img 
-                      src={project.mainImage} 
-                      alt={project.title}
-                      class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <div class="p-4">
-                    <div class="flex items-center justify-between mb-2">
-                      <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full font-medium">
-                        Podyum
-                      </span>
-                      <span class="text-xs text-grey">{project.date}</span>
-                    </div>
-                    <h4 class="font-semibold text-navy mb-1 line-clamp-2">{project.title}</h4>
-                    <p class="text-sm text-grey mb-2">{project.fairName}</p>
-                    <div class="flex items-center justify-between">
-                      <span class="text-xs text-grey">{project.location}</span>
-                      <span class="text-xs bg-grey/10 text-grey px-2 py-1 rounded">{project.type}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <!-- Tüm Projeler Butonu -->
-        <div class="text-center animate-on-scroll">
-          <a 
-            href="/projeler?category=podyum-tasarimlari" 
-            class="inline-flex items-center px-8 py-4 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors"
-          >
-            <span>Tüm Podyum Projelerini Görüntüle</span>
-            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Grup Katılım Stantları Section (Sadece proje varsa göster) -->
-  {hasGrupKatilimProjects && (
-    <section class="py-section-lg bg-cream">
-      <div class="container">
-        <div class="max-w-7xl mx-auto">
-          <!-- Section Header -->
-          <div class="text-center mb-12 animate-on-scroll">
-            <h2 class="section-heading mb-6">Grup Katılım Stantları</h2>
-            <p class="text-body text-grey max-w-3xl mx-auto">
-              Birden fazla firmanın bir araya gelerek oluşturduğu grup katılım projelerinde koordineli ve etkili stant çözümleri. 
-              Güçlü birliktelik ve profesyonel sunum.
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
-            <!-- Grup Katılım Bilgi Kartı -->
-            <div class="lg:col-span-1">
-              <div class="bg-gradient-to-br from-green-600 to-green-700 rounded-xl p-6 text-white h-full">
-                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
-                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+        <!-- Hizmet Kartları Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          
+          <!-- Stand Tasarımları Kartı -->
+          <div class="group bg-white rounded-xl shadow-sm border border-grey/10 overflow-hidden hover:shadow-lg transition-all duration-300 animate-on-scroll">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-orange to-orange/80 p-6 text-white">
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                   </svg>
                 </div>
-                <h3 class="text-xl font-semibold mb-4">Grup Katılım Avantajları</h3>
-                <ul class="space-y-3 text-sm">
-                  <li class="flex items-start">
-                    <span class="text-white/80 mr-2">•</span>
-                    <span><strong>Maliyet Paylaşımı:</strong> Katılım maliyetlerinin paylaşılması</span>
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-white/80 mr-2">•</span>
-                    <span><strong>Güçlü Sunum:</strong> Birleşik güç ile etkili görünüm</span>
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-white/80 mr-2">•</span>
-                    <span><strong>Koordineli Tasarım:</strong> Uyumlu ve profesyonel düzen</span>
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-white/80 mr-2">•</span>
-                    <span><strong>Ortak Alanlar:</strong> Paylaşımlı toplantı ve sunum alanları</span>
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-white/80 mr-2">•</span>
-                    <span><strong>Tek Koordinasyon:</strong> Merkezi yönetim ve organizasyon</span>
-                  </li>
-                  <li class="flex items-start">
-                    <span class="text-white/80 mr-2">•</span>
-                    <span><strong>Sinerji Etkisi:</strong> Firmaların birbirini desteklemesi</span>
-                  </li>
-                </ul>
+                <span class="text-sm bg-white/20 px-3 py-1 rounded-full">32 Proje</span>
               </div>
+              <h3 class="text-xl font-semibold mb-2">Stand Tasarımları</h3>
+              <p class="text-white/90 text-sm">Özel tasarım stant çözümleri</p>
             </div>
-
-            <!-- Örnek Projeler -->
-            <div class="lg:col-span-3">
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {grupKatilimProjects.map((project) => (
-                  <div class="bg-white rounded-lg shadow-sm border border-grey/10 overflow-hidden hover:shadow-md transition-shadow animate-on-scroll">
-                    <div class="aspect-[4/3] overflow-hidden">
-                      <img 
-                        src={project.mainImage} 
-                        alt={project.title}
-                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <div class="p-4">
-                      <div class="flex items-center justify-between mb-2">
-                        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">
-                          Grup Katılım
-                        </span>
-                        <span class="text-xs text-grey">{project.date}</span>
-                      </div>
-                      <h4 class="font-semibold text-navy mb-1 line-clamp-2">{project.title}</h4>
-                      <p class="text-sm text-grey mb-2">{project.fairName}</p>
-                      <div class="flex items-center justify-between">
-                        <span class="text-xs text-grey">{project.location}</span>
-                        <span class="text-xs bg-grey/10 text-grey px-2 py-1 rounded">{project.type}</span>
-                      </div>
-                    </div>
+            
+            <!-- Örnek Projeler Mini Grid -->
+            <div class="p-4">
+              <div class="grid grid-cols-3 gap-2 mb-4">
+                {elektrikProjects.map((project) => (
+                  <div class="aspect-square rounded-lg overflow-hidden">
+                    <img 
+                      src={project.mainImage} 
+                      alt={project.title}
+                      class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    />
                   </div>
                 ))}
               </div>
+              
+              <!-- Özellikler -->
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center text-sm text-grey">
+                  <span class="w-2 h-2 bg-orange rounded-full mr-2"></span>
+                  Premium Ahşap & Modüler Sistemler
+                </div>
+                <div class="flex items-center text-sm text-grey">
+                  <span class="w-2 h-2 bg-orange rounded-full mr-2"></span>
+                  Özel Dekor & Klasik Stantlar
+                </div>
+              </div>
+              
+              <!-- Buton -->
+              <a 
+                href="/projeler?category=stand-tasarimlari" 
+                class="w-full inline-flex items-center justify-center px-4 py-2 bg-orange text-white text-sm font-medium rounded-lg hover:bg-orange/90 transition-colors"
+              >
+                Tüm Projeleri Görüntüle
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
             </div>
           </div>
 
-          <!-- Tüm Projeler Butonu -->
-          <div class="text-center animate-on-scroll">
+          <!-- Milli Katılım Stantları Kartı -->
+          <div class="group bg-white rounded-xl shadow-sm border border-grey/10 overflow-hidden hover:shadow-lg transition-all duration-300 animate-on-scroll">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-navy to-navy/80 p-6 text-white">
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <span class="text-sm bg-white/20 px-3 py-1 rounded-full">4 Proje</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Milli Katılım Stantları</h3>
+              <p class="text-white/90 text-sm">Koordineli ve güçlü imaj</p>
+            </div>
+            
+            <!-- Örnek Projeler Mini Grid -->
+            <div class="p-4">
+              <div class="grid grid-cols-3 gap-2 mb-4">
+                {milliKatilimProjects.map((project) => (
+                  <div class="aspect-square rounded-lg overflow-hidden">
+                    <img 
+                      src={project.mainImage} 
+                      alt={project.title}
+                      class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                ))}
+              </div>
+              
+              <!-- Özellikler -->
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center text-sm text-grey">
+                  <span class="w-2 h-2 bg-navy rounded-full mr-2"></span>
+                  Koordineli Tasarım & Güçlü İmaj
+                </div>
+                <div class="flex items-center text-sm text-grey">
+                  <span class="w-2 h-2 bg-navy rounded-full mr-2"></span>
+                  Maliyet Avantajı & Tek Koordinasyon
+                </div>
+              </div>
+              
+              <!-- Buton -->
+              <a 
+                href="/projeler?category=milli-katilim" 
+                class="w-full inline-flex items-center justify-center px-4 py-2 bg-navy text-white text-sm font-medium rounded-lg hover:bg-navy/90 transition-colors"
+              >
+                Tüm Projeleri Görüntüle
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Podyum Tasarımları Kartı -->
+          <div class="group bg-white rounded-xl shadow-sm border border-grey/10 overflow-hidden hover:shadow-lg transition-all duration-300 animate-on-scroll">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-6 text-white">
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m0 0V3a1 1 0 011 1v4.586l2.707 2.707A1 1 0 0121 12v8a1 1 0 01-1 1H4a1 1 0 01-1-1v-8a1 1 0 01.293-.707L6 8.586V4a1 1 0 011-1V2z"></path>
+                  </svg>
+                </div>
+                <span class="text-sm bg-white/20 px-3 py-1 rounded-full">2 Proje</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Podyum Tasarımları</h3>
+              <p class="text-white/90 text-sm">Profesyonel sahne çözümleri</p>
+            </div>
+            
+            <!-- Örnek Projeler Mini Grid -->
+            <div class="p-4">
+              <div class="grid grid-cols-3 gap-2 mb-4">
+                {podyumProjects.map((project) => (
+                  <div class="aspect-square rounded-lg overflow-hidden">
+                    <img 
+                      src={project.mainImage} 
+                      alt={project.title}
+                      class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                ))}
+                <!-- Boş alan için placeholder -->
+                <div class="aspect-square rounded-lg bg-grey/10 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-grey/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                  </svg>
+                </div>
+              </div>
+              
+              <!-- Özellikler -->
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center text-sm text-grey">
+                  <span class="w-2 h-2 bg-purple-600 rounded-full mr-2"></span>
+                  Özel Tasarım & Güvenlik Standartları
+                </div>
+                <div class="flex items-center text-sm text-grey">
+                  <span class="w-2 h-2 bg-purple-600 rounded-full mr-2"></span>
+                  Hızlı Kurulum & Teknik Destek
+                </div>
+              </div>
+              
+              <!-- Buton -->
+              <a 
+                href="/projeler?category=podyum-tasarimlari" 
+                class="w-full inline-flex items-center justify-center px-4 py-2 bg-purple-600 text-white text-sm font-medium rounded-lg hover:bg-purple-700 transition-colors"
+              >
+                Tüm Projeleri Görüntüle
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Grup Katılım Stantları Kartı (Koşullu) -->
+          {hasGrupKatilimProjects && (
+            <div class="group bg-white rounded-xl shadow-sm border border-grey/10 overflow-hidden hover:shadow-lg transition-all duration-300 animate-on-scroll md:col-span-2 lg:col-span-1">
+              <!-- Header -->
+              <div class="bg-gradient-to-r from-green-600 to-green-700 p-6 text-white">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                  </div>
+                  <span class="text-sm bg-white/20 px-3 py-1 rounded-full">{grupKatilimProjects.length} Proje</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Grup Katılım Stantları</h3>
+                <p class="text-white/90 text-sm">Güçlü birliktelik çözümleri</p>
+              </div>
+              
+              <!-- Örnek Projeler Mini Grid -->
+              <div class="p-4">
+                <div class="grid grid-cols-3 gap-2 mb-4">
+                  {grupKatilimProjects.map((project) => (
+                    <div class="aspect-square rounded-lg overflow-hidden">
+                      <img 
+                        src={project.mainImage} 
+                        alt={project.title}
+                        class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+                  ))}
+                  {/* Boş alanlar için placeholder */}
+                  {Array.from({length: 3 - grupKatilimProjects.length}).map(() => (
+                    <div class="aspect-square rounded-lg bg-grey/10 flex items-center justify-center">
+                      <svg class="w-6 h-6 text-grey/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                      </svg>
+                    </div>
+                  ))}
+                </div>
+                
+                <!-- Özellikler -->
+                <div class="space-y-2 mb-4">
+                  <div class="flex items-center text-sm text-grey">
+                    <span class="w-2 h-2 bg-green-600 rounded-full mr-2"></span>
+                    Maliyet Paylaşımı & Güçlü Sunum
+                  </div>
+                  <div class="flex items-center text-sm text-grey">
+                    <span class="w-2 h-2 bg-green-600 rounded-full mr-2"></span>
+                    Koordineli Tasarım & Sinerji Etkisi
+                  </div>
+                </div>
+                
+                <!-- Buton -->
+                <a 
+                  href="/projeler?category=grup-katilim" 
+                  class="w-full inline-flex items-center justify-center px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors"
+                >
+                  Tüm Projeleri Görüntüle
+                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          )}
+
+        </div>
+
+        <!-- Alt Bilgi Bölümü -->
+        <div class="text-center animate-on-scroll">
+          <div class="bg-cream rounded-2xl p-8 md:p-12">
+            <h3 class="text-2xl font-semibold text-navy mb-4">Özel Tasarım Hizmeti</h3>
+            <p class="text-body text-grey max-w-2xl mx-auto mb-6">
+              Hayalinizdeki stant tasarımını gerçeğe dönüştürüyoruz. Sınırsız yaratıcılık ve özel çözümlerle markanızı en güçlü şekilde temsil ediyoruz.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 text-sm text-grey mb-6">
+              <span class="flex items-center">
+                <svg class="w-4 h-4 text-orange mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                3D Tasarım & Görselleştirme
+              </span>
+              <span class="flex items-center">
+                <svg class="w-4 h-4 text-orange mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Profesyonel Kurulum
+              </span>
+              <span class="flex items-center">
+                <svg class="w-4 h-4 text-orange mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Fuar Boyunca Destek
+              </span>
+            </div>
             <a 
-              href="/projeler?category=grup-katilim" 
-              class="inline-flex items-center px-8 py-4 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors"
+              href="/iletisim" 
+              class="inline-flex items-center px-8 py-3 bg-orange text-white font-semibold rounded-lg hover:bg-orange/90 transition-colors"
             >
-              <span>Tüm Grup Katılım Projelerini Görüntüle</span>
+              Ücretsiz Teklif Alın
               <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
@@ -434,8 +336,9 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
           </div>
         </div>
       </div>
-    </section>
-  )}
+    </div>
+  </section>
+
 
   <!-- Process Section -->
   <section class="py-section-lg bg-cream">

@@ -1,24 +1,24 @@
 {
   "projects": [
     {
-      "id": "mebel-2022-ece-boya",
-      "title": "Mebel 2022 Ece Boya",
-      "fairName": "Mebel Fuarı",
-      "location": "Rusya",
-      "date": "2022",
-      "company": "Ece Boya",
-      "type": "Özel Dekor Stant",
-      "category": "mobilya",
-      "featured": true,
-      "mainImage": "/projects/mebel-2022-ece-boya/main.jpg",
+      "id": "kazakistan-homedeco-2019-Sinbo",
+      "title": "Kazakistan HomeDeco 2019 Sinbo",
+      "fairName": "Kazakistan HomeDeco 2019 Sinbo",
+      "location": "Kazakistan",
+      "date": "2019",
+      "company": "Sinbo",
+      "type": "Premium Ahşap Stant",
+      "category": "Ev Tekstil",
+      "featured": false,
       "gallery": [
-        "/projects/mebel-2022-ece-boya/gallery/1.jpg",
-        "/projects/mebel-2022-ece-boya/gallery/2.jpg",
-        "/projects/mebel-2022-ece-boya/gallery/3.jpg",
-        "/projects/mebel-2022-ece-boya/gallery/4.jpg",
-        "/projects/mebel-2022-ece-boya/gallery/5.jpg",
-        "/projects/mebel-2022-ece-boya/gallery/6.jpg"
-      ]
+        "/projects/kazakistan-homedeco-2019-Sinbo/gallery/1759142256787.jpg",
+        "/projects/kazakistan-homedeco-2019-Sinbo/gallery/1759142256789.jpg",
+        "/projects/kazakistan-homedeco-2019-Sinbo/gallery/1759142256792.jpg",
+        "/projects/kazakistan-homedeco-2019-Sinbo/gallery/1759142256794.jpg",
+        "/projects/kazakistan-homedeco-2019-Sinbo/gallery/1759142256795.jpg",
+        "/projects/kazakistan-homedeco-2019-Sinbo/gallery/1759142256797.jpg"
+      ],
+      "mainImage": "/projects/kazakistan-homedeco-2019-Sinbo/gallery/1759142256807.jpg"
     },
     {
       "id": "itm-2022-lohia",
@@ -236,7 +236,6 @@
         "/projects/elcom-2019-ovio-elektrik/gallery/1.jpg",
         "/projects/elcom-2019-ovio-elektrik/gallery/2.jpg",
         "/projects/elcom-2019-ovio-elektrik/gallery/3.jpg"
-
       ]
     },
     {
@@ -568,7 +567,7 @@
       "fairName": "Kazakistan HomeDeco 2019 Kısmet",
       "location": "Kazakistan",
       "date": "2019",
-      "company": "Stantlarımız",
+      "company": "Kısmet",
       "type": "Premium Ahşap Stant",
       "category": "Ev Tekstil",
       "featured": false,
@@ -580,38 +579,25 @@
         "/projects/kazakistan-homedeco-2019-kismet/gallery/4.jpg",
         "/projects/kazakistan-homedeco-2019-kismet/gallery/5.jpg"
       ]
-    }
-  ],
-  "categories": [
-    {
-      "id": "all",
-      "name": "Tümü",
-      "count": 0
     },
     {
-      "id": "mobilya",
-      "name": "Mobilya",
-      "count": 0
-    },
-    {
-      "id": "teknoloji",
-      "name": "Teknoloji",
-      "count": 0
-    },
-    {
-      "id": "enerji",
-      "name": "Enerji",
-      "count": 0
-    },
-    {
-      "id": "saglik",
-      "name": "Sağlık",
-      "count": 0
-    },
-    {
-      "id": "otomotiv",
-      "name": "Otomotiv",
-      "count": 0
+      "id": "kazakistan-homedeco-2019-Sinbo",
+      "title": "Kazakistan HomeDeco 2019 Sinbo",
+      "fairName": "Kazakistan HomeDeco 2019 Sinbo",
+      "location": "Kazakistan",
+      "date": "2019",
+      "company": "Sinbo",
+      "type": "Premium Ahşap Stant",
+      "category": "Ev Tekstil",
+      "featured": false,
+      "mainImage": "/projects/kazakistan-homedeco-2019-sinbo/main.jpg",
+      "gallery": [
+        "/projects/kazakistan-homedeco-2019-kismet/gallery/1.jpg",
+        "/projects/kazakistan-homedeco-2019-sinbo/gallery/2.jpg",
+        "/projects/kazakistan-homedeco-2019-sinbo/gallery/3.jpg",
+        "/projects/kazakistan-homedeco-2019-sinbo/gallery/4.jpg",
+        "/projects/kazakistan-homedeco-2019-kismet/gallery/5.jpg"
+      ]
     }
   ]
 }

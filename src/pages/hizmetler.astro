@@ -19,6 +19,9 @@ const podyumProjects = projects.filter(p => p.mainCategory === 'podyum-tasarimla
 
 // Grup Katılım projeleri (eğer varsa)
 const grupKatilimProjects = projects.filter(p => p.mainCategory === 'grup-katilim').slice(0, 3);
+
+// Grup katılım projesi var mı kontrol et
+const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
 ---
 
 <BaseLayout 
@@ -331,6 +334,108 @@ const grupKatilimProjects = projects.filter(p => p.mainCategory === 'grup-katili
       </div>
     </div>
   </section>
+
+  <!-- Grup Katılım Stantları Section (Sadece proje varsa göster) -->
+  {hasGrupKatilimProjects && (
+    <section class="py-section-lg bg-cream">
+      <div class="container">
+        <div class="max-w-7xl mx-auto">
+          <!-- Section Header -->
+          <div class="text-center mb-12 animate-on-scroll">
+            <h2 class="section-heading mb-6">Grup Katılım Stantları</h2>
+            <p class="text-body text-grey max-w-3xl mx-auto">
+              Birden fazla firmanın bir araya gelerek oluşturduğu grup katılım projelerinde koordineli ve etkili stant çözümleri. 
+              Güçlü birliktelik ve profesyonel sunum.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
+            <!-- Grup Katılım Bilgi Kartı -->
+            <div class="lg:col-span-1">
+              <div class="bg-gradient-to-br from-green-600 to-green-700 rounded-xl p-6 text-white h-full">
+                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Grup Katılım Avantajları</h3>
+                <ul class="space-y-3 text-sm">
+                  <li class="flex items-start">
+                    <span class="text-white/80 mr-2">•</span>
+                    <span><strong>Maliyet Paylaşımı:</strong> Katılım maliyetlerinin paylaşılması</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-white/80 mr-2">•</span>
+                    <span><strong>Güçlü Sunum:</strong> Birleşik güç ile etkili görünüm</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-white/80 mr-2">•</span>
+                    <span><strong>Koordineli Tasarım:</strong> Uyumlu ve profesyonel düzen</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-white/80 mr-2">•</span>
+                    <span><strong>Ortak Alanlar:</strong> Paylaşımlı toplantı ve sunum alanları</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-white/80 mr-2">•</span>
+                    <span><strong>Tek Koordinasyon:</strong> Merkezi yönetim ve organizasyon</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-white/80 mr-2">•</span>
+                    <span><strong>Sinerji Etkisi:</strong> Firmaların birbirini desteklemesi</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Örnek Projeler -->
+            <div class="lg:col-span-3">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {grupKatilimProjects.map((project) => (
+                  <div class="bg-white rounded-lg shadow-sm border border-grey/10 overflow-hidden hover:shadow-md transition-shadow animate-on-scroll">
+                    <div class="aspect-[4/3] overflow-hidden">
+                      <img 
+                        src={project.mainImage} 
+                        alt={project.title}
+                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div class="p-4">
+                      <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">
+                          Grup Katılım
+                        </span>
+                        <span class="text-xs text-grey">{project.date}</span>
+                      </div>
+                      <h4 class="font-semibold text-navy mb-1 line-clamp-2">{project.title}</h4>
+                      <p class="text-sm text-grey mb-2">{project.fairName}</p>
+                      <div class="flex items-center justify-between">
+                        <span class="text-xs text-grey">{project.location}</span>
+                        <span class="text-xs bg-grey/10 text-grey px-2 py-1 rounded">{project.type}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <!-- Tüm Projeler Butonu -->
+          <div class="text-center animate-on-scroll">
+            <a 
+              href="/projeler?category=grup-katilim" 
+              class="inline-flex items-center px-8 py-4 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-colors"
+            >
+              <span>Tüm Grup Katılım Projelerini Görüntüle</span>
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Process Section -->
   <section class="py-section-lg bg-cream">

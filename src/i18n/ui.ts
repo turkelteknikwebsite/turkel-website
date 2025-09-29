@@ -48,7 +48,7 @@ export const ui = {
     
     // Footer
     'footer.company': 'Türkel Global Stands',
-    'footer.description': 'Fuar standı tasarım ve üretiminde uzman ekibimizle markanızı en güçlü şekilde temsil ediyoruz.',
+    'footer.description': 'Fuar standı tasarımı ve üretiminde uzman şirket. Dünya çapında 50+ lokasyonda hizmet veriyoruz.',
     'footer.quickLinks': 'Hızlı Linkler',
     'footer.services': 'Hizmetlerimiz',
     'footer.contact': 'İletişim',
@@ -106,7 +106,7 @@ export const ui = {
     
     // Footer
     'footer.company': 'Türkel Global Stands',
-    'footer.description': 'With our expert team in exhibition stand design and production, we represent your brand in the strongest way.',
+    'footer.description': 'Expert company in exhibition stand design and production. We serve in 50+ locations worldwide.',
     'footer.quickLinks': 'Quick Links',
     'footer.services': 'Services',
     'footer.contact': 'Contact',

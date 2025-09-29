@@ -202,25 +202,25 @@ const finalStructuredData = structuredData || defaultStructuredData;
               loading="lazy"
             />
             <p class="text-sm text-white/70 leading-relaxed max-w-md">
-              Fuar standı tasarımı ve üretiminde uzman şirket. Dünya çapında 50+ lokasyonda hizmet veriyoruz.
+              {t('footer.description')}
             </p>
           </div>
           
           <!-- Quick Links -->
           <div>
-            <h3 class="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Sayfalar</h3>
+            <h3 class="text-sm font-semibold text-white mb-4 uppercase tracking-wider">{t('footer.quickLinks')}</h3>
             <nav class="flex flex-col space-y-2" aria-label="Footer navigasyon">
-              <a href="/" class={`text-sm text-white/70 hover:text-orange transition-colors ${Astro.url.pathname === '/' ? 'text-orange' : ''}`}>Anasayfa</a>
-              <a href="/hakkimizda" class={`text-sm text-white/70 hover:text-orange transition-colors ${Astro.url.pathname === '/hakkimizda' ? 'text-orange' : ''}`}>Hakkımızda</a>
-              <a href="/hizmetler" class={`text-sm text-white/70 hover:text-orange transition-colors ${Astro.url.pathname === '/hizmetler' ? 'text-orange' : ''}`}>Hizmetlerimiz</a>
-              <a href="/projeler" class={`text-sm text-white/70 hover:text-orange transition-colors ${Astro.url.pathname === '/projeler' ? 'text-orange' : ''}`}>Projeler</a>
-              <a href="/iletisim" class={`text-sm text-white/70 hover:text-orange transition-colors ${Astro.url.pathname === '/iletisim' ? 'text-orange' : ''}`}>İletişim</a>
+              <a href={translatePath('/', lang)} class={`text-sm text-white/70 hover:text-orange transition-colors ${Astro.url.pathname === translatePath('/', lang) ? 'text-orange' : ''}`}>{t('nav.home')}</a>
+              <a href={translatePath('/hakkimizda', lang)} class={`text-sm text-white/70 hover:text-orange transition-colors ${Astro.url.pathname === translatePath('/hakkimizda', lang) ? 'text-orange' : ''}`}>{t('nav.about')}</a>
+              <a href={translatePath('/hizmetler', lang)} class={`text-sm text-white/70 hover:text-orange transition-colors ${Astro.url.pathname === translatePath('/hizmetler', lang) ? 'text-orange' : ''}`}>{t('nav.services')}</a>
+              <a href={translatePath('/projeler', lang)} class={`text-sm text-white/70 hover:text-orange transition-colors ${Astro.url.pathname === translatePath('/projeler', lang) ? 'text-orange' : ''}`}>{t('nav.projects')}</a>
+              <a href={translatePath('/iletisim', lang)} class={`text-sm text-white/70 hover:text-orange transition-colors ${Astro.url.pathname === translatePath('/iletisim', lang) ? 'text-orange' : ''}`}>{t('nav.contact')}</a>
             </nav>
           </div>
           
           <!-- Contact Info -->
           <div>
-            <h3 class="text-sm font-semibold text-white mb-4 uppercase tracking-wider">İletişim</h3>
+            <h3 class="text-sm font-semibold text-white mb-4 uppercase tracking-wider">{t('footer.contact')}</h3>
             <div class="space-y-3">
               <div>
                 <a href="mailto:globalstand@turkel.com.tr" class="text-sm text-white/70 hover:text-orange transition-colors block">
@@ -247,16 +247,16 @@ const finalStructuredData = structuredData || defaultStructuredData;
           <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <!-- Copyright -->
             <p class="text-sm text-white/50">
-              © 2025 Türkel Global Stands. Tüm hakları saklıdır.
+              © 2025 {t('footer.company')}. {t('footer.rights')}
             </p>
             
             <!-- Additional Links -->
             <div class="flex space-x-6">
-              <a href="/iletisim" class="text-sm text-white/50 hover:text-orange transition-colors">
-                Gizlilik Politikası
+              <a href={translatePath('/iletisim', lang)} class="text-sm text-white/50 hover:text-orange transition-colors">
+                {lang === 'en' ? 'Privacy Policy' : 'Gizlilik Politikası'}
               </a>
-              <a href="/iletisim" class="text-sm text-white/50 hover:text-orange transition-colors">
-                Kullanım Şartları
+              <a href={translatePath('/iletisim', lang)} class="text-sm text-white/50 hover:text-orange transition-colors">
+                {lang === 'en' ? 'Terms of Use' : 'Kullanım Şartları'}
               </a>
             </div>
           </div>

@@ -64,23 +64,32 @@ export function getOppositeLanguagePath(currentUrl: URL): string {
   
   // Get the current path without language prefix
   let currentPath = currentUrl.pathname;
-  if (currentLang === 'en') {
+  
+  // Remove language prefix if it exists
+  if (currentLang === 'en' && currentPath.startsWith('/en')) {
     currentPath = currentPath.replace('/en', '') || '/';
   }
   
-  // Find the corresponding path in the opposite language
+  // Map current path to target language
   const currentMappings = urlMappings[currentLang];
   const targetMappings = urlMappings[targetLang];
   
-  // Find the key that matches the current path
-  let targetPath = currentPath;
+  // Find the base path key
+  let baseKey = '/';
   for (const [key, value] of Object.entries(currentMappings)) {
     if (value === currentPath) {
-      targetPath = targetMappings[key as keyof typeof targetMappings] || currentPath;
+      baseKey = key;
       break;
     }
   }
   
-  // Return the translated path
-  return translatePath(targetPath, targetLang);
+  // Get target path
+  const targetPath = targetMappings[baseKey as keyof typeof targetMappings] || currentPath;
+  
+  // Return the final URL
+  if (targetLang === 'tr') {
+    return targetPath;
+  } else {
+    return `/en${targetPath}`;
+  }
 }

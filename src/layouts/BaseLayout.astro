@@ -87,12 +87,7 @@ const finalStructuredData = structuredData || defaultStructuredData;
     <script type="application/ld+json" set:html={JSON.stringify(finalStructuredData)}></script>
   </head>
   
-  <body class="relative">
-    <!-- Global Background Pattern -->
-    <div class="fixed inset-0 opacity-3 pointer-events-none z-0">
-      <div class="w-full h-full bg-repeat" style="background-image: url('/dotted-arrow-dark.png'); background-size: 150px 150px;"></div>
-    </div>
-    
+  <body>
     <!-- Skip to content link for accessibility -->
     <a href="#main" class="skip-link">Ana içeriğe geç</a>
     
@@ -157,7 +152,7 @@ const finalStructuredData = structuredData || defaultStructuredData;
     </header>
     
     <!-- Main Content -->
-    <main id="main" class="relative z-10">
+    <main id="main">
       <slot />
     </main>
     

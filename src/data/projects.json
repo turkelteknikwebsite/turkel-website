@@ -1,42 +1,25 @@
 {
   "projects": [
     {
-      "id": "heimtextile-moscow-2024-fortez",
-      "title": "Heimtextile Moscow 2024 Fortez",
-      "fairName": "Heimtextile Moscow 2024 Fortez",
+      "id": "heimtextile-moscow-2024-karna",
+      "title": "Heimtextile Moscow 2024 Karna",
+      "fairName": "Heimtextile Moscow 2024 Karna",
       "location": "Heimtextile",
       "date": "2024",
-      "company": "Fortez",
+      "company": "Karna",
       "type": "Premium Ahşap Stant",
       "category": "Tekstil",
       "featured": false,
+      "mainImage": "/projects/heimtextile-moscow-2024-karna/gallery/1759144018785.jpg",
       "gallery": [
-        "/projects/heimtextile-moscow-2024-fortez/gallery/1759143440938.jpg",
-        "/projects/heimtextile-moscow-2024-fortez/gallery/1759143440941.jpg",
-        "/projects/heimtextile-moscow-2024-fortez/gallery/1759143440944.jpg",
-        "/projects/heimtextile-moscow-2024-fortez/gallery/1759143440946.jpg"
+        "/projects/heimtextile-moscow-2024-karna/gallery/1759144018635.jpg",
+        "/projects/heimtextile-moscow-2024-karna/gallery/1759144018641.jpg",
+        "/projects/heimtextile-moscow-2024-karna/gallery/1759144018643.jpg",
+        "/projects/heimtextile-moscow-2024-karna/gallery/1759144018646.jpg",
+        "/projects/heimtextile-moscow-2024-karna/gallery/1759144018648.jpg",
+        "/projects/heimtextile-moscow-2024-karna/gallery/1759144018650.jpg"
       ],
-      "mainImage": "/projects/heimtextile-moscow-2024-fortez/gallery/1759143440963.jpg"
-    },
-    {
-      "id": "itm-2022-lohia",
-      "title": "İtm Türkiye 2022 Lohia",
-      "fairName": "İtm Fuarı",
-      "location": "Türkiye",
-      "date": "2022",
-      "company": "Lohia",
-      "type": "Premium Modüler Stant",
-      "category": "teknoloji",
-      "featured": true,
-      "mainImage": "/projects/itm-2022-lohia/main.jpg",
-      "gallery": [
-        "/projects/itm-2022-lohia/gallery/1.jpg",
-        "/projects/itm-2022-lohia/gallery/2.jpg",
-        "/projects/itm-2022-lohia/gallery/3.jpg",
-        "/projects/itm-2022-lohia/gallery/4.jpg",
-        "/projects/itm-2022-lohia/gallery/5.jpg",
-        "/projects/itm-2022-lohia/gallery/6.jpg"
-      ]
+      "slug": "heimtextile-moscow-2024-karna"
     },
     {
       "id": "middle-east-energy-2023-kym-elektrik",
@@ -442,24 +425,6 @@
       "location": "Heimtextile",
       "date": "2024",
       "company": "Elizabeth",
-      "type": "Premium Ahşap Stant",
-      "category": "Tekstil",
-      "featured": false,
-      "mainImage": "/projects/heimtextile-moscow-2024-elizabeth/main.jpg",
-      "gallery": [
-        "/projects/heimtextile-moscow-2024-elizabeth/gallery/1.jpg",
-        "/projects/heimtextile-moscow-2024-elizabeth/gallery/2.jpg",
-        "/projects/heimtextile-moscow-2024-elizabeth/gallery/3.jpg",
-        "/projects/heimtextile-moscow-2024-elizabeth/gallery/4.jpg"
-      ]
-    },
-    {
-      "id": "heimtextile-moscow-2024-fortez",
-      "title": "Heimtextile Moscow 2024 Fortez",
-      "fairName": "Heimtextile Moscow 2024 Fortez",
-      "location": "Heimtextile",
-      "date": "2024",
-      "company": "Fortez",
       "type": "Premium Ahşap Stant",
       "category": "Tekstil",
       "featured": false,

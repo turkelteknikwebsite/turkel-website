@@ -1,5 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import projectsData from '../data/projects.json';
+
+// Ana kategorilere göre projeleri grupla
+const projects = projectsData.projects;
+
+// Stand Tasarımları projeleri (en çok kullanılan 3 alt kategori)
+const standProjects = projects.filter(p => p.mainCategory === 'stand-tasarimlari');
+const elektrikProjects = standProjects.filter(p => p.subCategory === 'elektrik').slice(0, 3);
+const enerjiProjects = standProjects.filter(p => p.subCategory === 'enerji').slice(0, 3);
+const otomotivProjects = standProjects.filter(p => p.subCategory === 'otomotiv').slice(0, 3);
+
+// Milli Katılım projeleri
+const milliKatilimProjects = projects.filter(p => p.mainCategory === 'milli-katilim').slice(0, 3);
+
+// Podyum Tasarımları projeleri
+const podyumProjects = projects.filter(p => p.mainCategory === 'podyum-tasarimlari').slice(0, 3);
+
+// Grup Katılım projeleri (eğer varsa)
+const grupKatilimProjects = projects.filter(p => p.mainCategory === 'grup-katilim').slice(0, 3);
 ---
 
 <BaseLayout 
@@ -22,236 +41,292 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <!-- Services Overview -->
+  <!-- Stand Tasarımları Section -->
   <section class="py-section-lg">
     <div class="container">
-      <div class="max-w-6xl mx-auto">
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-12 animate-on-scroll">
+          <h2 class="section-heading mb-6">Stand Tasarımları</h2>
+          <p class="text-body text-grey max-w-3xl mx-auto">
+            Markanızı en güçlü şekilde temsil edecek özel tasarım stant çözümleri. 
+            Her sektöre uygun, yaratıcı ve etkileyici tasarımlar.
+          </p>
+        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 px-4 md:px-0">
-          <!-- Service 1: Özel Dekor Stant -->
-          <div class="bg-white rounded-lg p-6 md:p-8 shadow-sm border border-grey/10 animate-on-scroll hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 md:w-16 md:h-16 bg-orange/10 rounded-full flex items-center justify-center mb-4 md:mb-6">
-              <svg class="w-6 h-6 md:w-8 md:h-8 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
-              </svg>
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
+          <!-- Stand Tipleri Bilgi Kartı -->
+          <div class="lg:col-span-1">
+            <div class="bg-gradient-to-br from-orange to-orange/80 rounded-xl p-6 text-white h-full">
+              <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold mb-4">Stand Tipleri</h3>
+              <ul class="space-y-3 text-sm">
+                <li class="flex items-start">
+                  <span class="text-white/80 mr-2">•</span>
+                  <span><strong>Premium Ahşap Stant:</strong> Doğal ahşap malzemelerle prestijli görünüm</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-white/80 mr-2">•</span>
+                  <span><strong>Premium Modüler Stant:</strong> Esnek ve yeniden kullanılabilir sistem</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-white/80 mr-2">•</span>
+                  <span><strong>Özel Dekor Stant:</strong> Tamamen özelleştirilmiş tasarım</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-white/80 mr-2">•</span>
+                  <span><strong>Modüler Sistem Stant:</strong> Hızlı kurulum ve ekonomik çözüm</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-white/80 mr-2">•</span>
+                  <span><strong>Ahşap Dekor Stant:</strong> Ahşap detaylarla şık tasarım</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-white/80 mr-2">•</span>
+                  <span><strong>Klasik Stant:</strong> Geleneksel ve güvenilir çözümler</span>
+                </li>
+              </ul>
             </div>
-            <h3 class="text-lg md:text-h4 font-semibold text-navy mb-3 md:mb-4">Özel Dekor Stant</h3>
-            <p class="text-body text-grey leading-relaxed mb-4">
-              Markanıza özel tasarlanan, tamamen özgün ve etkileyici stant çözümleri. 
-              Her detayı düşünülmüş, yaratıcı tasarımlarla fark yaratın.
-            </p>
-            <ul class="text-body text-grey space-y-2">
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>3D tasarım ve görselleştirme</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Özel malzeme seçimi</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Marka kimliği entegrasyonu</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Profesyonel kurulum hizmeti</span>
-              </li>
-            </ul>
           </div>
 
-          <!-- Service 2: Standart Stant -->
-          <div class="bg-white rounded-lg p-6 md:p-8 shadow-sm border border-grey/10 animate-on-scroll hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 md:w-16 md:h-16 bg-orange/10 rounded-full flex items-center justify-center mb-4 md:mb-6">
-              <svg class="w-6 h-6 md:w-8 md:h-8 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-              </svg>
+          <!-- Örnek Projeler -->
+          <div class="lg:col-span-3">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {elektrikProjects.map((project) => (
+                <div class="bg-white rounded-lg shadow-sm border border-grey/10 overflow-hidden hover:shadow-md transition-shadow animate-on-scroll">
+                  <div class="aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={project.mainImage} 
+                      alt={project.title}
+                      class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div class="p-4">
+                    <div class="flex items-center justify-between mb-2">
+                      <span class="text-xs bg-orange/10 text-orange px-2 py-1 rounded-full font-medium">
+                        Elektrik
+                      </span>
+                      <span class="text-xs text-grey">{project.date}</span>
+                    </div>
+                    <h4 class="font-semibold text-navy mb-1 line-clamp-2">{project.title}</h4>
+                    <p class="text-sm text-grey mb-2">{project.fairName}</p>
+                    <div class="flex items-center justify-between">
+                      <span class="text-xs text-grey">{project.location}</span>
+                      <span class="text-xs bg-grey/10 text-grey px-2 py-1 rounded">{project.type}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-            <h3 class="text-lg md:text-h4 font-semibold text-navy mb-3 md:mb-4">Standart Stant</h3>
-            <p class="text-body text-grey leading-relaxed mb-4">
-              Ekonomik ve pratik çözümler arayan katılımcılar için hazır tasarım 
-              seçenekleri. Hızlı ve etkili çözümler.
-            </p>
-            <ul class="text-body text-grey space-y-2">
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Hazır tasarım seçenekleri</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Ekonomik fiyat avantajı</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Hızlı teslimat süresi</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Temel kurulum hizmeti</span>
-              </li>
-            </ul>
+          </div>
+        </div>
+
+        <!-- Tüm Projeler Butonu -->
+        <div class="text-center animate-on-scroll">
+          <a 
+            href="/projeler?category=stand-tasarimlari" 
+            class="inline-flex items-center px-8 py-4 bg-orange text-white font-semibold rounded-lg hover:bg-orange/90 transition-colors"
+          >
+            <span>Tüm Stand Tasarımlarını Görüntüle</span>
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Milli Katılım Stantları Section -->
+  <section class="py-section-lg bg-cream">
+    <div class="container">
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-12 animate-on-scroll">
+          <h2 class="section-heading mb-6">Milli Katılım Stantları</h2>
+          <p class="text-body text-grey max-w-3xl mx-auto">
+            Türkiye'nin uluslararası fuarlardaki milli katılım projelerinde koordineli ve güçlü bir imaj yaratmak için özel tasarlanmış çözümler.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
+          <!-- Milli Katılım Bilgi Kartı -->
+          <div class="lg:col-span-1">
+            <div class="bg-gradient-to-br from-navy to-navy/80 rounded-xl p-6 text-white h-full">
+              <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold mb-4">Milli Katılım Avantajları</h3>
+              <ul class="space-y-3 text-sm">
+                <li class="flex items-start">
+                  <span class="text-white/80 mr-2">•</span>
+                  <span><strong>Koordineli Tasarım:</strong> Tüm katılımcılar için uyumlu görünüm</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-white/80 mr-2">•</span>
+                  <span><strong>Güçlü İmaj:</strong> Türkiye markasını güçlü temsil</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-white/80 mr-2">•</span>
+                  <span><strong>Maliyet Avantajı:</strong> Toplu üretim ekonomisi</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-white/80 mr-2">•</span>
+                  <span><strong>Profesyonel Hizmet:</strong> Tek noktadan koordinasyon</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-white/80 mr-2">•</span>
+                  <span><strong>Uluslararası Standart:</strong> Dünya çapında kabul gören kalite</span>
+                </li>
+              </ul>
+            </div>
           </div>
 
-          <!-- Service 3: Premium Modüler -->
-          <div class="bg-white rounded-lg p-6 md:p-8 shadow-sm border border-grey/10 animate-on-scroll hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 md:w-16 md:h-16 bg-orange/10 rounded-full flex items-center justify-center mb-4 md:mb-6">
-              <svg class="w-6 h-6 md:w-8 md:h-8 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
-              </svg>
+          <!-- Örnek Projeler -->
+          <div class="lg:col-span-3">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {milliKatilimProjects.map((project) => (
+                <div class="bg-white rounded-lg shadow-sm border border-grey/10 overflow-hidden hover:shadow-md transition-shadow animate-on-scroll">
+                  <div class="aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={project.mainImage} 
+                      alt={project.title}
+                      class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div class="p-4">
+                    <div class="flex items-center justify-between mb-2">
+                      <span class="text-xs bg-navy/10 text-navy px-2 py-1 rounded-full font-medium">
+                        Milli Katılım
+                      </span>
+                      <span class="text-xs text-grey">{project.date}</span>
+                    </div>
+                    <h4 class="font-semibold text-navy mb-1 line-clamp-2">{project.title}</h4>
+                    <p class="text-sm text-grey mb-2">{project.fairName}</p>
+                    <div class="flex items-center justify-between">
+                      <span class="text-xs text-grey">{project.location}</span>
+                      <span class="text-xs bg-grey/10 text-grey px-2 py-1 rounded">{project.type}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-            <h3 class="text-lg md:text-h4 font-semibold text-navy mb-3 md:mb-4">Premium Modüler</h3>
-            <p class="text-body text-grey leading-relaxed mb-4">
-              Yüksek kaliteli modüler sistemlerle hızlı ve esnek çözümler. 
-              Farklı fuarlarda yeniden kullanılabilir sistemler.
-            </p>
-            <ul class="text-body text-grey space-y-2">
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Hızlı kurulum ve söküm</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Yeniden kullanılabilir</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Farklı boyutlara uyarlanabilir</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Uzun vadede maliyet etkin</span>
-              </li>
-            </ul>
+          </div>
+        </div>
+
+        <!-- Tüm Projeler Butonu -->
+        <div class="text-center animate-on-scroll">
+          <a 
+            href="/projeler?category=milli-katilim" 
+            class="inline-flex items-center px-8 py-4 bg-navy text-white font-semibold rounded-lg hover:bg-navy/90 transition-colors"
+          >
+            <span>Tüm Milli Katılım Projelerini Görüntüle</span>
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Podyum Tasarımları Section -->
+  <section class="py-section-lg">
+    <div class="container">
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-12 animate-on-scroll">
+          <h2 class="section-heading mb-6">Podyum Tasarımları</h2>
+          <p class="text-body text-grey max-w-3xl mx-auto">
+            Etkinlik ve fuarlar için profesyonel podyum tasarımı, üretimi ve kurulumu. 
+            Güvenli, estetik ve etkileyici sahne çözümleri.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
+          <!-- Podyum Bilgi Kartı -->
+          <div class="lg:col-span-1">
+            <div class="bg-gradient-to-br from-purple-600 to-purple-700 rounded-xl p-6 text-white h-full">
+              <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m0 0V3a1 1 0 011 1v4.586l2.707 2.707A1 1 0 0121 12v8a1 1 0 01-1 1H4a1 1 0 01-1-1v-8a1 1 0 01.293-.707L6 8.586V4a1 1 0 011-1V2z"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold mb-4">Podyum Özellikleri</h3>
+              <ul class="space-y-3 text-sm">
+                <li class="flex items-start">
+                  <span class="text-white/80 mr-2">•</span>
+                  <span><strong>Özel Tasarım:</strong> İhtiyaca göre boyut ve şekil</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-white/80 mr-2">•</span>
+                  <span><strong>Güvenlik:</strong> Tüm güvenlik standartlarına uygun</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-white/80 mr-2">•</span>
+                  <span><strong>Hızlı Kurulum:</strong> Profesyonel ekip ile hızlı montaj</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-white/80 mr-2">•</span>
+                  <span><strong>Estetik Görünüm:</strong> Etkinliğe uygun tasarım</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-white/80 mr-2">•</span>
+                  <span><strong>Teknik Destek:</strong> Ses, ışık ve sahne teknolojisi</span>
+                </li>
+              </ul>
+            </div>
           </div>
 
-          <!-- Service 4: Premium Ahşap -->
-          <div class="bg-white rounded-lg p-6 md:p-8 shadow-sm border border-grey/10 animate-on-scroll hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 md:w-16 md:h-16 bg-orange/10 rounded-full flex items-center justify-center mb-4 md:mb-6">
-              <svg class="w-6 h-6 md:w-8 md:h-8 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 21l4-7 4 7"></path>
-              </svg>
+          <!-- Örnek Projeler -->
+          <div class="lg:col-span-3">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {podyumProjects.map((project) => (
+                <div class="bg-white rounded-lg shadow-sm border border-grey/10 overflow-hidden hover:shadow-md transition-shadow animate-on-scroll">
+                  <div class="aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={project.mainImage} 
+                      alt={project.title}
+                      class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div class="p-4">
+                    <div class="flex items-center justify-between mb-2">
+                      <span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full font-medium">
+                        Podyum
+                      </span>
+                      <span class="text-xs text-grey">{project.date}</span>
+                    </div>
+                    <h4 class="font-semibold text-navy mb-1 line-clamp-2">{project.title}</h4>
+                    <p class="text-sm text-grey mb-2">{project.fairName}</p>
+                    <div class="flex items-center justify-between">
+                      <span class="text-xs text-grey">{project.location}</span>
+                      <span class="text-xs bg-grey/10 text-grey px-2 py-1 rounded">{project.type}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-            <h3 class="text-lg md:text-h4 font-semibold text-navy mb-3 md:mb-4">Premium Ahşap</h3>
-            <p class="text-body text-grey leading-relaxed mb-4">
-              Doğal ahşap malzemelerle üretilen, şık ve prestijli stant çözümleri. 
-              Sıcak ve davetkar atmosfer yaratır.
-            </p>
-            <ul class="text-body text-grey space-y-2">
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Doğal ahşap malzemeler</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Prestijli görünüm</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Çevre dostu çözümler</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Özel işçilik detayları</span>
-              </li>
-            </ul>
           </div>
+        </div>
 
-          <!-- Service 5: Grup Stant -->
-          <div class="bg-white rounded-lg p-6 md:p-8 shadow-sm border border-grey/10 animate-on-scroll hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 md:w-16 md:h-16 bg-orange/10 rounded-full flex items-center justify-center mb-4 md:mb-6">
-              <svg class="w-6 h-6 md:w-8 md:h-8 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg md:text-h4 font-semibold text-navy mb-3 md:mb-4">Milli Katılım Stant</h3>
-            <p class="text-body text-grey leading-relaxed mb-4">
-              Türkiye'nin uluslararası fuarlardaki milli katılım projelerinde 
-              koordineli ve güçlü bir imaj yaratmak için özel tasarlanmış çözümler.
-            </p>
-            <ul class="text-body text-grey space-y-2">
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Milli kimlik vurgulu tasarım</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Koordineli katılımcı standları</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Güçlü ülke imajı yaratır</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Uluslararası standartlarda hizmet</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Service 6: Podyum Üretimi ve Kurulumu -->
-          <div class="bg-white rounded-lg p-6 md:p-8 shadow-sm border border-grey/10 animate-on-scroll hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 md:w-16 md:h-16 bg-orange/10 rounded-full flex items-center justify-center mb-4 md:mb-6">
-              <svg class="w-6 h-6 md:w-8 md:h-8 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m0 0V3a1 1 0 011 1v4.586l2.707 2.707A1 1 0 0121 12v8a1 1 0 01-1 1H4a1 1 0 01-1-1v-8a1 1 0 01.293-.707L6 8.586V4a1 1 0 011-1V2z"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg md:text-h4 font-semibold text-navy mb-3 md:mb-4">Podyum Üretimi ve Kurulumu</h3>
-            <p class="text-body text-grey leading-relaxed mb-4">
-              Etkinlik ve fuarlar için profesyonel podyum tasarımı, üretimi ve kurulumu. 
-              Güvenli ve estetik çözümler.
-            </p>
-            <ul class="text-body text-grey space-y-2">
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Özel boyut ve tasarım seçenekleri</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Güvenlik standartlarına uygun</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Hızlı kurulum ve söküm</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Profesyonel görünüm</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Service 7: Özel Tasarım -->
-          <div class="bg-white rounded-lg p-6 md:p-8 shadow-sm border border-grey/10 animate-on-scroll hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 md:w-16 md:h-16 bg-orange/10 rounded-full flex items-center justify-center mb-4 md:mb-6">
-              <svg class="w-6 h-6 md:w-8 md:h-8 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-              </svg>
-            </div>
-            <h3 class="text-lg md:text-h4 font-semibold text-navy mb-3 md:mb-4">Siz İsteyin Biz Tasarlayalım</h3>
-            <p class="text-body text-grey leading-relaxed mb-4">
-              Hayalinizdeki stant tasarımını gerçeğe dönüştürüyoruz. 
-              Sınırsız yaratıcılık ve özel çözümler.
-            </p>
-            <ul class="text-body text-grey space-y-2">
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Tamamen özelleştirilmiş tasarım</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Sınırsız yaratıcılık</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Konsept geliştirme</span>
-              </li>
-              <li class="flex items-start">
-                <span class="text-orange mr-2">•</span>
-                <span>Danışmanlık hizmeti</span>
-              </li>
-            </ul>
-          </div>
+        <!-- Tüm Projeler Butonu -->
+        <div class="text-center animate-on-scroll">
+          <a 
+            href="/projeler?category=podyum-tasarimlari" 
+            class="inline-flex items-center px-8 py-4 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors"
+          >
+            <span>Tüm Podyum Projelerini Görüntüle</span>
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
         </div>
       </div>
     </div>

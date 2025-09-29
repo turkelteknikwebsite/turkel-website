@@ -109,6 +109,24 @@ const projects = projectsData.projects.sort((a, b) => {
         console.log('✅ DOM yüklendi');
         console.log('✅ Proje sayısı:', projects.length);
         
+        // Check for URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryParam = urlParams.get('category');
+        
+        if (categoryParam) {
+            console.log('🔗 URL parametresi bulundu:', categoryParam);
+            // Set the appropriate main category filter
+            const mainFilterBtns = document.querySelectorAll('.main-filter-btn');
+            mainFilterBtns.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.category === categoryParam) {
+                    btn.classList.add('active');
+                    currentMainCategory = categoryParam;
+                    console.log('✅ Kategori ayarlandı:', categoryParam);
+                }
+            });
+        }
+        
         const grid = document.getElementById('projects-grid');
         
         if (grid) {

@@ -689,11 +689,17 @@ const projects = projectsData.projects.sort((a, b) => {
 
   <!-- Styles for animations and hover effects -->
   <style>
-    .main-filter-btn:hover, .sub-filter-btn:hover {
+    .main-filter-btn:hover:not(.active), .sub-filter-btn:hover:not(.active) {
       border-color: #f97316 !important;
       color: #f97316 !important;
       transform: translateY(-1px);
       box-shadow: 0 4px 12px rgba(249, 115, 22, 0.15) !important;
+    }
+    
+    .main-filter-btn.active:hover, .sub-filter-btn.active:hover {
+      color: white !important;
+      background: #f97316 !important;
+      border-color: #f97316 !important;
     }
     
     .project-card {

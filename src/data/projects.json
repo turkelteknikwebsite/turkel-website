@@ -368,7 +368,8 @@
       "date": "2025",
       "company": "Beta Enerji",
       "type": "Premium Ahşap Stant",
-      "mainCategory": "podyum-tasarimlari",
+      "mainCategory": "stand-tasarimlari",
+      "subCategory": "enerji",
       "featured": false,
       "mainImage": "/projects/dubai-middle-east-energy-2025-isildar-plastic/main.jpg",
       "gallery": [

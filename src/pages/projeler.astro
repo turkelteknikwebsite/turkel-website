@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import projectsData from '../data/projects.json';
+import { getPageKeywords } from '../utils/seo';
 
 // Proje verilerini hazırla ve sırala
 // 1. Yıla göre sırala (en yeni → en eski)
@@ -24,6 +25,7 @@ const projects = projectsData.projects.sort((a, b) => {
 <BaseLayout 
   title="Projelerimiz - Türkel Global Stands"
   description="Gerçekleştirdiğimiz fuar standı projeleri. Mebel 2022, İtm Türkiye 2022, Middle East Energy 2023 ve daha fazlası."
+  keywords={getPageKeywords('projects', 'tr')}
 >
   <!-- Page Header -->
   <section class="py-16 bg-navy text-white">

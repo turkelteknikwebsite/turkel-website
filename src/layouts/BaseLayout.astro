@@ -1,6 +1,7 @@
 ---
 import { generateStructuredData } from '../utils/seo';
 import { getLangFromUrl, useTranslations, translatePath, getOppositeLanguagePath } from '../utils/i18n';
+import { SEO_CONFIG } from '../config/seo';
 import '../styles/globals.css';
 
 export interface Props {
@@ -10,6 +11,9 @@ export interface Props {
   ogImage?: string;
   noindex?: boolean;
   structuredData?: any;
+  keywords?: string;
+  author?: string;
+  type?: 'website' | 'article';
 }
 
 const { 
@@ -18,7 +22,10 @@ const {
   canonical, 
   ogImage = '/og-default.jpg',
   noindex = false,
-  structuredData
+  structuredData,
+  keywords,
+  author = SEO_CONFIG.defaultMeta.author,
+  type = 'website'
 } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
@@ -26,26 +33,68 @@ const t = useTranslations(lang);
 
 const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site);
 
+// Generate hreflang URLs
+const pathname = Astro.url.pathname;
+const pathWithoutLang = pathname.replace(/^\/(en|tr)/, '') || '/';
+const trUrl = new URL(pathWithoutLang, SEO_CONFIG.siteUrl);
+const enUrl = new URL(`/en${pathWithoutLang}`, SEO_CONFIG.siteUrl);
+
 // Generate default structured data based on page
 const defaultStructuredData = (() => {
-  const pathname = Astro.url.pathname;
-  if (pathname === '/') return generateStructuredData('home');
-  if (pathname === '/hakkimizda') return generateStructuredData('about');
-  if (pathname === '/hizmetler') return generateStructuredData('services');
-  if (pathname === '/projeler') return generateStructuredData('projects');
-  if (pathname === '/iletisim') return generateStructuredData('contact');
+  if (pathname === '/' || pathname === '/tr') return generateStructuredData('home');
+  if (pathname.includes('/hakkimizda') || pathname.includes('/about')) return generateStructuredData('about');
+  if (pathname.includes('/hizmetler') || pathname.includes('/services')) return generateStructuredData('services');
+  if (pathname.includes('/projeler') || pathname.includes('/projects')) return generateStructuredData('projects');
+  if (pathname.includes('/iletisim') || pathname.includes('/contact')) return generateStructuredData('contact');
   return generateStructuredData('home');
 })();
 
 const finalStructuredData = structuredData || defaultStructuredData;
+
+// Full OG Image URL
+const ogImageUrl = new URL(ogImage, Astro.site).toString();
 ---
 
 <!doctype html>
 <html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    <meta name="author" content={author} />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Robots -->
+    {noindex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <meta name="robots" content={SEO_CONFIG.defaultMeta.robots} />
+    )}
+    <meta name="googlebot" content={SEO_CONFIG.defaultMeta.googlebot} />
+    <meta name="revisit-after" content={SEO_CONFIG.defaultMeta.revisitAfter} />
+    
+    <!-- Geo Location -->
+    <meta name="geo.region" content="TR-34" />
+    <meta name="geo.placename" content="Istanbul" />
+    <meta name="geo.position" content={`${SEO_CONFIG.company.geo.latitude};${SEO_CONFIG.company.geo.longitude}`} />
+    <meta name="ICBM" content={`${SEO_CONFIG.company.geo.latitude}, ${SEO_CONFIG.company.geo.longitude}`} />
+    
+    <!-- Language & Region -->
+    <meta name="language" content={lang === 'tr' ? 'Turkish' : 'English'} />
+    <meta http-equiv="content-language" content={lang} />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Hreflang Tags for Multi-language Support -->
+    <link rel="alternate" hreflang="tr" href={trUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={trUrl} />
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -55,30 +104,31 @@ const finalStructuredData = structuredData || defaultStructuredData;
     <link rel="shortcut icon" href="/favicon-32x32.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#E67411" />
-    <meta name="generator" content={Astro.generator} />
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href={canonicalURL} />
-    
-    <!-- SEO Meta Tags -->
-    <title>{title}</title>
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="msapplication-TileColor" content="#E67411" />
     
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={type} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
-    <meta property="og:site_name" content="Türkel Global Stands" />
-    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:site_name" content={SEO_CONFIG.og.siteName} />
+    <meta property="og:locale" content={SEO_CONFIG.og.locale[lang]} />
+    {lang === 'tr' && <meta property="og:locale:alternate" content="en_US" />}
+    {lang === 'en' && <meta property="og:locale:alternate" content="tr_TR" />}
     
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={new URL(ogImage, Astro.site)} />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content={SEO_CONFIG.twitter.card} />
+    <meta name="twitter:site" content={SEO_CONFIG.twitter.site} />
+    <meta name="twitter:creator" content={SEO_CONFIG.twitter.creator} />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={title} />
     
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

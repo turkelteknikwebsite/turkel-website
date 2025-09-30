@@ -1,4 +1,5 @@
 // SEO utilities for Türkel Global Stands
+import { SEO_CONFIG, getPageSEO } from '../config/seo';
 
 export interface SEOProps {
   title: string;
@@ -9,33 +10,19 @@ export interface SEOProps {
   type?: 'website' | 'article';
   publishedTime?: string;
   modifiedTime?: string;
+  keywords?: string;
+  author?: string;
+}
+
+// Helper to get keywords for a page
+export function getPageKeywords(page: keyof typeof SEO_CONFIG.pages, lang: 'tr' | 'en' = 'tr'): string {
+  const pageSEO = getPageSEO(page, lang);
+  return pageSEO.keywords || SEO_CONFIG.defaultMeta.keywords.join(', ');
 }
 
 export function generateStructuredData(page: 'home' | 'about' | 'services' | 'projects' | 'contact') {
-  const baseOrganization = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Türkel Global Stands",
-    "url": "https://turkelglobal.com",
-    "logo": "https://turkelglobal.com/logo.png",
-    "description": "Fuar standı tasarımı ve üretiminde uzman şirket. Özel dekor stant, modüler stant ve grup stant çözümleri.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "TR",
-      "addressLocality": "İstanbul"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+90-212-345-67-89",
-      "contactType": "customer service",
-      "email": "info@turkelglobal.com",
-      "availableLanguage": "Turkish"
-    },
-    "sameAs": [
-      "https://www.linkedin.com/company/turkel-global",
-      "https://www.instagram.com/turkelglobal"
-    ]
-  };
+  // Use organization data from SEO_CONFIG
+  const baseOrganization = SEO_CONFIG.structuredData.organization;
 
   switch (page) {
     case 'home':
@@ -161,17 +148,37 @@ export function generateMetaTags(props: SEOProps) {
 // Sitemap generation helper
 export function generateSitemapUrls() {
   const baseUrl = 'https://turkelglobal.com';
-  const pages = [
-    { url: '/', priority: 1.0, changefreq: 'monthly' },
-    { url: '/hakkimizda', priority: 0.8, changefreq: 'yearly' },
-    { url: '/hizmetler', priority: 0.9, changefreq: 'monthly' },
-    { url: '/projeler', priority: 0.8, changefreq: 'weekly' },
-    { url: '/iletisim', priority: 0.7, changefreq: 'yearly' },
+  const lastmod = new Date().toISOString().split('T')[0];
+  
+  // Turkish pages (default, no prefix)
+  const trPages = [
+    { url: '/', priority: 1.0, changefreq: 'monthly', lang: 'tr', alternates: { en: '/en' } },
+    { url: '/hakkimizda', priority: 0.8, changefreq: 'yearly', lang: 'tr', alternates: { en: '/en/about' } },
+    { url: '/hizmetler', priority: 0.9, changefreq: 'monthly', lang: 'tr', alternates: { en: '/en/services' } },
+    { url: '/projeler', priority: 0.8, changefreq: 'weekly', lang: 'tr', alternates: { en: '/en/projects' } },
+    { url: '/iletisim', priority: 0.7, changefreq: 'yearly', lang: 'tr', alternates: { en: '/en/contact' } },
+  ];
+  
+  // English pages
+  const enPages = [
+    { url: '/en', priority: 1.0, changefreq: 'monthly', lang: 'en', alternates: { tr: '/' } },
+    { url: '/en/about', priority: 0.8, changefreq: 'yearly', lang: 'en', alternates: { tr: '/hakkimizda' } },
+    { url: '/en/services', priority: 0.9, changefreq: 'monthly', lang: 'en', alternates: { tr: '/hizmetler' } },
+    { url: '/en/projects', priority: 0.8, changefreq: 'weekly', lang: 'en', alternates: { tr: '/projeler' } },
+    { url: '/en/contact', priority: 0.7, changefreq: 'yearly', lang: 'en', alternates: { tr: '/iletisim' } },
   ];
 
-  return pages.map(page => ({
-    ...page,
+  const allPages = [...trPages, ...enPages];
+
+  return allPages.map(page => ({
     url: `${baseUrl}${page.url}`,
-    lastmod: new Date().toISOString().split('T')[0]
+    lastmod,
+    changefreq: page.changefreq,
+    priority: page.priority,
+    lang: page.lang,
+    alternates: Object.entries(page.alternates).map(([lang, url]) => ({
+      lang,
+      url: `${baseUrl}${url}`
+    }))
   }));
 }

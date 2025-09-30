@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPageKeywords } from '../utils/seo';
 ---
 
 <BaseLayout 
   title="İletişim - Türkel Global Stands"
   description="Türkel Global Stands ile iletişime geçin. Fuar standı tasarımı ve üretimi hakkında bilgi almak için formu doldurun veya doğrudan arayın."
+  keywords={getPageKeywords('contact', 'tr')}
 >
   <!-- Contact Hero -->
   <section class="py-16 bg-navy text-white">

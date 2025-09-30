@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import projectsData from '../data/projects.json';
+import { getPageKeywords } from '../utils/seo';
 
 // Ana kategorilere göre projeleri grupla
 const projects = projectsData.projects;
@@ -27,6 +28,7 @@ const hasGrupKatilimProjects = grupKatilimProjects.length > 0;
 <BaseLayout 
   title="Hizmetlerimiz - Türkel Global Stands"
   description="Özel dekor stant, standart stant, premium modüler, premium ahşap, milli katılım stant, podyum üretimi ve özel tasarım hizmetlerimiz."
+  keywords={getPageKeywords('services', 'tr')}
 >
   <!-- Page Header -->
   <section class="py-16 bg-navy text-white">

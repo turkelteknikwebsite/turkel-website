@@ -7,6 +7,7 @@ import ProjectsSection from '../components/ProjectsSection.astro';
 import CTASection from '../components/CTASection.astro';
 import FAQSection from '../components/FAQSection.astro';
 import { getLangFromUrl, useTranslations } from '../utils/i18n';
+import { getPageKeywords } from '../utils/seo';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -15,6 +16,7 @@ const t = useTranslations(lang);
 <BaseLayout 
   title="Türkel Global Stands - Fuar Standı Tasarımı ve Üretimi"
   description="Fuar standı tasarımı ve üretiminde uzman şirket. Özel dekor stant, modüler stant ve grup stant çözümleri ile markanızı fuar alanında en güçlü şekilde temsil ediyoruz."
+  keywords={getPageKeywords('home', lang)}
 >
   <!-- Hero Section -->
   <section class="relative overflow-hidden h-screen min-h-[600px] max-h-[980px]" id="hero-slider">

@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPageKeywords } from '../utils/seo';
 ---
 
 <BaseLayout 
   title="Hakkımızda - Türkel Global Stands"
   description="Türkel Global Stands olarak fuar sürecinizin her aşamasında yanınızdayız. Özgün tasarımlar, etkin üretim ve hızlı montaj hizmetleri."
+  keywords={getPageKeywords('about', 'tr')}
 >
   <!-- Page Header -->
   <section class="py-16 bg-navy text-white">

@@ -182,9 +182,22 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
                 class="flex items-center space-x-2 px-3 py-2 border border-grey/30 rounded-md hover:border-orange hover:bg-orange/5 transition-colors text-sm font-semibold"
                 aria-label={lang === 'tr' ? 'Switch to English' : 'Türkçe\'ye geç'}
               >
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-                </svg>
+                {lang === 'tr' ? (
+                  <!-- US Flag SVG -->
+                  <svg class="w-5 h-4" viewBox="0 0 24 18" fill="none">
+                    <rect width="24" height="18" fill="#B22234"/>
+                    <path d="M0 2h24M0 4h24M0 6h24M0 8h24M0 10h24M0 12h24M0 14h24M0 16h24" stroke="white" stroke-width="1.5"/>
+                    <rect width="10" height="10" fill="#3C3B6E"/>
+                  </svg>
+                ) : (
+                  <!-- Turkish Flag SVG -->
+                  <svg class="w-5 h-4" viewBox="0 0 24 18" fill="none">
+                    <rect width="24" height="18" fill="#E30A17"/>
+                    <circle cx="8" cy="9" r="3" fill="white"/>
+                    <circle cx="9" cy="9" r="2.5" fill="#E30A17"/>
+                    <path d="M12 7l1.5 2h2.5l-2 1.5l0.8 2.5l-2.3-1.5l-2.3 1.5l0.8-2.5l-2-1.5h2.5z" fill="white"/>
+                  </svg>
+                )}
                 <span>{lang === 'tr' ? 'EN' : 'TR'}</span>
               </a>
             </div>
@@ -224,9 +237,22 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
                         class="flex items-center space-x-2 px-3 py-2 border border-grey/30 rounded-md hover:border-orange hover:bg-orange/5 transition-colors text-sm font-semibold"
                         aria-label={lang === 'tr' ? 'Switch to English' : 'Türkçe\'ye geç'}
                       >
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-                        </svg>
+                        {lang === 'tr' ? (
+                          <!-- US Flag SVG -->
+                          <svg class="w-5 h-4" viewBox="0 0 24 18" fill="none">
+                            <rect width="24" height="18" fill="#B22234"/>
+                            <path d="M0 2h24M0 4h24M0 6h24M0 8h24M0 10h24M0 12h24M0 14h24M0 16h24" stroke="white" stroke-width="1.5"/>
+                            <rect width="10" height="10" fill="#3C3B6E"/>
+                          </svg>
+                        ) : (
+                          <!-- Turkish Flag SVG -->
+                          <svg class="w-5 h-4" viewBox="0 0 24 18" fill="none">
+                            <rect width="24" height="18" fill="#E30A17"/>
+                            <circle cx="8" cy="9" r="3" fill="white"/>
+                            <circle cx="9" cy="9" r="2.5" fill="#E30A17"/>
+                            <path d="M12 7l1.5 2h2.5l-2 1.5l0.8 2.5l-2.3-1.5l-2.3 1.5l0.8-2.5l-2-1.5h2.5z" fill="white"/>
+                          </svg>
+                        )}
                         <span>{lang === 'tr' ? 'English' : 'Türkçe'}</span>
                       </a>
                     </div>
